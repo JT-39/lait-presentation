@@ -1,0 +1,323 @@
+---
+title: Better LAIT than never
+subtitle: Modernising the Local Authority Interactive Tool
+title-slide-attributes:
+  data-background-position: top
+  data-background-image: images/sanctuary-buildings.jpg
+  data-background-size: cover
+  data-background-opacity: "0.1"
+authors:
+  - Jake Tufts
+  - Andrea Stoker
+format:
+  revealjs:
+    theme: [dark, dfe-quarto-slides.scss]
+    width: 120%
+    height: 120%
+    logo: images/DfE_logo_landscape.svg
+    footer: "Vulnerable Children's Unit and DAU Data Science - Regions Group"
+execute: 
+  echo: true
+revealjs-plugins:
+  - revealjs-text-resizer
+---
+
+## LAIT's background {.center}
+
+------------------------------------------------------------------------
+
+## Victoria Climbié
+
+::::: columns
+::: {.column width="30%"}
+![](images/victoria_climbie.png)
+
+![](images/victoria_climbie_newspaper.png)
+:::
+
+::: {.column width="70%"}
+-   In the care of great aunt and her boy-friend from April 1999 (age of 8).
+
+-   Born in Côte d'Ivoire, difficult for services to interact with.
+
+     
+
+-   Suffered extreme abuse and neglect at the hands of her caregivers, leading to her death in 2000.
+
+-   The social services department of 4LAs, the NHS, NSPCC, and local churches all had contact with Victoria and noted signs of abuse.
+
+-   All failed to properly investigate the case and little action was taken –
+
+    -   Judge: “blinding incompetence”
+    -   Pathologist: “The worst case of child abuse I have ever seen”
+
+     
+
+**The reaction…**
+
+-   Every Child Matters:
+
+    • Stay safe • Be healthy • Enjoy and achieve • Make a positive contribution • Achieve economic well-being
+
+**The Children Act 2004**
+
+-   All local government functions of children's welfare and education under the statutory authority of local Directors of Children's Services.
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Original LAIT
+
+::::: columns
+::: {.column width="45%"}
+-   [Released in 2007]{style="font-size: 1.25em;"}
+
+-   [Developed and coded by Andrea Stoker]{style="font-size: 1.25em;"}
+
+-   [LAs have a consistent data source]{style="font-size: 1.25em;"}
+
+![](images/original_lait_content_page.png)
+:::
+
+::: {.column width="50%"}
+![](images/original_lait_la_context.png)
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## A problem... {.center}
+
+------------------------------------------------------------------------
+
+## ... LAIT is taken off GOV.UK
+
+::::: columns
+::: column
+```         
+ 
+```
+
+-   [In 2018, new regulations set a legal duty for public sector bodies to make all web or app content accessible, with only a few limited exceptions.]{style="font-size: 1.25em;"}
+
+     
+
+-   [Regardless of disability, setting or technology, all users should be able to access our content.]{style="font-size: 1.25em;"}
+
+     
+
+-   [LAIT given an exemption due to its importance to LAs.]{style="font-size: 1.25em;"}
+
+     
+
+-   [In 2024, exemption lifted and LAIT removed…]{style="font-size: 1.25em;"}
+:::
+
+::: column
+![](images/understanding_wcag.png)
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## A Shiny Light at the End of the Tunnel
+
+::::: columns
+::: column
+```         
+ 
+```
+
+-   [Pete Gisborne put in significant work to get this project prioritised.]{style="font-size: 1.25em;"}
+
+     
+
+     
+
+-   [Shiny identified as the best option:]{style="font-size: 1.25em;"}
+
+    -   [Cheapest]{style="font-size: 1.25em;"}
+
+    -   [Expertise in the wider unit (RG Data Science)]{style="font-size: 1.25em;"}
+
+    -   [Capable software]{style="font-size: 1.25em;"}
+
+    -   [Process setup for deploying to public]{style="font-size: 1.25em;"}
+
+    -   [In-house and open code/data ]{style="font-size: 1.25em;"}
+:::
+
+::: column
+![](images/shiny_vs_options.png)
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Developing Shiny LAIT {.center}
+
+------------------------------------------------------------------------
+
+## Introduction
+
+::: fragment
+-   This is the opening slide with some sort of intro
+:::
+
+::: fragment
+-   And a second bullet point that appears on a separate click
+:::
+
+::: fragment
+-   And a third bullet point that appears after the second
+:::
+
+## Using sub-headings
+
+### This is a subheading on a page
+
+-   Here's bullet point #1
+-   And bullet point #2
+
+### Then the next subheading
+
+Here's some more text not in bullet points
+
+## Creating layouts with columns
+
+The below is arranged into columns:
+
+:::::: columns
+::: {.column width="48%"}
+A column taking up about half the screen
+:::
+
+::: {.column width="24%"}
+And one about a quarter
+:::
+
+::: {.column width="24%"}
+And the last quarter
+:::
+::::::
+
+And here's some text back in single column layout
+
+## Including an image
+
+We can use the column layout to include a picture alongside our text.
+
+::::: columns
+::: {.column width="72%"}
+Here's a text area
+:::
+
+::: {.column width="27%"}
+![](images/DfE_logo_landscape.svg)
+:::
+:::::
+
+## Adding some shading to columns
+
+:::::: columns
+::: {.column width="42%"}
+The column area to the right contains some css styling to give it a different background and a border.
+:::
+
+:::: {.column width="54%"}
+::: {style="color: #000; background-color: #fff; padding: 10px; border: solid; border-color: #000; text-align: left;"}
+Number of rapid lateral flow and PCR tests conducted in care home staff and residents, weekly, England, October 2021 to March 2022 ![](images/Demo-1-chart-opt-2.svg)
+:::
+::::
+::::::
+
+## Adding in code snippets
+
+Here we have a code snippet that's not run.
+
+```{r}
+# Description: The aggregate_geography() function takes an input data frame 
+# containing local authority level data and appends aggregates of any value 
+# fields to the data frame. The input must contain the field old_la_code.
+aggregate_geography <- function(data){
+  data %>%
+    left_join(geography_lookup) %>%
+    ...
+}
+```
+
+And here's a code snippet that is run.
+
+```{r eval=TRUE}
+# two_plus_two is the function to test
+two_plus_two <- function(){2+2}
+
+# The test checks that 2+2 is not 5
+testthat::test_that("Two plus two is not five", {
+  testthat::expect_false(two_plus_two() == 5)
+})
+```
+
+## Line Highlighting
+
+-   Highlight specific lines for emphasis
+-   Incrementally highlight additional lines
+
+``` {.r code-line-numbers="3-4|6|7"}
+library(dplyr)
+
+data <- starwars |>
+  group_by(species) |>
+  summarise(height = mean(height, na.rm = TRUE)) |>
+  slice_max(order_by = height, n = 5) |>
+  mutate(species = factor(species, levels = species[order(height)]))
+```
+
+## Some more column styling options
+
+:::::::: columns
+::::::: {style="background-color: #2073BC; padding: 10px; border: solid; border-color: #12436D"}
+::: {.column width="24%"}
+![](images/DfE_logo_landscape.svg){width="10em"}
+:::
+
+::: {.column width="24%"}
+Box 1
+:::
+
+::: {.column width="24%"}
+![](images/DfE_logo_landscape.svg){width="10em"}
+:::
+
+::: {.column width="24%"}
+Box 2
+:::
+:::::::
+::::::::
+
+:::::::: columns
+::::::: {style="background-color: #2073BC; padding: 10px; border: solid; border-color: #12436D"}
+::: {.column width="24%"}
+![](images/DfE_logo_landscape.svg){width="10em"}
+:::
+
+::: {.column width="24%"}
+Box 3
+:::
+
+::: {.column width="24%"}
+![](images/DfE_logo_landscape.svg){width="10em"}
+:::
+
+::: {.column width="24%"}
+Box 4
+:::
+:::::::
+::::::::
+
+::: center-content
+## Any questions?
+
+Slides built from our [Quarto template](https://github.com/dfe-analytical-services/quarto-slides-template)
+:::
