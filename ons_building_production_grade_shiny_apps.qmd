@@ -1,0 +1,494 @@
+---
+title: You're Never Too *LAIT* To Start
+subtitle: Building Production Grade Shiny Apps
+title-slide-attributes:
+  data-background-position: top
+  data-background-image: images/sanctuary-buildings.jpg
+  data-background-size: cover
+  data-background-opacity: "0.1"
+authors:
+  - Jake Tufts
+format:
+  revealjs:
+    theme: [dark, dfe-quarto-slides.scss]
+    width: 120%
+    height: 120%
+    logo: images/DfE_logo_landscape.svg
+    footer: "DfE Data Science"
+execute: 
+  echo: true
+revealjs-plugins:
+  - revealjs-text-resizer
+---
+
+## Overview
+
+-   LAIT's Background
+-   Planning a Shiny App
+-   Development & Coding
+-   Deployment & User Testing
+
+------------------------------------------------------------------------
+
+## LAIT's background {.center}
+
+------------------------------------------------------------------------
+
+## Original LAIT
+
+::::: columns
+::: {.column width="45%"}
+-   [Released in 2007]{style="font-size: 1.25em;"}
+
+-   [Developed and coded by Andrea Stoker]{style="font-size: 1.25em;"}
+
+-   [LAs have a consistent data source]{style="font-size: 1.25em;"}
+
+![](images/original_lait_content_page.png)
+:::
+
+::: {.column width="50%"}
+![](images/original_lait_la_context.png)
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## A problem... {.center}
+
+------------------------------------------------------------------------
+
+## ... LAIT is taken off GOV.UK
+
+::::: columns
+::: column
+```         
+ 
+```
+
+-   [In 2018, new regulations set a legal duty for public sector bodies to make all web or app content accessible, with only a few limited exceptions.]{style="font-size: 1.25em;"}
+
+     
+
+-   [Regardless of disability, setting or technology, all users should be able to access our content.]{style="font-size: 1.25em;"}
+
+     
+
+-   [LAIT given an exemption due to its importance to LAs.]{style="font-size: 1.25em;"}
+
+     
+
+-   [In 2024, exemption lifted and LAIT removed…]{style="font-size: 1.25em;"}
+:::
+
+::: column
+![](images/understanding_wcag.png)
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## A Shiny Light at the End of the Tunnel
+
+::::: columns
+::: column
+```         
+ 
+```
+
+-   [Pete Gisborne (G7) put in significant work to get this project prioritised.]{style="font-size: 1.25em;"}
+
+     
+
+     
+
+-   [Shiny identified as the best option:]{style="font-size: 1.25em;"}
+
+    -   [Cheapest]{style="font-size: 1.25em;"}
+
+    -   [Expertise in the wider unit (RG Data Science)]{style="font-size: 1.25em;"}
+
+    -   [Capable software]{style="font-size: 1.25em;"}
+
+    -   [Process setup for deploying to public]{style="font-size: 1.25em;"}
+
+    -   [In-house and open code/data]{style="font-size: 1.25em;"}
+:::
+
+::: column
+![](images/shiny_vs_options.png)
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## You Wouldn't Wing A Project {.center}
+
+::::: columns
+::: column
+Planning Your Work
+:::
+
+::: column
+![](images/you_wouldnt_edit_a_meme.jpg)
+:::
+:::::
+
+:::{.notes}
+- Lucky as had a template from the original LAIT.
+- But, planning and pre-development work is crucial to a successful app.
+- Breakdown the task into small manageable chunks.
+:::
+
+------------------------------------------------------------------------
+
+## Ask Yourself (And Others) Why?
+
+::::: columns
+::: column
+-   Who are the users?
+-   What are the use cases?
+
+*... this informs:*
+
+**The Product:** Is an app actually needed?
+
+**Content:** What data shall I include?
+
+**Functionality:** How do I make this work?
+
+**Timelines:** When are my deadlines?
+:::
+
+::: column
+![](images/xkcd-overengineer.png)
+:::
+:::::
+
+TODO: Link back to LAIT?
+
+:::{.notes}
+- Really important you create something that will be used.
+- Ensures buy-in.
+- Helps direct development past the initial (easy part) idea.
+:::
+
+------------------------------------------------------------------------
+
+## Find Answers
+
+::::: columns
+::: column
+-   Workshops
+-   Minimum Viable Products (MVPs)
+-   Brainstorming/System-thinking
+
+![LAIT MVP](images/lait_mvp.png)
+:::
+
+::: column
+![Lucid Chart Workshop Example](images/lucid_chart_workshop_example.png)
+:::
+:::::
+
+:::{.notes}
+- Not my favourite part, but actually very useful for answering the important Qs.
+- Normally leads to more interest, more ideas and overall a better product.
+- Gives protection around collaborating with stakeholders.
+:::
+
+------------------------------------------------------------------------
+
+## Build the Scaffolding
+
+::::: columns
+::: column
+-   Breakdown the content, **modularise** the app
+-   Choose your charts, finalise functionality
+-   Back-end is your beating heart 💓
+    -   What is the data source?
+    -   How often is this updated?
+    -   Automate for future you
+:::
+
+::: column
+![](images/scaffolding.jpg)
+:::
+:::::
+
+:::{.notes}
+- Plan your essay. Plan your code. Builds a mental picture of the code structure.
+- Good documentation.
+- Can refer back to when in 2nd phase of development (or the app has grown in complexity).
+:::
+
+------------------------------------------------------------------------
+
+## Get Creative - Pictures are Worth a 1000 Words
+
+::::: columns
+::: column
+-   Sketch the app layout
+-   Code process maps
+
+![Code Process Map](images/example-process-map.jpg)
+:::
+
+::: column
+![](images/sketch_dashboard_example.png)
+
+![](images/moj-app-flow-example.svg)
+:::
+:::::
+
+:::{.notes}
+- Good documentation.
+- Digestible for non-technical/new-starters.
+- Identify difficulties/bottle-necks early.
+- Breakdown the code into segments making it easy to compose prompts for AI.
+:::
+
+------------------------------------------------------------------------
+
+## PM's Get the Big Bucks
+
+::::: columns
+::: column
+-   High-level overarching timeline
+-   Start small with a detailed development timeline
+-   Version Control is a MUST, utilise their PM tools
+-   Don't forget your Eureka moments!
+
+![](images/lait_github_issues.png)
+:::
+
+::: column
+![](images/code-roadmap-example.png)
+:::
+:::::
+
+:::{.notes}
+- VC is a lifesaver - so many times went down a rabbit hole and could easily get back.
+- Coding/Software best practice.
+- Enables efficient collaboration.
+:::
+
+------------------------------------------------------------------------
+
+## Is There A Skip Intro Button? {.center}
+
+:::::{.columns}
+::: {.column}
+Coding and Developing a Shiny App
+:::
+
+::: {.column}
+<div style="text-align: right;">
+  <a href="#" id="skip-intro" class="govuk-button" style="
+    background-color: #1d70b8;
+    color: white;
+    padding: 10px 20px;
+    font-family: 'GDS Transport', Arial, sans-serif;
+    font-size: 2rem;
+    text-decoration: none;
+    border: none;
+    display: inline-block;
+    border-radius: 6px;
+    cursor: pointer;
+  ">
+    ⏩ Skip Intro
+  </a>
+</div>
+
+:::
+:::::
+
+
+------------------------------------------------------------------------
+
+## Shiny Modules
+
+Shiny best practice, essentially the functions of Shiny
+
+:::::{.columns}
+::: {.column}
+Pros:
+
+-   Best practice
+-   Breaks the app down into smaller segments
+-   Permit collaboration
+-   Colleagues can pick-up faster
+-   Re-usable
+-   Easy to test/de-bug
+
+Cons:
+
+-   Initial learning curve
+-   Overly complex for smaller apps
+-   Require good code management
+-   Sharing reactive values between modules is more involved
+:::
+
+::: {.column}
+![](images/lego_titanic_instructions.jpg)
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## My workflow
+
+Start easy. Get it working. Finesse.
+
+:::::{.columns}
+::: {.column}
+1. Start in plain R
+1. Get this working as a mini app
+1. Finesse the app into Shiny modules
+:::
+
+:::{.column}
+![](images/shiny_modules_workflow.png)
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## How to Build Shiny Modules
+
+A LAIT example
+
+------------------------------------------------------------------------
+
+## {shinytest}
+
+I know we all test our functions, so why stop there?
+
+-   Test the server
+-   Test UI
+-   Made easy with Shiny modules
+
+------------------------------------------------------------------------
+
+## DfE's `shiny-template`
+
+Out-the-box GOV.UK styled Shiny app.
+
+-   Professional aesthetic
+-   Users trust and are familiar with the UI
+-   Meets accessibility standards
+-   Continuously improved
+
+------------------------------------------------------------------------
+
+## {shinyGovstyle} and {dfeshiny}
+
+GOV.UK styled UI elements and helpful functions to handle Shiny housekeeping
+
+-   Notifications and Tags
+-   Cookies and Accessibility note
+-   {bslib} for slick web design
+
+------------------------------------------------------------------------
+
+## {afcharts} and {ggiraph}
+
+Analysis function approved chart styling and an accessible interactive charting framework
+
+------------------------------------------------------------------------
+
+## {dfeR}
+
+A host of handy functions
+
+-   Up-to-date geographies
+-   Prettying numbers
+-   Create R projects pre-populated with best practice structure all the necessary files
+
+------------------------------------------------------------------------
+
+## Useful guidance
+
+-   Analysis Function Guidance Hub
+-   Engineering Production Grade Shiny Apps
+-   AI
+-   Appsilon
+-   Take inspiration from other apps
+
+------------------------------------------------------------------------
+
+## Reactivity Spaghetti Junction
+
+------------------------------------------------------------------------
+
+## FUNctionality - Sky's the Limit
+
+Coding is just really problem solving.
+Like LEGO you can build anything you put your mind to.
+
+::: {.columns}
+::: {.column}
+**Copy-to-clipboard**
+
+```js
+$(document).ready(function () {
+  // General function to handle image copying
+  async function copyImage(namespace) {
+    const buttonId = `#${namespace}-copybtn`;
+    const imageContainerId = `#${namespace}-copy_plot`;
+
+    const src = $(`${imageContainerId}>img`).attr("src");
+    if (!src) {
+      alert("No image source found!");
+      return;
+    }
+    try {
+      const blob = await getImageBlobFromUrl(src);
+      await navigator.clipboard.write([
+        new ClipboardItem({
+          [blob.type]: blob
+        })
+      ]);
+      Shiny.setInputValue("copy-to-clipboard-success", true, {priority: "event"});
+    } catch (err) {
+      console.error(err.name, err.message);
+      Shiny.setInputValue("copy-to-clipboard-failure", true, {priority: "event"});
+    }
+  }
+```
+:::
+
+::: {.column}
+**Create Your Own**
+
+![](images/create_your_own.png)
+:::
+:::
+
+------------------------------------------------------------------------
+
+## Shout, Shout, Let It All Out {.center}
+
+Deployment and User Testing
+
+------------------------------------------------------------------------
+
+## Deployment Options
+
+------------------------------------------------------------------------
+
+## Continuous Integration
+
+------------------------------------------------------------------------
+
+## User Testing
+
+------------------------------------------------------------------------
+
+## Shiny Light At The End Of The Tunnel
+
+------------------------------------------------------------------------
+
+## Useful Links
+
+- https://user-guidance.analytical-platform.service.justice.gov.uk/apps/rshiny-app.html#overview
