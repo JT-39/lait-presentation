@@ -72,7 +72,7 @@ revealjs-plugins:
 ::: {.column width="45%"}
 -   [Released in 2007]{style="font-size: 1.25em;"}
 
--   [Developed and coded by Andrea Stoker]{style="font-size: 1.25em;"}
+-   [Developed and coded by an SEO]{style="font-size: 1.25em;"}
 
 -   [LAs have a consistent data source]{style="font-size: 1.25em;"}
 
@@ -128,7 +128,7 @@ revealjs-plugins:
  
 ```
 
--   [Pete Gisborne put in significant work to get this project prioritised.]{style="font-size: 1.25em;"}
+-   [Our G7 put in significant work to get this project prioritised.]{style="font-size: 1.25em;"}
 
      
 

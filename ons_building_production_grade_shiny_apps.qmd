@@ -28,6 +28,13 @@ revealjs-plugins:
 -   Development & Coding
 -   Deployment & User Testing
 
+TODO: Add notes (throughout)
+TODO: Add mini segments (and links to the slides?)
+TODO: Change font-size (throughout)
+TODO: Add emojis (throughout)
+TODO: Add fade-ins (throughout)
+TODO: Add borders to pictures and re-size
+
 ------------------------------------------------------------------------
 
 ## LAIT's background {.center}
@@ -40,7 +47,7 @@ revealjs-plugins:
 ::: {.column width="45%"}
 -   [Released in 2007]{style="font-size: 1.25em;"}
 
--   [Developed and coded by Andrea Stoker]{style="font-size: 1.25em;"}
+-   [Developed and coded by an SEO]{style="font-size: 1.25em;"}
 
 -   [LAs have a consistent data source]{style="font-size: 1.25em;"}
 
@@ -96,7 +103,7 @@ revealjs-plugins:
  
 ```
 
--   [Pete Gisborne (G7) put in significant work to get this project prioritised.]{style="font-size: 1.25em;"}
+-   [Our G7 put in significant work to get this project prioritised.]{style="font-size: 1.25em;"}
 
      
 
@@ -126,7 +133,7 @@ revealjs-plugins:
 
 ::::: columns
 ::: column
-Planning Your Work
+[Planning Your Work]{style="font-size: 1.25em;"}
 :::
 
 ::: column
@@ -134,10 +141,10 @@ Planning Your Work
 :::
 :::::
 
-:::{.notes}
-- Lucky as had a template from the original LAIT.
-- But, planning and pre-development work is crucial to a successful app.
-- Breakdown the task into small manageable chunks.
+::: notes
+-   Lucky as had a template from the original LAIT.
+-   But, planning and pre-development work is crucial to a successful app.
+-   Breakdown the task into small manageable chunks.
 :::
 
 ------------------------------------------------------------------------
@@ -146,31 +153,43 @@ Planning Your Work
 
 ::::: columns
 ::: column
--   Who are the users?
--   What are the use cases?
+[Who are the users?]{style="font-size: 1.25em;"}
+<br><br>
 
-*... this informs:*
+[What are the use cases?]{style="font-size: 1.25em;"}
 
-**The Product:** Is an app actually needed?
+<br>
+<br>
 
-**Content:** What data shall I include?
+[*... this informs:*]{style="font-size: 1.5em;"}
 
-**Functionality:** How do I make this work?
+<br>
 
-**Timelines:** When are my deadlines?
+TODO: Use fade-in (and throughout)
+
+[**The Product:** Is an app actually needed?]{style="font-size: 1.25em;"}
+<br><br>
+
+[**Content:** What data shall I include?]{style="font-size: 1.25em;"}
+<br><br>
+
+[**Functionality:** How do I make this work?]{style="font-size: 1.25em;"}
+<br><br>
+
+[**Timelines:** When are my deadlines?]{style="font-size: 1.25em;"}
 :::
 
 ::: column
-![](images/xkcd-overengineer.png)
+![](images/xkcd-overengineer.png){width="764"}
 :::
 :::::
 
 TODO: Link back to LAIT?
 
-:::{.notes}
-- Really important you create something that will be used.
-- Ensures buy-in.
-- Helps direct development past the initial (easy part) idea.
+::: notes
+-   Really important you create something that will be used.
+-   Ensures buy-in.
+-   Helps direct development past the initial (easy part) idea.
 :::
 
 ------------------------------------------------------------------------
@@ -187,14 +206,16 @@ TODO: Link back to LAIT?
 :::
 
 ::: column
-![Lucid Chart Workshop Example](images/lucid_chart_workshop_example.png)
+![Lucid Chart Workshop Example](images/lucid_chart_workshop_example.png){width="790"}
 :::
 :::::
 
-:::{.notes}
-- Not my favourite part, but actually very useful for answering the important Qs.
-- Normally leads to more interest, more ideas and overall a better product.
-- Gives protection around collaborating with stakeholders.
+TODO: Improve slide title
+
+::: notes
+-   Not my favourite part, but actually very useful for answering the important Qs.
+-   Normally leads to more interest, more ideas and overall a better product.
+-   Gives protection around collaborating with stakeholders.
 :::
 
 ------------------------------------------------------------------------
@@ -212,14 +233,14 @@ TODO: Link back to LAIT?
 :::
 
 ::: column
-![](images/scaffolding.jpg)
+![](images/scaffolding.jpg){width="600"}
 :::
 :::::
 
-:::{.notes}
-- Plan your essay. Plan your code. Builds a mental picture of the code structure.
-- Good documentation.
-- Can refer back to when in 2nd phase of development (or the app has grown in complexity).
+::: notes
+-   Plan your essay. Plan your code. Builds a mental picture of the code structure.
+-   Good documentation.
+-   Can refer back to when in 2nd phase of development (or the app has grown in complexity).
 :::
 
 ------------------------------------------------------------------------
@@ -241,11 +262,11 @@ TODO: Link back to LAIT?
 :::
 :::::
 
-:::{.notes}
-- Good documentation.
-- Digestible for non-technical/new-starters.
-- Identify difficulties/bottle-necks early.
-- Breakdown the code into segments making it easy to compose prompts for AI.
+::: notes
+-   Good documentation.
+-   Digestible for non-technical/new-starters.
+-   Identify difficulties/bottle-necks early.
+-   Breakdown the code into segments making it easy to compose prompts for AI.
 :::
 
 ------------------------------------------------------------------------
@@ -267,24 +288,26 @@ TODO: Link back to LAIT?
 :::
 :::::
 
-:::{.notes}
-- VC is a lifesaver - so many times went down a rabbit hole and could easily get back.
-- Coding/Software best practice.
-- Enables efficient collaboration.
+TODO: Improve slide title
+
+::: notes
+-   VC is a lifesaver - so many times went down a rabbit hole and could easily get back.
+-   Coding/Software best practice.
+-   Enables efficient collaboration.
 :::
 
 ------------------------------------------------------------------------
 
 ## Is There A Skip Intro Button? {.center}
 
-:::::{.columns}
-::: {.column}
+:::::: columns
+::: column
 Coding and Developing a Shiny App
 :::
 
-::: {.column}
-<div style="text-align: right;">
-  <a href="#" id="skip-intro" class="govuk-button" style="
+:::: column
+::: {style="text-align: right;"}
+<a href="#" id="skip-intro" class="govuk-button" style="
     background-color: #1d70b8;
     color: white;
     padding: 10px 20px;
@@ -295,14 +318,17 @@ Coding and Developing a Shiny App
     display: inline-block;
     border-radius: 6px;
     cursor: pointer;
-  ">
-    ⏩ Skip Intro
-  </a>
-</div>
+  "> ⏩ Skip Intro </a>
 
 :::
-:::::
+::::
+::::::
 
+------------------------------------------------------------------------
+
+## What Is Shiny?
+
+TODO: Add content on Shiny
 
 ------------------------------------------------------------------------
 
@@ -310,8 +336,8 @@ Coding and Developing a Shiny App
 
 Shiny best practice, essentially the functions of Shiny
 
-:::::{.columns}
-::: {.column}
+::::: columns
+::: column
 Pros:
 
 -   Best practice
@@ -329,7 +355,7 @@ Cons:
 -   Sharing reactive values between modules is more involved
 :::
 
-::: {.column}
+::: column
 ![](images/lego_titanic_instructions.jpg)
 :::
 :::::
@@ -340,15 +366,15 @@ Cons:
 
 Start easy. Get it working. Finesse.
 
-:::::{.columns}
-::: {.column}
-1. Start in plain R
-1. Get this working as a mini app
-1. Finesse the app into Shiny modules
+::::: columns
+::: column
+1.  Start in plain R
+2.  Get this working as a mini app
+3.  Finesse the app into Shiny modules
 :::
 
-:::{.column}
-![](images/shiny_modules_workflow.png)
+::: column
+![](images/shiny_modules_workflow.png){width="1071"}
 :::
 :::::
 
@@ -358,15 +384,19 @@ Start easy. Get it working. Finesse.
 
 A LAIT example
 
+TODO: Add content on building Shiny Module (use cut of LAIT in another repo?)
+
 ------------------------------------------------------------------------
 
-## {shinytest}
+## `{shinytest}`
 
 I know we all test our functions, so why stop there?
 
 -   Test the server
 -   Test UI
 -   Made easy with Shiny modules
+
+TODO: Add video on tests completing
 
 ------------------------------------------------------------------------
 
@@ -379,9 +409,11 @@ Out-the-box GOV.UK styled Shiny app.
 -   Meets accessibility standards
 -   Continuously improved
 
+TODO: Show example of the app
+
 ------------------------------------------------------------------------
 
-## {shinyGovstyle} and {dfeshiny}
+## `{shinyGovstyle}` and `{dfeshiny}`
 
 GOV.UK styled UI elements and helpful functions to handle Shiny housekeeping
 
@@ -389,21 +421,27 @@ GOV.UK styled UI elements and helpful functions to handle Shiny housekeeping
 -   Cookies and Accessibility note
 -   {bslib} for slick web design
 
+TODO: Pick out some nice examples of these packages (LAIT related?)
+
 ------------------------------------------------------------------------
 
-## {afcharts} and {ggiraph}
+## `{afcharts}` and `{ggiraph}`
 
-Analysis function approved chart styling and an accessible interactive charting framework
+Combine Analysis Function approved charts with an accessible **interactive** charting framework
+
+TODO: Pick out some nice examples of these packages (LAIT related?)
 
 ------------------------------------------------------------------------
 
 ## {dfeR}
 
-A host of handy functions
+A host of handy functions managed by DfE analysts
 
 -   Up-to-date geographies
 -   Prettying numbers
 -   Create R projects pre-populated with best practice structure all the necessary files
+
+TODO: Pick out some nice examples of these packages (LAIT related?)
 
 ------------------------------------------------------------------------
 
@@ -415,22 +453,34 @@ A host of handy functions
 -   Appsilon
 -   Take inspiration from other apps
 
+TODO: Add links + more?
+
 ------------------------------------------------------------------------
 
 ## Reactivity Spaghetti Junction
+
+Reactive objects are the drivers of interactivity in Shiny
+
+However, as your apps get more complex reactivity can become a headache
+
+Especially when multiple inputs can update each other, leads to endless loops
+
+TODO: Add LAIT example/ how you can combat this?
 
 ------------------------------------------------------------------------
 
 ## FUNctionality - Sky's the Limit
 
-Coding is just really problem solving.
-Like LEGO you can build anything you put your mind to.
+Coding is just really problem solving. Like LEGO you can build anything you put your mind to.
 
-::: {.columns}
-::: {.column}
+:::::: columns
+:::: column
 **Copy-to-clipboard**
 
-```js
+::: panel-tabset
+#### JS
+
+``` js
 $(document).ready(function () {
   // General function to handle image copying
   async function copyImage(namespace) {
@@ -456,39 +506,118 @@ $(document).ready(function () {
     }
   }
 ```
-:::
 
-::: {.column}
+#### Demo
+
+![](images/lait_copy_to_clipboard.mp4)
+:::
+::::
+
+::: column
 **Create Your Own**
 
 ![](images/create_your_own.png)
+
+TODO: Add a video of the Create Your Own page
 :::
-:::
+::::::
 
 ------------------------------------------------------------------------
 
 ## Shout, Shout, Let It All Out {.center}
 
+::: {.columns}
+::: {.column}
 Deployment and User Testing
+:::
+
+::: {.column}
+![These are the things we CAN'T live without 🎶](images/shout-single.jpg)
+:::
+:::
+
+
+::: notes
+-   Now you have an app that works, serves the use case and you are proud of.
+-   But how to share this with your users!?
+- Before live deploying we must do user testing... but this comes hand-in-hand with deployment.
+- Must identify what needs the app has for deployment and hosting.
+  - Internal Vs External
+  - Number of users and size of the app
+  - Cost
+- Test early so that pick-up any issues before they become major headaches.
+- Then continue to test throughout development - idea of Continuous Integration.
+:::
 
 ------------------------------------------------------------------------
 
 ## Deployment Options
 
+The solution to your deployment dilemma depends upon your audience (and access):
+
+|              | Paid          | Cheaper          | Free (with limitations)        |
+|---------------|---------------|---------------|---------------------------|
+| **Internal** | Posit Connect | Internal servers | Docker                         |
+| **External** | Shinyapps.io  | Internal servers | GitHub / Shinyapps.io / Docker |
+
+TODO: Check these options are correct and complete
+
 ------------------------------------------------------------------------
 
 ## Continuous Integration
+
+Practice of merging code into the test/live area regularly.
+Helps detect and resolve issues early, leading to faster development and higher quality.
+
+Examples of CI:
+
+- Git Hooks
+- Automated linting
+- Automated tests
+- Immediate build and deployment
+
+CI is setup using `.yaml` files and harnessing automated workflows like GitHub Actions.
+
+TODO: Add the LAIT .yaml file and explain how it works?
 
 ------------------------------------------------------------------------
 
 ## User Testing
 
+Absolutely crucial. Should be done ASAP and throughout.
+
+But... I see "user testing" as including anyone from a team member, non-technical colleague to external users.
+
+Produce and use MVPs to do this (in a workshop or even over the shoulder).
+
+Try and do at least one round of user testing on your expected cohort.
+Use surveys to collect feedback, leave questions open ended and be ready to get little feedback.
+
+TODO: Display the LAIT user testing + feedback?
+
 ------------------------------------------------------------------------
 
-## Shiny Light At The End Of The Tunnel
+## Knight In Shining Armour
+
+You've done it...
+
+- Investigated and confirmed the need for a Shiny app.
+- Sketched out maps to plan your development and guide timelines/milestones.
+- Used Shiny best practice to build a modular structure.
+- Harnessed the government Shiny frameworks to produce GOV.UK accessible content.
+- Ensured the user's experience is stress free with custom functions, available R packages and seamless interactivity.
+- Designed and executed cool new functionality which warrants the use of Shiny and shows off your coding and creativity.
+- Chosen the right method to deploy.
+- Engaged with users throughout, adjusting content on the go.
+
+... successfully and skillfully developed, deployed (and will maintain) an excellent, accessible, sustainable Shiny app.
+
+TODO: Add the emojis
 
 ------------------------------------------------------------------------
 
 ## Useful Links
 
-- https://user-guidance.analytical-platform.service.justice.gov.uk/apps/rshiny-app.html#overview
+-   https://user-guidance.analytical-platform.service.justice.gov.uk/apps/rshiny-app.html#overview
+
+TODO: Add links
