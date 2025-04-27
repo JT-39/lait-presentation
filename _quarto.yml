@@ -11,3 +11,5 @@ format:
     height: 120%
     logo: images/DfE_logo_landscape.svg
     footer: "DfE Data Science"
+    resources: 
+      - shinylive-sw.js
