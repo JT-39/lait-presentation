@@ -26,14 +26,14 @@ jobs:
         with:
           r-version: 'renv'
 
-      - name: Install shinylive
-        run: |
-          Rscript -e 'install.packages("shinylive", repos = "https://cloud.r-project.org")'
-
       - name: Install R Dependencies
         uses: r-lib/actions/setup-renv@v2
         with:
           cache-version: 1
+
+      - name: Install shinylive
+        run: |
+          Rscript -e 'install.packages("shinylive", repos = "https://cloud.r-project.org")'
 
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
