@@ -331,7 +331,7 @@ Languages usually required to code websites are neatly packaged up into R functi
 Shiny apps can be:
 
 - Used locally on your computer
-- Deployed to servers, RStudio Connect, or shinyapps.io
+- Deployed to servers, Posit Connect/shinyapps.io or GitHub
 
 :::
 ::: {.column}
@@ -428,13 +428,13 @@ shinyApp(ui = ui, server = server)
 :::
 :::
 
-
-
 ------------------------------------------------------------------------
 
 ## Shiny Modules
 
-Shiny best practice, essentially the functions of Shiny
+Shiny best practice
+
+Essentially the functions of Shiny
 
 ::::: columns
 ::: column
@@ -482,9 +482,100 @@ Start easy. Get it working. Finesse.
 
 ## How to Build Shiny Modules
 
-A LAIT example
+Allow you to box the UI and server code together into "mini apps" inside your main app. 📦
 
-TODO: Add content on building Shiny Module (use cut of LAIT in another repo?)
+Each module has:
+
+#### Module UI function
+
+```r
+mod_plot_ui <- function(id) {
+  ns <- NS(id)  # Namespace to avoid conflicts
+  tagList(
+    sliderInput(ns("slider"), "Choose a number:", min = 1, max = 100, value = 50),
+    plotOutput(ns("plot"))
+  )
+}
+```
+
+#### Module Server function
+
+```r
+mod_plot_server <- function(id) {
+  moduleServer(id, function(input, output, session) {
+    output$plot <- renderPlot({
+      hist(rnorm(input$slider))
+    })
+  })
+}
+```
+
+------------------------------------------------------------------------
+
+## How to Build Shiny Modules
+
+Now use the modules in the typical Shiny layout:
+
+
+:::::: {.columns}
+::: {.column}
+```r
+# Main UI
+ui <- fluidPage(
+  mod_plot_ui("plot1")
+)
+
+# Main Server
+server <- function(input, output, session) {
+  mod_plot_server("plot1")
+}
+
+# Run the app
+shinyApp(ui, server)
+```
+:::
+::: {.column}
+```{shinylive-r}
+#| standalone: true
+#| viewerHeight: 675
+
+# UI module
+mod_plot_ui <- function(id) {
+  ns <- NS(id)  # Namespace to avoid conflicts
+  tagList(
+    sliderInput(ns("slider"), "Choose a number:", min = 1, max = 100, value = 50),
+    plotOutput(ns("plot"))
+  )
+}
+
+# Server module
+mod_plot_server <- function(id) {
+  moduleServer(id, function(input, output, session) {
+    output$plot <- renderPlot({
+      hist(rnorm(input$slider))
+    })
+  })
+}
+
+# Main UI
+ui <- fluidPage(
+  mod_plot_ui("plot1")
+)
+
+# Main Server
+server <- function(input, output, session) {
+  mod_plot_server("plot1")
+}
+
+# Run the app
+shinyApp(ui, server)
+```
+:::
+:::
+
+------------------------------------------------------------------------
+
+## LAIT's Model Modules
 
 ------------------------------------------------------------------------
 
