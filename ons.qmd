@@ -537,7 +537,7 @@ shinyApp(ui, server)
 ::: {.column}
 ```{shinylive-r}
 #| standalone: true
-#| viewerHeight: 675
+#| viewerHeight: 600
 
 # UI module
 mod_plot_ui <- function(id) {
@@ -579,15 +579,90 @@ shinyApp(ui, server)
 
 ------------------------------------------------------------------------
 
-## `{shinytest}`
+## `{shinytest2}`
 
+::: {.columns}
+::: {.column}
 I know we all test our functions, so why stop there?
 
 -   Test the server
 -   Test UI
 -   Made easy with Shiny modules
 
-TODO: Add video on tests completing
+![Running `shinytest::test_app()` in LAIT](images/lait_shinytest_pass.png){height="400px"}
+:::
+::: {.column}
+:::{.panel-tabset}
+#### Server Test
+```r
+# BDS_FilteredServer() --------------------------------------------------------
+test_that("1. BDS_FilteredServer correctly filters bds_metrics", {
+  # Simulate the app_inputs object with reactive values
+  app_inputs <- shiny::reactiveValues(
+    topic = reactive({
+      "Economic Factors"
+    }),
+    indicator = reactive({
+      "Percentage of children in low income families"
+    })
+  )
+
+  shiny::testServer(BDS_FilteredServer, args = list(app_inputs, bds_metrics), {
+    # Trigger the observeEvent by setting the indicator input
+    session$flushReact()
+
+    # Retrieve the filtered data
+    filtered_data <- session$returned()
+
+    # Expected result based on the mock data
+    expected_data <- bds_metrics |>
+      dplyr::filter(
+        Topic == "Economic Factors",
+        Measure == "Percentage of children in low income families"
+      )
+
+    # Test that the filtered data matches the expected result
+    testthat::expect_equal(filtered_data, expected_data)
+  })
+})
+```
+
+#### UI Test
+```r
+# Start an app running
+app <- AppDriver$new(
+  name = "basic_load",
+  height = 846,
+  width = 1445,
+  load_timeout = 100 * 1000,
+  timeout = 60 * 1000,
+  wait = TRUE,
+  options = list(test.mode = TRUE),
+  expect_values_screenshot_args = FALSE # Turn off as we don't need screenshots
+)
+
+# Wait until Shiny is not busy for 5ms so we know any processes are complete
+app$wait_for_idle(5)
+
+# Test that the app will start up without error
+# Checks that the title is as expected
+testthat::test_that("App loads and title of app appears as expected", {
+  testthat::expect_equal(
+    app$get_text("title"),
+    # This is the title of the app on load, you should change to match your app's title
+    # The app title is usually set early on in the ui.R script or through a variable in the global.R script
+    paste0(
+      "Local Authority Interactive Tool (LAIT) - LA Level: ",
+      "Barking and Dagenham, A level cohort Average point score per entry"
+    )
+  )
+})
+
+app$stop()
+```
+:::
+:::
+:::
 
 ------------------------------------------------------------------------
 
@@ -595,12 +670,19 @@ TODO: Add video on tests completing
 
 Out-the-box GOV.UK styled Shiny app.
 
+::: {.columns}
+::: {.column}
 -   Professional aesthetic
 -   Users trust and are familiar with the UI
 -   Meets accessibility standards
 -   Continuously improved
 
-TODO: Show example of the app
+[https://github.com/dfe-analytical-services/shiny-template](https://github.com/dfe-analytical-services/shiny-template)
+:::
+::: {.column}
+![](images/shiny-template.png)
+:::
+:::
 
 ------------------------------------------------------------------------
 
