@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="ons_files/libs/clipboard/clipboard.min.js"></script>
-<script src="ons_files/libs/quarto-html/tabby.min.js"></script>
-<script src="ons_files/libs/quarto-html/popper.min.js"></script>
-<script src="ons_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="ons_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="ons_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="ons_files/libs/quarto-html/quarto-syntax-highlighting-dark-4379b0ccadffce622b03caf4c46266b3.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="ons_building_production_grade_shiny_apps_files/libs/clipboard/clipboard.min.js"></script>
+<script src="ons_building_production_grade_shiny_apps_files/libs/quarto-html/tabby.min.js"></script>
+<script src="ons_building_production_grade_shiny_apps_files/libs/quarto-html/popper.min.js"></script>
+<script src="ons_building_production_grade_shiny_apps_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="ons_building_production_grade_shiny_apps_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="ons_building_production_grade_shiny_apps_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="ons_building_production_grade_shiny_apps_files/libs/quarto-html/quarto-syntax-highlighting-dark-4379b0ccadffce622b03caf4c46266b3.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <meta name="shinylive:serviceworker_dir" content=".">
-<script src="ons_files/libs/quarto-contrib/shinylive-0.9.1/shinylive/load-shinylive-sw.js" type="module"></script>
-<script src="ons_files/libs/quarto-contrib/shinylive-0.9.1/shinylive/run-python-blocks.js" type="module"></script>
-<link href="ons_files/libs/quarto-contrib/shinylive-0.9.1/shinylive/shinylive.css" rel="stylesheet">
-<link href="ons_files/libs/quarto-contrib/shinylive-quarto-css/shinylive-quarto.css" rel="stylesheet"><meta charset="utf-8">
+<script src="ons_building_production_grade_shiny_apps_files/libs/quarto-contrib/shinylive-0.9.1/shinylive/load-shinylive-sw.js" type="module"></script>
+<script src="ons_building_production_grade_shiny_apps_files/libs/quarto-contrib/shinylive-0.9.1/shinylive/run-python-blocks.js" type="module"></script>
+<link href="ons_building_production_grade_shiny_apps_files/libs/quarto-contrib/shinylive-0.9.1/shinylive/shinylive.css" rel="stylesheet">
+<link href="ons_building_production_grade_shiny_apps_files/libs/quarto-contrib/shinylive-quarto-css/shinylive-quarto.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.6.43">
 
   <meta name="author" content="Jake Tufts">
@@ -19,8 +19,8 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="ons_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="ons_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="ons_building_production_grade_shiny_apps_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="ons_building_production_grade_shiny_apps_files/libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -99,12 +99,12 @@
     code span.vs { color: #abe338; } /* VerbatimString */
     code span.wa { color: #dcc6e0; } /* Warning */
   </style>
-  <link rel="stylesheet" href="ons_files/libs/revealjs/dist/theme/quarto-1258b3ca9b885c7e17da47741912b63d.css">
+  <link rel="stylesheet" href="ons_building_production_grade_shiny_apps_files/libs/revealjs/dist/theme/quarto-1258b3ca9b885c7e17da47741912b63d.css">
   <link rel="stylesheet" href="dfe-quarto-slides-css.css">
-  <link href="ons_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="ons_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="ons_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="ons_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link href="ons_building_production_grade_shiny_apps_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="ons_building_production_grade_shiny_apps_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="ons_building_production_grade_shiny_apps_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="ons_building_production_grade_shiny_apps_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
     .reveal div.sourceCode {
       margin: 0;
@@ -565,7 +565,7 @@ Jake Tufts
 <span id="cb3-2"><a href=""></a>#|   shinylive does not work in self-contained HTML documents.</span>
 <span id="cb3-3"><a href=""></a>#|   Please set `embed-resources: false` in your metadata.</span>
 <span id="cb3-4"><a href=""></a>#| standalone: true</span>
-<span id="cb3-5"><a href=""></a>#| viewerHeight: 675</span>
+<span id="cb3-5"><a href=""></a>#| viewerHeight: 600</span>
 <span id="cb3-6"><a href=""></a></span>
 <span id="cb3-7"><a href=""></a># Load the Shiny package</span>
 <span id="cb3-8"><a href=""></a>library(shiny)</span>
@@ -1039,16 +1039,77 @@ Jake Tufts
 </section>
 <section id="continuous-integration" class="slide level2">
 <h2>Continuous Integration</h2>
-<p>Practice of merging code into the test/live area regularly. Helps detect and resolve issues early, leading to faster development and higher quality.</p>
-<p>Examples of CI:</p>
+<div class="columns">
+<div class="column">
+<p>Practice of merging code into the test/live area regularly. <br> <br> Helps detect and resolve issues early, leading to faster development and higher quality. <br> <br> Examples of CI:</p>
 <ul>
 <li>Git Hooks</li>
 <li>Automated linting</li>
 <li>Automated tests</li>
 <li>Immediate build and deployment</li>
 </ul>
-<p>CI is setup using <code>.yaml</code> files and harnessing automated workflows like GitHub Actions.</p>
+<p>CI is setup using <code>.yaml</code> files and harnessing automated workflows like <strong>GitHub Actions</strong>.</p>
+</div><div class="column">
+<p>The LAIT’s <a href="https://github.com/dfe-analytical-services/local-authority-interactive-tool/blob/main/.github/workflows/deploy-shiny.yaml"><code>deploy-shiny.yaml</code> GitHub workflow</a></p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb12-1"><a href=""></a><span class="fu">on</span><span class="kw">:</span></span>
+<span id="cb12-2"><a href=""></a><span class="at">  </span><span class="fu">push</span><span class="kw">:</span></span>
+<span id="cb12-3"><a href=""></a><span class="at">    </span><span class="fu">branches</span><span class="kw">:</span></span>
+<span id="cb12-4"><a href=""></a><span class="at">      </span><span class="kw">-</span><span class="at"> main</span></span>
+<span id="cb12-5"><a href=""></a></span>
+<span id="cb12-6"><a href=""></a><span class="fu">name</span><span class="kw">:</span><span class="at"> Shinyapps.io deploy</span></span>
+<span id="cb12-7"><a href=""></a></span>
+<span id="cb12-8"><a href=""></a><span class="fu">jobs</span><span class="kw">:</span></span>
+<span id="cb12-9"><a href=""></a><span class="at">  </span><span class="fu">deployShiny</span><span class="kw">:</span></span>
+<span id="cb12-10"><a href=""></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ubuntu-latest</span></span>
+<span id="cb12-11"><a href=""></a></span>
+<span id="cb12-12"><a href=""></a><span class="at">    </span><span class="fu">env</span><span class="kw">:</span></span>
+<span id="cb12-13"><a href=""></a><span class="at">      </span><span class="fu">GITHUB_PAT</span><span class="kw">:</span><span class="at"> ${{ secrets.GITHUB_TOKEN }}</span></span>
+<span id="cb12-14"><a href=""></a></span>
+<span id="cb12-15"><a href=""></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span></span>
+<span id="cb12-16"><a href=""></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Check out repository</span></span>
+<span id="cb12-17"><a href=""></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v4</span></span>
+<span id="cb12-18"><a href=""></a></span>
+<span id="cb12-19"><a href=""></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Set up R</span></span>
+<span id="cb12-20"><a href=""></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> r-lib/actions/setup-r@v2</span></span>
+<span id="cb12-21"><a href=""></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb12-22"><a href=""></a><span class="at">          </span><span class="fu">r-version</span><span class="kw">:</span><span class="at"> </span><span class="st">'4.4.1'</span></span>
+<span id="cb12-23"><a href=""></a><span class="at">          </span><span class="fu">use-public-rspm</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb12-24"><a href=""></a></span>
+<span id="cb12-25"><a href=""></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Set env vars (prod)</span></span>
+<span id="cb12-26"><a href=""></a><span class="fu">        run</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb12-27"><a href=""></a>          echo "SHINYAPP_NAME='local-authority-interactive-tool'"&gt;&gt; $GITHUB_ENV</span>
+<span id="cb12-28"><a href=""></a></span>
+<span id="cb12-29"><a href=""></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Restore renv snapshot</span></span>
+<span id="cb12-30"><a href=""></a><span class="at">        </span><span class="fu">shell</span><span class="kw">:</span><span class="at"> Rscript {0}</span></span>
+<span id="cb12-31"><a href=""></a><span class="fu">        run</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb12-32"><a href=""></a>          if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")</span>
+<span id="cb12-33"><a href=""></a>          renv::restore()</span>
+<span id="cb12-34"><a href=""></a></span>
+<span id="cb12-35"><a href=""></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Install rsconnect</span></span>
+<span id="cb12-36"><a href=""></a><span class="at">        </span><span class="fu">shell</span><span class="kw">:</span><span class="at"> Rscript {0}</span></span>
+<span id="cb12-37"><a href=""></a><span class="fu">        run</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb12-38"><a href=""></a>          if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")</span>
+<span id="cb12-39"><a href=""></a>          renv::install("rsconnect")</span>
+<span id="cb12-40"><a href=""></a></span>
+<span id="cb12-41"><a href=""></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Push to shiny.io</span></span>
+<span id="cb12-42"><a href=""></a><span class="fu">        run</span><span class="kw">: </span><span class="ch">&gt;</span></span>
+<span id="cb12-43"><a href=""></a>          Rscript</span>
+<span id="cb12-44"><a href=""></a>          -e "rsconnect::setAccountInfo(name = 'department-for-education', token = '${{secrets.SHINYAPPS_TOKEN}}', secret = '${{secrets.SHINYAPPS_SECRET}}')"</span>
+<span id="cb12-45"><a href=""></a>          -e "rsconnect::deployApp(appName=${{env.SHINYAPP_NAME}}, forceUpdate = TRUE)"</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
+<aside class="notes">
 <p>TODO: Add the LAIT .yaml file and explain how it works?</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="user-testing" class="slide level2">
 <h2>User Testing</h2>
@@ -1091,20 +1152,20 @@ Jake Tufts
 </div></div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="ons_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="ons_building_production_grade_shiny_apps_files/libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="ons_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="ons_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="ons_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="ons_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="ons_files/libs/revealjs/plugin/reveal-text-resizer/revealjs-text-resizer.js"></script>
-  <script src="ons_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="ons_building_production_grade_shiny_apps_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="ons_building_production_grade_shiny_apps_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="ons_building_production_grade_shiny_apps_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="ons_building_production_grade_shiny_apps_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="ons_building_production_grade_shiny_apps_files/libs/revealjs/plugin/reveal-text-resizer/revealjs-text-resizer.js"></script>
+  <script src="ons_building_production_grade_shiny_apps_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="ons_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="ons_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="ons_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="ons_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="ons_building_production_grade_shiny_apps_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="ons_building_production_grade_shiny_apps_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="ons_building_production_grade_shiny_apps_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="ons_building_production_grade_shiny_apps_files/libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
