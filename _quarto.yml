@@ -1,5 +1,13 @@
 project:
-  title: "DfE Quarto Slides Template"
-
-
-
+  title: "LAIT presentations"
+  render: 
+    - ons.qmd
+author: "Jake Tufts"
+format:
+  revealjs:
+    theme: [dark, dfe-quarto-slides.scss]
+    css: dfe-quarto-slides-css.css
+    width: 120%
+    height: 120%
+    logo: images/DfE_logo_landscape.svg
+    footer: "DfE Data Science"

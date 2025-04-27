@@ -8,14 +8,6 @@ title-slide-attributes:
   data-background-opacity: "0.1"
 authors:
   - Jake Tufts
-format:
-  revealjs:
-    theme: [dark, dfe-quarto-slides.scss]
-    css: dfe-quarto-slides-css.css
-    width: 120%
-    height: 120%
-    logo: images/DfE_logo_landscape.svg
-    footer: "DfE Data Science"
 execute: 
   echo: true
 revealjs-plugins:
