@@ -336,44 +336,95 @@ Shiny apps can be:
 :::
 ::: {.column}
 
-```{shinylive-python}
+::: panel-tabset
+#### Simple Shiny App
+```{shinylive-r}
 #| standalone: true
-#| viewerHeight: 600
+#| viewerHeight: 675
 
-from shiny import App, render, ui
-import numpy as np
-import matplotlib.pyplot as plt
+# Load the Shiny package
+library(shiny)
 
-app_ui = ui.page_fluid(
-    ui.layout_sidebar(
-        ui.sidebar(
-            ui.input_slider("period", "Period", 0.5, 2, 1, step=0.5),
-            ui.input_slider("amplitude", "Amplitude", 0, 2, 1, step=0.25),
-            ui.input_slider("shift", "Phase shift", 0, 2, 0, step=0.1),
-        ),
-        ui.output_plot("plot"),
+# Define UI
+ui <- fluidPage(
+  
+  titlePanel("Simple Shiny App"),
+  
+  sidebarLayout(
+    sidebarPanel(
+      sliderInput(
+        inputId = "num_points",
+        label = "Number of random points:",
+        min = 10,
+        max = 1000,
+        value = 100
+      )
     ),
+    
+    mainPanel(
+      plotOutput(outputId = "scatter_plot")
+    )
+  )
 )
 
+# Define server logic
+server <- function(input, output, session) {
+  
+  output$scatter_plot <- renderPlot({
+    x <- rnorm(input$num_points)
+    y <- rnorm(input$num_points)
+    plot(x, y, main = paste("Scatterplot with", input$num_points, "points"),
+         xlab = "X", ylab = "Y", pch = 19, col = "steelblue")
+  })
+}
 
-def server(input, output, session):
-    @output
-    @render.plot(alt="Sine function")
-    def plot():
-        t = np.arange(0.0, 4.0, 0.01)
-        s = input.amplitude() * np.sin(
-            (2 * np.pi / input.period()) * (t - input.shift() / 2)
-        )
-        fig, ax = plt.subplots()
-        ax.set_ylim([-2, 2])
-        ax.plot(t, s)
-        ax.grid()
-
-
-app = App(app_ui, server)
-
+# Run the app
+shinyApp(ui = ui, server = server)
 ```
 
+#### Code
+
+```r
+# Load the Shiny package
+library(shiny)
+
+# Define UI
+ui <- fluidPage(
+  
+  titlePanel("Simple Shiny App"),
+  
+  sidebarLayout(
+    sidebarPanel(
+      sliderInput(
+        inputId = "num_points",
+        label = "Number of random points:",
+        min = 10,
+        max = 1000,
+        value = 100
+      )
+    ),
+    
+    mainPanel(
+      plotOutput(outputId = "scatter_plot")
+    )
+  )
+)
+
+# Define server logic
+server <- function(input, output, session) {
+  
+  output$scatter_plot <- renderPlot({
+    x <- rnorm(input$num_points)
+    y <- rnorm(input$num_points)
+    plot(x, y, main = paste("Scatterplot with", input$num_points, "points"),
+         xlab = "X", ylab = "Y", pch = 19, col = "steelblue")
+  })
+}
+
+# Run the app
+shinyApp(ui = ui, server = server)
+```
+:::
 :::
 :::
 
