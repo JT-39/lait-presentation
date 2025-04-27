@@ -30,10 +30,12 @@ jobs:
         uses: r-lib/actions/setup-renv@v2
         with:
           cache-version: 1
-
-      - name: Install shinylive
-        run: |
-          Rscript -e 'install.packages("shinylive", repos = "https://cloud.r-project.org")'
+          packages:
+            cran::shinylive
+            any::knitr
+            any::rmarkdown
+            any::downlit
+            any::xml2
 
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
