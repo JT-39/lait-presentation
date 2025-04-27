@@ -11,6 +11,7 @@ authors:
 format:
   revealjs:
     theme: [dark, dfe-quarto-slides.scss]
+    css: dfe-quarto-slides-css.css
     width: 120%
     height: 120%
     logo: images/DfE_logo_landscape.svg
@@ -19,6 +20,8 @@ execute:
   echo: true
 revealjs-plugins:
   - revealjs-text-resizer
+filters:
+    - shinylive
 ---
 
 ## Overview
@@ -28,12 +31,7 @@ revealjs-plugins:
 -   Development & Coding
 -   Deployment & User Testing
 
-TODO: Add notes (throughout)
-TODO: Add mini segments (and links to the slides?)
-TODO: Change font-size (throughout)
-TODO: Add emojis (throughout)
-TODO: Add fade-ins (throughout)
-TODO: Add borders to pictures and re-size
+TODO: Add notes (throughout) TODO: Add mini segments (and links to the slides?) TODO: Change font-size (throughout) TODO: Add emojis (throughout) TODO: Add fade-ins (throughout) TODO: Add borders to pictures and re-size
 
 ------------------------------------------------------------------------
 
@@ -47,15 +45,17 @@ TODO: Add borders to pictures and re-size
 ::: {.column width="45%"}
 -   [Released in 2007]{style="font-size: 1.25em;"}
 
+- Built as an Excel workbook using macros
+
 -   [Developed and coded by an SEO]{style="font-size: 1.25em;"}
 
 -   [LAs have a consistent data source]{style="font-size: 1.25em;"}
 
-![](images/original_lait_content_page.png)
+![LAIT's Excel front-page](images/original_lait_content_page.png)
 :::
 
 ::: {.column width="50%"}
-![](images/original_lait_la_context.png)
+![LA View of the original LAIT](images/original_lait_la_context.png)
 :::
 :::::
 
@@ -153,30 +153,31 @@ TODO: Add borders to pictures and re-size
 
 ::::: columns
 ::: column
-[Who are the users?]{style="font-size: 1.25em;"}
-<br><br>
-
+::: fragment
+[Who are the users?]{style="font-size: 1.25em;"} <br><br>
+:::
+::: fragment
 [What are the use cases?]{style="font-size: 1.25em;"}
-
-<br>
-<br>
+:::
+::: fragment
+<br> <br>
 
 [*... this informs:*]{style="font-size: 1.5em;"}
-
+:::
+::: fragment
 <br>
 
-TODO: Use fade-in (and throughout)
-
-[**The Product:** Is an app actually needed?]{style="font-size: 1.25em;"}
-<br><br>
-
-[**Content:** What data shall I include?]{style="font-size: 1.25em;"}
-<br><br>
-
-[**Functionality:** How do I make this work?]{style="font-size: 1.25em;"}
-<br><br>
-
+[**The Product:** Is an app actually needed?]{style="font-size: 1.25em;"} <br><br>
+:::
+::: fragment
+[**Content:** What data shall I include?]{style="font-size: 1.25em;"} <br><br>
+:::
+::: fragment
+[**Functionality:** How do I make this work?]{style="font-size: 1.25em;"} <br><br>
+:::
+::: fragment
 [**Timelines:** When are my deadlines?]{style="font-size: 1.25em;"}
+:::
 :::
 
 ::: column
@@ -184,9 +185,8 @@ TODO: Use fade-in (and throughout)
 :::
 :::::
 
-TODO: Link back to LAIT?
-
 ::: notes
+TODO: Link back to LAIT?
 -   Really important you create something that will be used.
 -   Ensures buy-in.
 -   Helps direct development past the initial (easy part) idea.
@@ -194,7 +194,7 @@ TODO: Link back to LAIT?
 
 ------------------------------------------------------------------------
 
-## Find Answers
+## Step Outside The World Of Code
 
 ::::: columns
 ::: column
@@ -209,8 +209,6 @@ TODO: Link back to LAIT?
 ![Lucid Chart Workshop Example](images/lucid_chart_workshop_example.png){width="790"}
 :::
 :::::
-
-TODO: Improve slide title
 
 ::: notes
 -   Not my favourite part, but actually very useful for answering the important Qs.
@@ -253,12 +251,11 @@ TODO: Improve slide title
 -   Code process maps
 
 ![Code Process Map](images/example-process-map.jpg)
+![Example App Flow Diagram](images/moj-app-flow-example.svg)
 :::
 
 ::: column
-![](images/sketch_dashboard_example.png)
-
-![](images/moj-app-flow-example.svg)
+![Example Sketch of the Dashboard](images/sketch_dashboard_example.png)
 :::
 :::::
 
@@ -271,24 +268,23 @@ TODO: Improve slide title
 
 ------------------------------------------------------------------------
 
-## PM's Get the Big Bucks
+## PM's Get the Big Bucks 🪙
 
 ::::: columns
 ::: column
 -   High-level overarching timeline
 -   Start small with a detailed development timeline
--   Version Control is a MUST, utilise their PM tools
--   Don't forget your Eureka moments!
 
-![](images/lait_github_issues.png)
+![Example of a software development roadmap](images/code-roadmap-example.png)
 :::
 
 ::: column
-![](images/code-roadmap-example.png)
+-   Version Control is a MUST, utilise their PM tools
+-   Don't forget your Eureka moments!
+
+![LAIT's GitHub issues](images/lait_github_issues.png)
 :::
 :::::
-
-TODO: Improve slide title
 
 ::: notes
 -   VC is a lifesaver - so many times went down a rabbit hole and could easily get back.
@@ -328,7 +324,68 @@ Coding and Developing a Shiny App
 
 ## What Is Shiny?
 
-TODO: Add content on Shiny
+::: {.columns}
+::: {.column}
+`{shiny}` is an R package to easily build interactive apps
+
+It connects user inputs (like sliders, text boxes, buttons) to reactive outputs (like plots, tables, summaries).
+
+Languages usually required to code websites are neatly packaged up into R functions:
+
+- JavaScript
+- HTML
+- CSS
+
+Shiny apps can be:
+
+- Used locally on your computer
+- Deployed to servers, RStudio Connect, or shinyapps.io
+
+:::
+::: {.column}
+::: {.noborder}
+```{shinylive-python}
+#| standalone: true
+#| viewerHeight: 600
+
+from shiny import App, render, ui
+import numpy as np
+import matplotlib.pyplot as plt
+
+app_ui = ui.page_fluid(
+    ui.layout_sidebar(
+        ui.sidebar(
+            ui.input_slider("period", "Period", 0.5, 2, 1, step=0.5),
+            ui.input_slider("amplitude", "Amplitude", 0, 2, 1, step=0.25),
+            ui.input_slider("shift", "Phase shift", 0, 2, 0, step=0.1),
+        ),
+        ui.output_plot("plot"),
+    ),
+)
+
+
+def server(input, output, session):
+    @output
+    @render.plot(alt="Sine function")
+    def plot():
+        t = np.arange(0.0, 4.0, 0.01)
+        s = input.amplitude() * np.sin(
+            (2 * np.pi / input.period()) * (t - input.shift() / 2)
+        )
+        fig, ax = plt.subplots()
+        ax.set_ylim([-2, 2])
+        ax.plot(t, s)
+        ax.grid()
+
+
+app = App(app_ui, server)
+
+```
+:::
+:::
+:::
+
+
 
 ------------------------------------------------------------------------
 
@@ -526,27 +583,26 @@ TODO: Add a video of the Create Your Own page
 
 ## Shout, Shout, Let It All Out {.center}
 
-::: {.columns}
-::: {.column}
+::::: columns
+::: column
 Deployment and User Testing
 :::
 
-::: {.column}
+::: column
 ![These are the things we CAN'T live without 🎶](images/shout-single.jpg)
 :::
-:::
-
+:::::
 
 ::: notes
 -   Now you have an app that works, serves the use case and you are proud of.
 -   But how to share this with your users!?
-- Before live deploying we must do user testing... but this comes hand-in-hand with deployment.
-- Must identify what needs the app has for deployment and hosting.
-  - Internal Vs External
-  - Number of users and size of the app
-  - Cost
-- Test early so that pick-up any issues before they become major headaches.
-- Then continue to test throughout development - idea of Continuous Integration.
+-   Before live deploying we must do user testing... but this comes hand-in-hand with deployment.
+-   Must identify what needs the app has for deployment and hosting.
+    -   Internal Vs External
+    -   Number of users and size of the app
+    -   Cost
+-   Test early so that pick-up any issues before they become major headaches.
+-   Then continue to test throughout development - idea of Continuous Integration.
 :::
 
 ------------------------------------------------------------------------
@@ -556,7 +612,7 @@ Deployment and User Testing
 The solution to your deployment dilemma depends upon your audience (and access):
 
 |              | Paid          | Cheaper          | Free (with limitations)        |
-|---------------|---------------|---------------|---------------------------|
+|----------------|----------------|----------------|------------------------|
 | **Internal** | Posit Connect | Internal servers | Docker                         |
 | **External** | Shinyapps.io  | Internal servers | GitHub / Shinyapps.io / Docker |
 
@@ -566,15 +622,14 @@ TODO: Check these options are correct and complete
 
 ## Continuous Integration
 
-Practice of merging code into the test/live area regularly.
-Helps detect and resolve issues early, leading to faster development and higher quality.
+Practice of merging code into the test/live area regularly. Helps detect and resolve issues early, leading to faster development and higher quality.
 
 Examples of CI:
 
-- Git Hooks
-- Automated linting
-- Automated tests
-- Immediate build and deployment
+-   Git Hooks
+-   Automated linting
+-   Automated tests
+-   Immediate build and deployment
 
 CI is setup using `.yaml` files and harnessing automated workflows like GitHub Actions.
 
@@ -590,8 +645,7 @@ But... I see "user testing" as including anyone from a team member, non-technica
 
 Produce and use MVPs to do this (in a workshop or even over the shoulder).
 
-Try and do at least one round of user testing on your expected cohort.
-Use surveys to collect feedback, leave questions open ended and be ready to get little feedback.
+Try and do at least one round of user testing on your expected cohort. Use surveys to collect feedback, leave questions open ended and be ready to get little feedback.
 
 TODO: Display the LAIT user testing + feedback?
 
@@ -601,14 +655,14 @@ TODO: Display the LAIT user testing + feedback?
 
 You've done it...
 
-- Investigated and confirmed the need for a Shiny app.
-- Sketched out maps to plan your development and guide timelines/milestones.
-- Used Shiny best practice to build a modular structure.
-- Harnessed the government Shiny frameworks to produce GOV.UK accessible content.
-- Ensured the user's experience is stress free with custom functions, available R packages and seamless interactivity.
-- Designed and executed cool new functionality which warrants the use of Shiny and shows off your coding and creativity.
-- Chosen the right method to deploy.
-- Engaged with users throughout, adjusting content on the go.
+-   Investigated and confirmed the need for a Shiny app.
+-   Sketched out maps to plan your development and guide timelines/milestones.
+-   Used Shiny best practice to build a modular structure.
+-   Harnessed the government Shiny frameworks to produce GOV.UK accessible content.
+-   Ensured the user's experience is stress free with custom functions, available R packages and seamless interactivity.
+-   Designed and executed cool new functionality which warrants the use of Shiny and shows off your coding and creativity.
+-   Chosen the right method to deploy.
+-   Engaged with users throughout, adjusting content on the go.
 
 ... successfully and skillfully developed, deployed (and will maintain) an excellent, accessible, sustainable Shiny app.
 
