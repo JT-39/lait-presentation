@@ -1,7 +1,7 @@
 project:
   title: "LAIT presentations"
   render: 
-    - ons.qmd
+    - ons_building_production_grade_shiny_apps.qmd
 author: "Jake Tufts"
 format:
   revealjs:
@@ -13,3 +13,4 @@ format:
     footer: "DfE Data Science"
     resources: 
       - shinylive-sw.js
+    code-copy: hover
