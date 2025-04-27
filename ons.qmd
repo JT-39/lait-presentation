@@ -335,8 +335,8 @@ Shiny apps can be:
 
 :::
 ::: {.column}
-::: {.noborder}
-```{shinylive-python}
+
+<!-- ```{shinylive-python}
 #| standalone: true
 #| viewerHeight: 600
 
@@ -372,8 +372,8 @@ def server(input, output, session):
 
 app = App(app_ui, server)
 
-```
-:::
+``` -->
+
 :::
 :::
 
