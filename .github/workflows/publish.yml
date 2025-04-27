@@ -17,9 +17,13 @@ jobs:
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
+      # - name: Install shinylive
+      #   run: |
+      #     pip install shinylive
+
       - name: Install shinylive
         run: |
-          pip install shinylive
+          Rscript -e 'install.packages("shinylive", repos = "https://cloud.r-project.org")'
 
       - name: Install R
         uses: r-lib/actions/setup-r@v2
