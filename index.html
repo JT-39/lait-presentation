@@ -554,7 +554,7 @@ Jake Tufts
 <p>Shiny apps can be:</p>
 <ul>
 <li>Used locally on your computer</li>
-<li>Deployed to servers, RStudio Connect, or shinyapps.io</li>
+<li>Deployed to servers, Posit Connect/shinyapps.io or GitHub</li>
 </ul>
 </div><div class="column">
 <div class="panel-tabset">
@@ -652,7 +652,8 @@ Jake Tufts
 </section>
 <section id="shiny-modules" class="slide level2">
 <h2>Shiny Modules</h2>
-<p>Shiny best practice, essentially the functions of Shiny</p>
+<p>Shiny best practice</p>
+<p>Essentially the functions of Shiny</p>
 <div class="columns">
 <div class="column">
 <p>Pros:</p>
@@ -691,8 +692,83 @@ Jake Tufts
 </section>
 <section id="how-to-build-shiny-modules" class="slide level2">
 <h2>How to Build Shiny Modules</h2>
-<p>A LAIT example</p>
-<p>TODO: Add content on building Shiny Module (use cut of LAIT in another repo?)</p>
+<p>Allow you to box the UI and server code together into “mini apps” inside your main app. 📦</p>
+<p>Each module has:</p>
+<h4 id="module-ui-function">Module UI function</h4>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a>mod_plot_ui <span class="ot">&lt;-</span> <span class="cf">function</span>(id) {</span>
+<span id="cb5-2"><a href=""></a>  ns <span class="ot">&lt;-</span> <span class="fu">NS</span>(id)  <span class="co"># Namespace to avoid conflicts</span></span>
+<span id="cb5-3"><a href=""></a>  <span class="fu">tagList</span>(</span>
+<span id="cb5-4"><a href=""></a>    <span class="fu">sliderInput</span>(<span class="fu">ns</span>(<span class="st">"slider"</span>), <span class="st">"Choose a number:"</span>, <span class="at">min =</span> <span class="dv">1</span>, <span class="at">max =</span> <span class="dv">100</span>, <span class="at">value =</span> <span class="dv">50</span>),</span>
+<span id="cb5-5"><a href=""></a>    <span class="fu">plotOutput</span>(<span class="fu">ns</span>(<span class="st">"plot"</span>))</span>
+<span id="cb5-6"><a href=""></a>  )</span>
+<span id="cb5-7"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<h4 id="module-server-function">Module Server function</h4>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a>mod_plot_server <span class="ot">&lt;-</span> <span class="cf">function</span>(id) {</span>
+<span id="cb6-2"><a href=""></a>  <span class="fu">moduleServer</span>(id, <span class="cf">function</span>(input, output, session) {</span>
+<span id="cb6-3"><a href=""></a>    output<span class="sc">$</span>plot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
+<span id="cb6-4"><a href=""></a>      <span class="fu">hist</span>(<span class="fu">rnorm</span>(input<span class="sc">$</span>slider))</span>
+<span id="cb6-5"><a href=""></a>    })</span>
+<span id="cb6-6"><a href=""></a>  })</span>
+<span id="cb6-7"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="how-to-build-shiny-modules-1" class="slide level2">
+<h2>How to Build Shiny Modules</h2>
+<p>Now use the modules in the typical Shiny layout:</p>
+<div class="columns">
+<div class="column">
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="co"># Main UI</span></span>
+<span id="cb7-2"><a href=""></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
+<span id="cb7-3"><a href=""></a>  <span class="fu">mod_plot_ui</span>(<span class="st">"plot1"</span>)</span>
+<span id="cb7-4"><a href=""></a>)</span>
+<span id="cb7-5"><a href=""></a></span>
+<span id="cb7-6"><a href=""></a><span class="co"># Main Server</span></span>
+<span id="cb7-7"><a href=""></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output, session) {</span>
+<span id="cb7-8"><a href=""></a>  <span class="fu">mod_plot_server</span>(<span class="st">"plot1"</span>)</span>
+<span id="cb7-9"><a href=""></a>}</span>
+<span id="cb7-10"><a href=""></a></span>
+<span id="cb7-11"><a href=""></a><span class="co"># Run the app</span></span>
+<span id="cb7-12"><a href=""></a><span class="fu">shinyApp</span>(ui, server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="sourceCode" id="cb8" data-engine="r"><pre class="sourceCode numberSource shinylive-r number-lines code-with-copy"><code class="sourceCode"><span id="cb8-1"><a href=""></a>#| '!! shinylive warning !!': |</span>
+<span id="cb8-2"><a href=""></a>#|   shinylive does not work in self-contained HTML documents.</span>
+<span id="cb8-3"><a href=""></a>#|   Please set `embed-resources: false` in your metadata.</span>
+<span id="cb8-4"><a href=""></a>#| standalone: true</span>
+<span id="cb8-5"><a href=""></a>#| viewerHeight: 675</span>
+<span id="cb8-6"><a href=""></a></span>
+<span id="cb8-7"><a href=""></a># UI module</span>
+<span id="cb8-8"><a href=""></a>mod_plot_ui &lt;- function(id) {</span>
+<span id="cb8-9"><a href=""></a>  ns &lt;- NS(id)  # Namespace to avoid conflicts</span>
+<span id="cb8-10"><a href=""></a>  tagList(</span>
+<span id="cb8-11"><a href=""></a>    sliderInput(ns("slider"), "Choose a number:", min = 1, max = 100, value = 50),</span>
+<span id="cb8-12"><a href=""></a>    plotOutput(ns("plot"))</span>
+<span id="cb8-13"><a href=""></a>  )</span>
+<span id="cb8-14"><a href=""></a>}</span>
+<span id="cb8-15"><a href=""></a></span>
+<span id="cb8-16"><a href=""></a># Server module</span>
+<span id="cb8-17"><a href=""></a>mod_plot_server &lt;- function(id) {</span>
+<span id="cb8-18"><a href=""></a>  moduleServer(id, function(input, output, session) {</span>
+<span id="cb8-19"><a href=""></a>    output$plot &lt;- renderPlot({</span>
+<span id="cb8-20"><a href=""></a>      hist(rnorm(input$slider))</span>
+<span id="cb8-21"><a href=""></a>    })</span>
+<span id="cb8-22"><a href=""></a>  })</span>
+<span id="cb8-23"><a href=""></a>}</span>
+<span id="cb8-24"><a href=""></a></span>
+<span id="cb8-25"><a href=""></a># Main UI</span>
+<span id="cb8-26"><a href=""></a>ui &lt;- fluidPage(</span>
+<span id="cb8-27"><a href=""></a>  mod_plot_ui("plot1")</span>
+<span id="cb8-28"><a href=""></a>)</span>
+<span id="cb8-29"><a href=""></a></span>
+<span id="cb8-30"><a href=""></a># Main Server</span>
+<span id="cb8-31"><a href=""></a>server &lt;- function(input, output, session) {</span>
+<span id="cb8-32"><a href=""></a>  mod_plot_server("plot1")</span>
+<span id="cb8-33"><a href=""></a>}</span>
+<span id="cb8-34"><a href=""></a></span>
+<span id="cb8-35"><a href=""></a># Run the app</span>
+<span id="cb8-36"><a href=""></a>shinyApp(ui, server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
+</section>
+<section id="laits-model-modules" class="slide level2">
+<h2>LAIT’s Model Modules</h2>
 </section>
 <section id="shinytest" class="slide level2">
 <h2><code>{shinytest}</code></h2>
@@ -768,30 +844,30 @@ Jake Tufts
 <ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">JS</a></li><li><a href="#tabset-2-2">Demo</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1">
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb5-1"><a href=""></a><span class="fu">$</span>(<span class="bu">document</span>)<span class="op">.</span><span class="fu">ready</span>(<span class="kw">function</span> () {</span>
-<span id="cb5-2"><a href=""></a>  <span class="co">// General function to handle image copying</span></span>
-<span id="cb5-3"><a href=""></a>  <span class="kw">async</span> <span class="kw">function</span> <span class="fu">copyImage</span>(namespace) {</span>
-<span id="cb5-4"><a href=""></a>    <span class="kw">const</span> buttonId <span class="op">=</span> <span class="vs">`#</span><span class="sc">${</span>namespace<span class="sc">}</span><span class="vs">-copybtn`</span><span class="op">;</span></span>
-<span id="cb5-5"><a href=""></a>    <span class="kw">const</span> imageContainerId <span class="op">=</span> <span class="vs">`#</span><span class="sc">${</span>namespace<span class="sc">}</span><span class="vs">-copy_plot`</span><span class="op">;</span></span>
-<span id="cb5-6"><a href=""></a></span>
-<span id="cb5-7"><a href=""></a>    <span class="kw">const</span> src <span class="op">=</span> <span class="fu">$</span>(<span class="vs">`</span><span class="sc">${</span>imageContainerId<span class="sc">}</span><span class="vs">&gt;img`</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"src"</span>)<span class="op">;</span></span>
-<span id="cb5-8"><a href=""></a>    <span class="cf">if</span> (<span class="op">!</span>src) {</span>
-<span id="cb5-9"><a href=""></a>      <span class="fu">alert</span>(<span class="st">"No image source found!"</span>)<span class="op">;</span></span>
-<span id="cb5-10"><a href=""></a>      <span class="cf">return</span><span class="op">;</span></span>
-<span id="cb5-11"><a href=""></a>    }</span>
-<span id="cb5-12"><a href=""></a>    <span class="cf">try</span> {</span>
-<span id="cb5-13"><a href=""></a>      <span class="kw">const</span> blob <span class="op">=</span> <span class="cf">await</span> <span class="fu">getImageBlobFromUrl</span>(src)<span class="op">;</span></span>
-<span id="cb5-14"><a href=""></a>      <span class="cf">await</span> <span class="bu">navigator</span><span class="op">.</span><span class="at">clipboard</span><span class="op">.</span><span class="fu">write</span>([</span>
-<span id="cb5-15"><a href=""></a>        <span class="kw">new</span> <span class="fu">ClipboardItem</span>({</span>
-<span id="cb5-16"><a href=""></a>          [blob<span class="op">.</span><span class="at">type</span>]<span class="op">:</span> blob</span>
-<span id="cb5-17"><a href=""></a>        })</span>
-<span id="cb5-18"><a href=""></a>      ])<span class="op">;</span></span>
-<span id="cb5-19"><a href=""></a>      Shiny<span class="op">.</span><span class="fu">setInputValue</span>(<span class="st">"copy-to-clipboard-success"</span><span class="op">,</span> <span class="kw">true</span><span class="op">,</span> {<span class="dt">priority</span><span class="op">:</span> <span class="st">"event"</span>})<span class="op">;</span></span>
-<span id="cb5-20"><a href=""></a>    } <span class="cf">catch</span> (err) {</span>
-<span id="cb5-21"><a href=""></a>      <span class="bu">console</span><span class="op">.</span><span class="fu">error</span>(err<span class="op">.</span><span class="at">name</span><span class="op">,</span> err<span class="op">.</span><span class="at">message</span>)<span class="op">;</span></span>
-<span id="cb5-22"><a href=""></a>      Shiny<span class="op">.</span><span class="fu">setInputValue</span>(<span class="st">"copy-to-clipboard-failure"</span><span class="op">,</span> <span class="kw">true</span><span class="op">,</span> {<span class="dt">priority</span><span class="op">:</span> <span class="st">"event"</span>})<span class="op">;</span></span>
-<span id="cb5-23"><a href=""></a>    }</span>
-<span id="cb5-24"><a href=""></a>  }</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb9-1"><a href=""></a><span class="fu">$</span>(<span class="bu">document</span>)<span class="op">.</span><span class="fu">ready</span>(<span class="kw">function</span> () {</span>
+<span id="cb9-2"><a href=""></a>  <span class="co">// General function to handle image copying</span></span>
+<span id="cb9-3"><a href=""></a>  <span class="kw">async</span> <span class="kw">function</span> <span class="fu">copyImage</span>(namespace) {</span>
+<span id="cb9-4"><a href=""></a>    <span class="kw">const</span> buttonId <span class="op">=</span> <span class="vs">`#</span><span class="sc">${</span>namespace<span class="sc">}</span><span class="vs">-copybtn`</span><span class="op">;</span></span>
+<span id="cb9-5"><a href=""></a>    <span class="kw">const</span> imageContainerId <span class="op">=</span> <span class="vs">`#</span><span class="sc">${</span>namespace<span class="sc">}</span><span class="vs">-copy_plot`</span><span class="op">;</span></span>
+<span id="cb9-6"><a href=""></a></span>
+<span id="cb9-7"><a href=""></a>    <span class="kw">const</span> src <span class="op">=</span> <span class="fu">$</span>(<span class="vs">`</span><span class="sc">${</span>imageContainerId<span class="sc">}</span><span class="vs">&gt;img`</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"src"</span>)<span class="op">;</span></span>
+<span id="cb9-8"><a href=""></a>    <span class="cf">if</span> (<span class="op">!</span>src) {</span>
+<span id="cb9-9"><a href=""></a>      <span class="fu">alert</span>(<span class="st">"No image source found!"</span>)<span class="op">;</span></span>
+<span id="cb9-10"><a href=""></a>      <span class="cf">return</span><span class="op">;</span></span>
+<span id="cb9-11"><a href=""></a>    }</span>
+<span id="cb9-12"><a href=""></a>    <span class="cf">try</span> {</span>
+<span id="cb9-13"><a href=""></a>      <span class="kw">const</span> blob <span class="op">=</span> <span class="cf">await</span> <span class="fu">getImageBlobFromUrl</span>(src)<span class="op">;</span></span>
+<span id="cb9-14"><a href=""></a>      <span class="cf">await</span> <span class="bu">navigator</span><span class="op">.</span><span class="at">clipboard</span><span class="op">.</span><span class="fu">write</span>([</span>
+<span id="cb9-15"><a href=""></a>        <span class="kw">new</span> <span class="fu">ClipboardItem</span>({</span>
+<span id="cb9-16"><a href=""></a>          [blob<span class="op">.</span><span class="at">type</span>]<span class="op">:</span> blob</span>
+<span id="cb9-17"><a href=""></a>        })</span>
+<span id="cb9-18"><a href=""></a>      ])<span class="op">;</span></span>
+<span id="cb9-19"><a href=""></a>      Shiny<span class="op">.</span><span class="fu">setInputValue</span>(<span class="st">"copy-to-clipboard-success"</span><span class="op">,</span> <span class="kw">true</span><span class="op">,</span> {<span class="dt">priority</span><span class="op">:</span> <span class="st">"event"</span>})<span class="op">;</span></span>
+<span id="cb9-20"><a href=""></a>    } <span class="cf">catch</span> (err) {</span>
+<span id="cb9-21"><a href=""></a>      <span class="bu">console</span><span class="op">.</span><span class="fu">error</span>(err<span class="op">.</span><span class="at">name</span><span class="op">,</span> err<span class="op">.</span><span class="at">message</span>)<span class="op">;</span></span>
+<span id="cb9-22"><a href=""></a>      Shiny<span class="op">.</span><span class="fu">setInputValue</span>(<span class="st">"copy-to-clipboard-failure"</span><span class="op">,</span> <span class="kw">true</span><span class="op">,</span> {<span class="dt">priority</span><span class="op">:</span> <span class="st">"event"</span>})<span class="op">;</span></span>
+<span id="cb9-23"><a href=""></a>    }</span>
+<span id="cb9-24"><a href=""></a>  }</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="tabset-2-2">
 <p><video data-src="images/lait_copy_to_clipboard.mp4" controls=""><a href="images/lait_copy_to_clipboard.mp4">Video</a></video></p>
