@@ -445,7 +445,18 @@ Jake Tufts
 <li>Sketch the app layout</li>
 <li>Code process maps</li>
 </ul>
-<p><img data-src="images/example-process-map.jpg" alt="Code Process Map"> <img data-src="images/moj-app-flow-example.svg" alt="Example App Flow Diagram"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/example-process-map.jpg"></p>
+<figcaption>Code Process Map</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/moj-app-flow-example.svg"></p>
+<figcaption>Example App Flow Diagram</figcaption>
+</figure>
+</div>
 </div><div class="column">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -476,7 +487,8 @@ Jake Tufts
 <section id="pms-get-the-big-bucks" class="slide level2">
 <h2>PM’s Get the Big Bucks 🪙</h2>
 <div class="columns">
-<div class="column">
+<div class="column" style="width:45%;">
+<div class="fragment">
 <ul>
 <li>High-level overarching timeline</li>
 <li>Start small with a detailed development timeline</li>
@@ -487,7 +499,11 @@ Jake Tufts
 <figcaption>Example of a software development roadmap</figcaption>
 </figure>
 </div>
-</div><div class="column">
+</div>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<div class="fragment">
 <ul>
 <li>Version Control is a MUST, utilise their PM tools</li>
 <li>Don’t forget your Eureka moments!</li>
@@ -497,6 +513,7 @@ Jake Tufts
 <p><img data-src="images/lait_github_issues.png"></p>
 <figcaption>LAIT’s GitHub issues</figcaption>
 </figure>
+</div>
 </div>
 </div></div>
 <aside class="notes">
@@ -543,9 +560,7 @@ Jake Tufts
 <h2>What Is Shiny?</h2>
 <div class="columns">
 <div class="column">
-<p><code>{shiny}</code> is an R package to easily build interactive apps</p>
-<p>It connects user inputs (like sliders, text boxes, buttons) to reactive outputs (like plots, tables, summaries).</p>
-<p>Languages usually required to code websites are neatly packaged up into R functions:</p>
+<p><code>{shiny}</code> is an R package to easily build interactive apps <br> <br> It connects user inputs (like sliders, text boxes, buttons) to reactive outputs (like plots, tables, summaries). <br> <br> Languages usually required to code websites are neatly packaged up into R functions:</p>
 <ul>
 <li>JavaScript</li>
 <li>HTML</li>
@@ -565,7 +580,7 @@ Jake Tufts
 <span id="cb3-2"><a href=""></a>#|   shinylive does not work in self-contained HTML documents.</span>
 <span id="cb3-3"><a href=""></a>#|   Please set `embed-resources: false` in your metadata.</span>
 <span id="cb3-4"><a href=""></a>#| standalone: true</span>
-<span id="cb3-5"><a href=""></a>#| viewerHeight: 600</span>
+<span id="cb3-5"><a href=""></a>#| viewerHeight: 655</span>
 <span id="cb3-6"><a href=""></a></span>
 <span id="cb3-7"><a href=""></a># Load the Shiny package</span>
 <span id="cb3-8"><a href=""></a>library(shiny)</span>
@@ -650,9 +665,11 @@ Jake Tufts
 </div>
 </div></div>
 </section>
-<section id="shiny-modules" class="slide level2">
-<h2>Shiny Modules</h2>
-<p>Shiny best practice</p>
+<section id="shiny-modules---what-are-they" class="slide level2">
+<h2>Shiny Modules - What Are They?</h2>
+</section>
+<section id="shiny-modules---pros-cons" class="slide level2">
+<h2>Shiny Modules - Pros &amp; Cons</h2>
 <p>Essentially the functions of Shiny</p>
 <div class="columns">
 <div class="column">
@@ -676,8 +693,8 @@ Jake Tufts
 <p><img data-src="images/lego_titanic_instructions.jpg"></p>
 </div></div>
 </section>
-<section id="my-workflow" class="slide level2">
-<h2>My workflow</h2>
+<section id="shiny-modules---my-workflow" class="slide level2">
+<h2>Shiny Modules - My workflow</h2>
 <p>Start easy. Get it working. Finesse.</p>
 <div class="columns">
 <div class="column">
@@ -690,8 +707,8 @@ Jake Tufts
 <p><img data-src="images/shiny_modules_workflow.png" width="1071"></p>
 </div></div>
 </section>
-<section id="how-to-build-shiny-modules" class="slide level2">
-<h2>How to Build Shiny Modules</h2>
+<section id="shiny-modules---how-to-build" class="slide level2">
+<h2>Shiny Modules - How To Build</h2>
 <p>Allow you to box the UI and server code together into “mini apps” inside your main app. 📦</p>
 <p>Each module has:</p>
 <h4 id="module-ui-function">Module UI function</h4>
@@ -711,8 +728,8 @@ Jake Tufts
 <span id="cb6-6"><a href=""></a>  })</span>
 <span id="cb6-7"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="how-to-build-shiny-modules-1" class="slide level2">
-<h2>How to Build Shiny Modules</h2>
+<section id="shiny-modules---how-to-build-1" class="slide level2">
+<h2>Shiny Modules - How To Build</h2>
 <p>Now use the modules in the typical Shiny layout:</p>
 <div class="columns">
 <div class="column">
@@ -767,8 +784,8 @@ Jake Tufts
 <span id="cb8-36"><a href=""></a>shinyApp(ui, server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div>
 </section>
-<section id="laits-model-modules" class="slide level2">
-<h2>LAIT’s Model Modules</h2>
+<section id="shiny-modules---laits-model-modules" class="slide level2">
+<h2>Shiny Modules - LAIT’s Model Modules</h2>
 </section>
 <section id="shinytest2" class="slide level2">
 <h2><code>{shinytest2}</code></h2>
@@ -1113,11 +1130,44 @@ Jake Tufts
 </section>
 <section id="user-testing" class="slide level2">
 <h2>User Testing</h2>
-<p>Absolutely crucial. Should be done ASAP and throughout.</p>
-<p>But… I see “user testing” as including anyone from a team member, non-technical colleague to external users.</p>
-<p>Produce and use MVPs to do this (in a workshop or even over the shoulder).</p>
-<p>Try and do at least one round of user testing on your expected cohort. Use surveys to collect feedback, leave questions open ended and be ready to get little feedback.</p>
-<p>TODO: Display the LAIT user testing + feedback?</p>
+<div class="columns">
+<div class="column">
+<p>Absolutely crucial. Should be done ASAP and throughout. <br> <br> But… I see “user testing” as receiving feedback from anyone:</p>
+<ul>
+<li>Team member</li>
+<li>Non-technical colleague</li>
+<li>External users</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/lait-app-feedback-form.png"></p>
+<figcaption>LAIT In-App Feedback</figcaption>
+</figure>
+</div>
+</div><div class="column">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/lait-feedback-form.png"></p>
+<figcaption>User Testing Feedback Form</figcaption>
+</figure>
+</div>
+</div></div>
+<aside class="notes">
+<ul>
+<li>Produce and use MVPs to do this (in a workshop or even over the shoulder).</li>
+<li>Try and do at least one round of user testing on your expected cohort. Use surveys to collect feedback, leave questions open ended and be ready to get little feedback.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="knight-in-shining-armour" class="slide level2">
 <h2>Knight In Shining Armour</h2>
