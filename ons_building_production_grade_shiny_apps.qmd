@@ -243,7 +243,9 @@ TODO: Link back to LAIT?
 -   Code process maps
 
 ![Code Process Map](images/example-process-map.jpg)
+
 ![Example App Flow Diagram](images/moj-app-flow-example.svg)
+
 :::
 
 ::: column
@@ -263,18 +265,23 @@ TODO: Link back to LAIT?
 ## PM's Get the Big Bucks 🪙
 
 ::::: columns
-::: column
+::: {.column width="45%"}
+::: {.fragment}
 -   High-level overarching timeline
 -   Start small with a detailed development timeline
 
 ![Example of a software development roadmap](images/code-roadmap-example.png)
 :::
-
-::: column
+:::
+::: {.column width="10%"}
+:::
+::: {.column width="45%"}
+::: {.fragment}
 -   Version Control is a MUST, utilise their PM tools
 -   Don't forget your Eureka moments!
 
 ![LAIT's GitHub issues](images/lait_github_issues.png)
+:::
 :::
 :::::
 
@@ -319,9 +326,11 @@ Coding and Developing a Shiny App
 ::: {.columns}
 ::: {.column}
 `{shiny}` is an R package to easily build interactive apps
-
+<br>
+<br>
 It connects user inputs (like sliders, text boxes, buttons) to reactive outputs (like plots, tables, summaries).
-
+<br>
+<br>
 Languages usually required to code websites are neatly packaged up into R functions:
 
 - JavaScript
@@ -340,7 +349,7 @@ Shiny apps can be:
 #### Simple Shiny App
 ```{shinylive-r}
 #| standalone: true
-#| viewerHeight: 600
+#| viewerHeight: 655
 
 # Load the Shiny package
 library(shiny)
@@ -430,9 +439,11 @@ shinyApp(ui = ui, server = server)
 
 ------------------------------------------------------------------------
 
-## Shiny Modules
+## Shiny Modules - What Are They?
 
-Shiny best practice
+------------------------------------------------------------------------
+
+## Shiny Modules - Pros & Cons
 
 Essentially the functions of Shiny
 
@@ -462,7 +473,7 @@ Cons:
 
 ------------------------------------------------------------------------
 
-## My workflow
+## Shiny Modules - My workflow
 
 Start easy. Get it working. Finesse.
 
@@ -480,7 +491,7 @@ Start easy. Get it working. Finesse.
 
 ------------------------------------------------------------------------
 
-## How to Build Shiny Modules
+## Shiny Modules - How To Build 
 
 Allow you to box the UI and server code together into "mini apps" inside your main app. 📦
 
@@ -512,7 +523,7 @@ mod_plot_server <- function(id) {
 
 ------------------------------------------------------------------------
 
-## How to Build Shiny Modules
+## Shiny Modules - How To Build 
 
 Now use the modules in the typical Shiny layout:
 
@@ -575,7 +586,7 @@ shinyApp(ui, server)
 
 ------------------------------------------------------------------------
 
-## LAIT's Model Modules
+## Shiny Modules - LAIT's Model Modules
 
 ------------------------------------------------------------------------
 
@@ -915,16 +926,29 @@ TODO: Add the LAIT .yaml file and explain how it works?
 
 ## User Testing
 
+::: {.columns}
+::: {.column}
 Absolutely crucial. Should be done ASAP and throughout.
+<br>
+<br>
+But... I see "user testing" as receiving feedback from anyone:
 
-But... I see "user testing" as including anyone from a team member, non-technical colleague to external users.
+- Team member
+- Non-technical colleague
+- External users
 
-Produce and use MVPs to do this (in a workshop or even over the shoulder).
+![LAIT In-App Feedback](images/lait-app-feedback-form.png)
 
-Try and do at least one round of user testing on your expected cohort. Use surveys to collect feedback, leave questions open ended and be ready to get little feedback.
+:::
+::: {.column}
+![User Testing Feedback Form](images/lait-feedback-form.png)
+:::
+:::
 
-TODO: Display the LAIT user testing + feedback?
-
+:::{.notes}
+- Produce and use MVPs to do this (in a workshop or even over the shoulder).
+- Try and do at least one round of user testing on your expected cohort. Use surveys to collect feedback, leave questions open ended and be ready to get little feedback.
+:::
 ------------------------------------------------------------------------
 
 ## Knight In Shining Armour

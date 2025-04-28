@@ -6,3 +6,7 @@ figcaption {
 div.sourceCode {
   border: none !important;
 }
+
+div.shinylive-wrapper {
+  margin: 0;
+}
