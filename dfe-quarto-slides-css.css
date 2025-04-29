@@ -10,3 +10,13 @@ div.sourceCode {
 div.shinylive-wrapper {
   margin: 0;
 }
+
+.deployment-table {
+  font-size: 17.5px;
+}
+
+.deployment-table td:first-child,
+.deployment-table th:first-child {
+  border-right: 3px solid white;
+  padding-right: 0.5em;
+}

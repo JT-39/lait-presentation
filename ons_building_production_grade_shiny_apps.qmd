@@ -834,16 +834,29 @@ Deployment and User Testing
 
 ------------------------------------------------------------------------
 
-## Deployment Options
+## Deployment Options 💻
 
-The solution to your deployment dilemma depends upon your audience (and access):
+The solution to your deployment dilemma depends upon your:
 
-|              | Paid          | Cheaper          | Free (with limitations)        |
-|----------------|----------------|----------------|------------------------|
-| **Internal** | Posit Connect | Internal servers | Docker                         |
-| **External** | Shinyapps.io  | Internal servers | GitHub / Shinyapps.io / Docker |
+- Audience (and access) 🔐
+- Technical expertise ⚙️
+- Resource available (time & money) ⌛
+<br>
+<br>
+<br>
 
-TODO: Check these options are correct and complete
+:::{.deployment-table}
+
+| **Option**              | **Authentication**                          | **Security**                                        | **Scaling**                                         | **Ops Overhead**                          | **Investment**                            | **Hosting Options**                                              |
+|-------------------------|---------------------------------------------|-----------------------------------------------------|-----------------------------------------------------|-------------------------------------------|-------------------------------------------|------------------------------------------------------------------|
+| **Vanilla Shiny**       | None by default; requires external solution | Depends on hosting platform and setup               | Manual; complex if session management is required   | High; requires infra & scaling expertise  | Time, effort, infrastructure costs         | Direct VM, unmanaged/managed containers                           |
+| <span style="color:#F46A25;"><strong>Shinyapps.io</strong></span> | <span style="color:#F46A25;"><strong>Built-in (limited); no external integration</strong></span> | <span style="color:#F46A25;"><strong>Shared platform; data/code hosted externally</strong></span> | <span style="color:#F46A25;"><strong>Limited by tier (runtime hours, users)</strong></span> | <span style="color:#F46A25;"><strong>Very low; no infra required</strong></span> | <span style="color:#F46A25;"><strong>Subscription-based (free → professional)</strong></span> | <span style="color:#F46A25;"><strong>Fully managed by Posit</strong></span> |
+| **Shiny Server (OSS)**  | None by default; external or code-based     | Self-managed; depends on hosting practices           | No auto-scaling; single process per app             | Medium; simpler than Vanilla Shiny         | Free (open-source); hosting effort needed   | Direct VM, containerized (self-managed)                          |
+| **Posit Connect**       | Full enterprise support; many options       | Self-managed; highly robust                          | Multi-user, multi-process auto-scaling              | Low; designed for ease of maintenance      | Paid license (per server/user)             | Direct VM, Kubernetes (off-host execution supported)             |
+| **GitHub Pages + ShinyLive**| None (public)                            | Static site; JS/WebAssembly runs client-side         | Infinite (browser-based; depends on client resources)| Very low; simple static site deployment     | Free (GitHub); time to package app         | GitHub Pages + ShinyLive tooling                                 |
+
+:::
+
 
 ------------------------------------------------------------------------
 
