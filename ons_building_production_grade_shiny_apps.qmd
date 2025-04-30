@@ -350,6 +350,11 @@ Shiny apps can be:
 ```{shinylive-r}
 #| standalone: true
 #| viewerHeight: 655
+req_pkgs <- FALSE
+
+if(req_pkgs) {
+  libray(shinylive)
+}
 
 # Load the Shiny package
 library(shiny)
