@@ -582,45 +582,50 @@ Jake Tufts
 <span id="cb3-3"><a href=""></a>#|   Please set `embed-resources: false` in your metadata.</span>
 <span id="cb3-4"><a href=""></a>#| standalone: true</span>
 <span id="cb3-5"><a href=""></a>#| viewerHeight: 655</span>
-<span id="cb3-6"><a href=""></a></span>
-<span id="cb3-7"><a href=""></a># Load the Shiny package</span>
-<span id="cb3-8"><a href=""></a>library(shiny)</span>
-<span id="cb3-9"><a href=""></a></span>
-<span id="cb3-10"><a href=""></a># Define UI</span>
-<span id="cb3-11"><a href=""></a>ui &lt;- fluidPage(</span>
-<span id="cb3-12"><a href=""></a>  </span>
-<span id="cb3-13"><a href=""></a>  titlePanel("Simple Shiny App"),</span>
-<span id="cb3-14"><a href=""></a>  </span>
-<span id="cb3-15"><a href=""></a>  sidebarLayout(</span>
-<span id="cb3-16"><a href=""></a>    sidebarPanel(</span>
-<span id="cb3-17"><a href=""></a>      sliderInput(</span>
-<span id="cb3-18"><a href=""></a>        inputId = "num_points",</span>
-<span id="cb3-19"><a href=""></a>        label = "Number of random points:",</span>
-<span id="cb3-20"><a href=""></a>        min = 10,</span>
-<span id="cb3-21"><a href=""></a>        max = 1000,</span>
-<span id="cb3-22"><a href=""></a>        value = 100</span>
-<span id="cb3-23"><a href=""></a>      )</span>
-<span id="cb3-24"><a href=""></a>    ),</span>
-<span id="cb3-25"><a href=""></a>    </span>
-<span id="cb3-26"><a href=""></a>    mainPanel(</span>
-<span id="cb3-27"><a href=""></a>      plotOutput(outputId = "scatter_plot")</span>
-<span id="cb3-28"><a href=""></a>    )</span>
-<span id="cb3-29"><a href=""></a>  )</span>
-<span id="cb3-30"><a href=""></a>)</span>
-<span id="cb3-31"><a href=""></a></span>
-<span id="cb3-32"><a href=""></a># Define server logic</span>
-<span id="cb3-33"><a href=""></a>server &lt;- function(input, output, session) {</span>
-<span id="cb3-34"><a href=""></a>  </span>
-<span id="cb3-35"><a href=""></a>  output$scatter_plot &lt;- renderPlot({</span>
-<span id="cb3-36"><a href=""></a>    x &lt;- rnorm(input$num_points)</span>
-<span id="cb3-37"><a href=""></a>    y &lt;- rnorm(input$num_points)</span>
-<span id="cb3-38"><a href=""></a>    plot(x, y, main = paste("Scatterplot with", input$num_points, "points"),</span>
-<span id="cb3-39"><a href=""></a>         xlab = "X", ylab = "Y", pch = 19, col = "steelblue")</span>
-<span id="cb3-40"><a href=""></a>  })</span>
-<span id="cb3-41"><a href=""></a>}</span>
-<span id="cb3-42"><a href=""></a></span>
-<span id="cb3-43"><a href=""></a># Run the app</span>
-<span id="cb3-44"><a href=""></a>shinyApp(ui = ui, server = server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-6"><a href=""></a>req_pkgs &lt;- FALSE</span>
+<span id="cb3-7"><a href=""></a></span>
+<span id="cb3-8"><a href=""></a>if(req_pkgs) {</span>
+<span id="cb3-9"><a href=""></a>  libray(shinylive)</span>
+<span id="cb3-10"><a href=""></a>}</span>
+<span id="cb3-11"><a href=""></a></span>
+<span id="cb3-12"><a href=""></a># Load the Shiny package</span>
+<span id="cb3-13"><a href=""></a>library(shiny)</span>
+<span id="cb3-14"><a href=""></a></span>
+<span id="cb3-15"><a href=""></a># Define UI</span>
+<span id="cb3-16"><a href=""></a>ui &lt;- fluidPage(</span>
+<span id="cb3-17"><a href=""></a>  </span>
+<span id="cb3-18"><a href=""></a>  titlePanel("Simple Shiny App"),</span>
+<span id="cb3-19"><a href=""></a>  </span>
+<span id="cb3-20"><a href=""></a>  sidebarLayout(</span>
+<span id="cb3-21"><a href=""></a>    sidebarPanel(</span>
+<span id="cb3-22"><a href=""></a>      sliderInput(</span>
+<span id="cb3-23"><a href=""></a>        inputId = "num_points",</span>
+<span id="cb3-24"><a href=""></a>        label = "Number of random points:",</span>
+<span id="cb3-25"><a href=""></a>        min = 10,</span>
+<span id="cb3-26"><a href=""></a>        max = 1000,</span>
+<span id="cb3-27"><a href=""></a>        value = 100</span>
+<span id="cb3-28"><a href=""></a>      )</span>
+<span id="cb3-29"><a href=""></a>    ),</span>
+<span id="cb3-30"><a href=""></a>    </span>
+<span id="cb3-31"><a href=""></a>    mainPanel(</span>
+<span id="cb3-32"><a href=""></a>      plotOutput(outputId = "scatter_plot")</span>
+<span id="cb3-33"><a href=""></a>    )</span>
+<span id="cb3-34"><a href=""></a>  )</span>
+<span id="cb3-35"><a href=""></a>)</span>
+<span id="cb3-36"><a href=""></a></span>
+<span id="cb3-37"><a href=""></a># Define server logic</span>
+<span id="cb3-38"><a href=""></a>server &lt;- function(input, output, session) {</span>
+<span id="cb3-39"><a href=""></a>  </span>
+<span id="cb3-40"><a href=""></a>  output$scatter_plot &lt;- renderPlot({</span>
+<span id="cb3-41"><a href=""></a>    x &lt;- rnorm(input$num_points)</span>
+<span id="cb3-42"><a href=""></a>    y &lt;- rnorm(input$num_points)</span>
+<span id="cb3-43"><a href=""></a>    plot(x, y, main = paste("Scatterplot with", input$num_points, "points"),</span>
+<span id="cb3-44"><a href=""></a>         xlab = "X", ylab = "Y", pch = 19, col = "steelblue")</span>
+<span id="cb3-45"><a href=""></a>  })</span>
+<span id="cb3-46"><a href=""></a>}</span>
+<span id="cb3-47"><a href=""></a></span>
+<span id="cb3-48"><a href=""></a># Run the app</span>
+<span id="cb3-49"><a href=""></a>shinyApp(ui = ui, server = server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="tabset-1-2">
 <div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="co"># Load the Shiny package</span></span>
