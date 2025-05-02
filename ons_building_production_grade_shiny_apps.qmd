@@ -18,10 +18,30 @@ filters:
 
 ## Overview
 
--   LAIT's Background
--   Planning a Shiny App
--   Development & Coding
--   Deployment & User Testing
+::: fragment
+-   [LAIT's Background]{style="font-size: 1.75em;"}
+<br>
+<br>
+<br>
+
+:::
+::: fragment
+-   [Planning a Shiny App]{style="font-size: 1.75em;"}
+<br>
+<br>
+<br>
+
+:::
+::: fragment
+-   [Development & Coding]{style="font-size: 1.75em;"}
+<br>
+<br>
+<br>
+
+:::
+::: fragment
+-   [Deployment & User Testing]{style="font-size: 1.75em;"}
+::::
 
 :::{.notes}
 TODO: Add notes (throughout) TODO: Add mini segments (and links to the slides?) TODO: Change font-size (throughout) TODO: Add emojis (throughout) TODO: Add fade-ins (throughout) TODO: Add borders to pictures and re-siz TODO: Link back to LAIT rather than generic
@@ -540,10 +560,12 @@ Start easy. Get it working. Finesse.
 3.  Finesse the app into Shiny modules
 <br>
 <br>
+<br>
+<br>
 
 :::
 ::: fragment
-Find a workflow that suits you
+*Find a workflow that suits you*
 :::
 
 :::
@@ -564,9 +586,17 @@ Each module has:
 :::::: {.columns}
 ::: {.column}
 :::fragment
-
+::: panel-tabset
 #### Module UI function
+```r
+modUI <- function(id) {
+  ns <- shiny::NS(id)  # Namespace to avoid conflicts
+  # ui.R logic goes here
+  # Wrap any id in ns()
+}
+```
 
+#### Example
 ```r
 randomPlotUI <- function(id) {
   ns <- shiny::NS(id)  # Namespace to avoid conflicts
@@ -581,7 +611,6 @@ randomPlotUI <- function(id) {
           value = 100
         )
       ),
-      
       shiny::mainPanel(
         shiny::plotOutput(outputId = ns("scatter_plot"))
       )
@@ -591,11 +620,23 @@ randomPlotUI <- function(id) {
 ```
 :::
 :::
+:::
 ::: {.column}
 ::: fragment
+::: panel-tabset
 
 #### Module Server function
+```r
+modServer <- function(id) {
+  shiny::moduleServer(
+    id,
+    function(input, output, session) {
+      # server.R logic goes here
+    })
+}
+```
 
+#### Example
 ```r
 randomPlotServer <- function(id) {
   shiny::moduleServer(id, function(input, output, session) {
@@ -607,6 +648,7 @@ randomPlotServer <- function(id) {
   })
 }
 ```
+:::
 :::
 :::
 :::
@@ -844,8 +886,6 @@ GOV.UK styled UI elements and helpful functions to handle Shiny housekeeping
 
 `shinyGovstyle::button_Input("warning")`
 
-:::
-::: fragment
 ![](images/shinyGovstyle-buttons.png)
 :::
 :::
@@ -900,11 +940,9 @@ dfeR::fetch_las() |>
 Prettifying numbers
 
 ```{r}
-dfeR::pretty_num(
-  1125678,
-  dp = 2,
-  gbp = TRUE
-)
+dfeR::pretty_num(1125678,
+                 dp = 2,
+                 gbp = TRUE)
 ```
 :::
 :::
@@ -919,8 +957,6 @@ dfeR::create_project()
 ![](images/)
 :::
 :::
-:::
-
 :::
 
 :::{.notes}
@@ -1115,6 +1151,7 @@ CI is setup using `.yaml` files and harnessing automated workflows like **GitHub
 :::
 :::
 ::: {.column}
+::: fragment
 The LAIT's [`deploy-shiny.yaml` GitHub workflow](https://github.com/dfe-analytical-services/local-authority-interactive-tool/blob/main/.github/workflows/deploy-shiny.yaml)
 
 ```yaml
@@ -1166,6 +1203,7 @@ jobs:
 ```
 :::
 :::
+:::
 
 :::{.notes}
 TODO: Add the LAIT .yaml file and explain how it works?
@@ -1194,7 +1232,9 @@ But... I see "user testing" as receiving feedback from anyone:
 
 :::
 ::: {.column}
+::: fragment
 ![User Testing Feedback Form](images/lait-feedback-form.png)
+:::
 :::
 :::
 
