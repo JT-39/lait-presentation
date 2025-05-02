@@ -213,12 +213,26 @@ Jake Tufts
 </section>
 <section id="overview" class="slide level2">
 <h2>Overview</h2>
+<div class="fragment">
 <ul>
-<li>LAIT’s Background</li>
-<li>Planning a Shiny App</li>
-<li>Development &amp; Coding</li>
-<li>Deployment &amp; User Testing</li>
+<li><span style="font-size: 1.75em;">LAIT’s Background</span> <br> <br> <br></li>
 </ul>
+</div>
+<div class="fragment">
+<ul>
+<li><span style="font-size: 1.75em;">Planning a Shiny App</span> <br> <br> <br></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li><span style="font-size: 1.75em;">Development &amp; Coding</span> <br> <br> <br></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li><span style="font-size: 1.75em;">Deployment &amp; User Testing</span></li>
+</ul>
+</div>
 <aside class="notes">
 <p>TODO: Add notes (throughout) TODO: Add mini segments (and links to the slides?) TODO: Change font-size (throughout) TODO: Add emojis (throughout) TODO: Add fade-ins (throughout) TODO: Add borders to pictures and re-siz TODO: Link back to LAIT rather than generic</p>
 <style type="text/css">
@@ -827,11 +841,11 @@ Jake Tufts
 </div>
 <div class="fragment">
 <ol start="3" type="1">
-<li>Finesse the app into Shiny modules <br> <br></li>
+<li>Finesse the app into Shiny modules <br> <br> <br> <br></li>
 </ol>
 </div>
 <div class="fragment">
-<p>Find a workflow that suits you</p>
+<p><em>Find a workflow that suits you</em></p>
 </div>
 </div><div class="column">
 <p><img data-src="images/shiny_modules_workflow.png" width="1071"></p>
@@ -844,40 +858,67 @@ Jake Tufts
 <div class="columns">
 <div class="column">
 <div class="fragment">
-<h4 id="module-ui-function">Module UI function</h4>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a>randomPlotUI <span class="ot">&lt;-</span> <span class="cf">function</span>(id) {</span>
+<div class="panel-tabset">
+<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Module UI function</a></li><li><a href="#tabset-2-2">Example</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1">
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a>modUI <span class="ot">&lt;-</span> <span class="cf">function</span>(id) {</span>
 <span id="cb3-2"><a href=""></a>  ns <span class="ot">&lt;-</span> shiny<span class="sc">::</span><span class="fu">NS</span>(id)  <span class="co"># Namespace to avoid conflicts</span></span>
-<span id="cb3-3"><a href=""></a>  shiny<span class="sc">::</span><span class="fu">tagList</span>(</span>
-<span id="cb3-4"><a href=""></a>    shiny<span class="sc">::</span><span class="fu">sidebarLayout</span>(</span>
-<span id="cb3-5"><a href=""></a>      shiny<span class="sc">::</span><span class="fu">sidebarPanel</span>(</span>
-<span id="cb3-6"><a href=""></a>        shiny<span class="sc">::</span><span class="fu">sliderInput</span>(</span>
-<span id="cb3-7"><a href=""></a>          <span class="at">inputId =</span> <span class="fu">ns</span>(<span class="st">"num_points"</span>),</span>
-<span id="cb3-8"><a href=""></a>          <span class="at">label =</span> <span class="st">"Number of random points:"</span>,</span>
-<span id="cb3-9"><a href=""></a>          <span class="at">min =</span> <span class="dv">10</span>,</span>
-<span id="cb3-10"><a href=""></a>          <span class="at">max =</span> <span class="dv">1000</span>,</span>
-<span id="cb3-11"><a href=""></a>          <span class="at">value =</span> <span class="dv">100</span></span>
-<span id="cb3-12"><a href=""></a>        )</span>
-<span id="cb3-13"><a href=""></a>      ),</span>
-<span id="cb3-14"><a href=""></a>      </span>
-<span id="cb3-15"><a href=""></a>      shiny<span class="sc">::</span><span class="fu">mainPanel</span>(</span>
-<span id="cb3-16"><a href=""></a>        shiny<span class="sc">::</span><span class="fu">plotOutput</span>(<span class="at">outputId =</span> <span class="fu">ns</span>(<span class="st">"scatter_plot"</span>))</span>
-<span id="cb3-17"><a href=""></a>      )</span>
-<span id="cb3-18"><a href=""></a>    )</span>
-<span id="cb3-19"><a href=""></a>  )</span>
-<span id="cb3-20"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-3"><a href=""></a>  <span class="co"># ui.R logic goes here</span></span>
+<span id="cb3-4"><a href=""></a>  <span class="co"># Wrap any id in ns()</span></span>
+<span id="cb3-5"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-2-2">
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a>randomPlotUI <span class="ot">&lt;-</span> <span class="cf">function</span>(id) {</span>
+<span id="cb4-2"><a href=""></a>  ns <span class="ot">&lt;-</span> shiny<span class="sc">::</span><span class="fu">NS</span>(id)  <span class="co"># Namespace to avoid conflicts</span></span>
+<span id="cb4-3"><a href=""></a>  shiny<span class="sc">::</span><span class="fu">tagList</span>(</span>
+<span id="cb4-4"><a href=""></a>    shiny<span class="sc">::</span><span class="fu">sidebarLayout</span>(</span>
+<span id="cb4-5"><a href=""></a>      shiny<span class="sc">::</span><span class="fu">sidebarPanel</span>(</span>
+<span id="cb4-6"><a href=""></a>        shiny<span class="sc">::</span><span class="fu">sliderInput</span>(</span>
+<span id="cb4-7"><a href=""></a>          <span class="at">inputId =</span> <span class="fu">ns</span>(<span class="st">"num_points"</span>),</span>
+<span id="cb4-8"><a href=""></a>          <span class="at">label =</span> <span class="st">"Number of random points:"</span>,</span>
+<span id="cb4-9"><a href=""></a>          <span class="at">min =</span> <span class="dv">10</span>,</span>
+<span id="cb4-10"><a href=""></a>          <span class="at">max =</span> <span class="dv">1000</span>,</span>
+<span id="cb4-11"><a href=""></a>          <span class="at">value =</span> <span class="dv">100</span></span>
+<span id="cb4-12"><a href=""></a>        )</span>
+<span id="cb4-13"><a href=""></a>      ),</span>
+<span id="cb4-14"><a href=""></a>      shiny<span class="sc">::</span><span class="fu">mainPanel</span>(</span>
+<span id="cb4-15"><a href=""></a>        shiny<span class="sc">::</span><span class="fu">plotOutput</span>(<span class="at">outputId =</span> <span class="fu">ns</span>(<span class="st">"scatter_plot"</span>))</span>
+<span id="cb4-16"><a href=""></a>      )</span>
+<span id="cb4-17"><a href=""></a>    )</span>
+<span id="cb4-18"><a href=""></a>  )</span>
+<span id="cb4-19"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
 </div>
 </div><div class="column">
 <div class="fragment">
-<h4 id="module-server-function">Module Server function</h4>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a>randomPlotServer <span class="ot">&lt;-</span> <span class="cf">function</span>(id) {</span>
-<span id="cb4-2"><a href=""></a>  shiny<span class="sc">::</span><span class="fu">moduleServer</span>(id, <span class="cf">function</span>(input, output, session) {</span>
-<span id="cb4-3"><a href=""></a>  output<span class="sc">$</span>scatter_plot <span class="ot">&lt;-</span> shiny<span class="sc">::</span><span class="fu">renderPlot</span>({</span>
-<span id="cb4-4"><a href=""></a>    x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(input<span class="sc">$</span>num_points)</span>
-<span id="cb4-5"><a href=""></a>    y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(input<span class="sc">$</span>num_points)</span>
-<span id="cb4-6"><a href=""></a>    <span class="fu">plot</span>(x, y, <span class="at">main =</span> <span class="fu">paste</span>(<span class="st">"Scatterplot with"</span>, input<span class="sc">$</span>num_points, <span class="st">"points"</span>),</span>
-<span id="cb4-7"><a href=""></a>         <span class="at">xlab =</span> <span class="st">"X"</span>, <span class="at">ylab =</span> <span class="st">"Y"</span>, <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">col =</span> <span class="st">"steelblue"</span>)</span>
-<span id="cb4-8"><a href=""></a>  })</span>
-<span id="cb4-9"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="panel-tabset">
+<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">Module Server function</a></li><li><a href="#tabset-3-2">Example</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1">
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a>modServer <span class="ot">&lt;-</span> <span class="cf">function</span>(id) {</span>
+<span id="cb5-2"><a href=""></a>  shiny<span class="sc">::</span><span class="fu">moduleServer</span>(</span>
+<span id="cb5-3"><a href=""></a>    id,</span>
+<span id="cb5-4"><a href=""></a>    <span class="cf">function</span>(input, output, session) {</span>
+<span id="cb5-5"><a href=""></a>      <span class="co"># server.R logic goes here</span></span>
+<span id="cb5-6"><a href=""></a>    })</span>
+<span id="cb5-7"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-3-2">
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a>randomPlotServer <span class="ot">&lt;-</span> <span class="cf">function</span>(id) {</span>
+<span id="cb6-2"><a href=""></a>  shiny<span class="sc">::</span><span class="fu">moduleServer</span>(id, <span class="cf">function</span>(input, output, session) {</span>
+<span id="cb6-3"><a href=""></a>  output<span class="sc">$</span>scatter_plot <span class="ot">&lt;-</span> shiny<span class="sc">::</span><span class="fu">renderPlot</span>({</span>
+<span id="cb6-4"><a href=""></a>    x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(input<span class="sc">$</span>num_points)</span>
+<span id="cb6-5"><a href=""></a>    y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(input<span class="sc">$</span>num_points)</span>
+<span id="cb6-6"><a href=""></a>    <span class="fu">plot</span>(x, y, <span class="at">main =</span> <span class="fu">paste</span>(<span class="st">"Scatterplot with"</span>, input<span class="sc">$</span>num_points, <span class="st">"points"</span>),</span>
+<span id="cb6-7"><a href=""></a>         <span class="at">xlab =</span> <span class="st">"X"</span>, <span class="at">ylab =</span> <span class="st">"Y"</span>, <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">col =</span> <span class="st">"steelblue"</span>)</span>
+<span id="cb6-8"><a href=""></a>  })</span>
+<span id="cb6-9"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
 </div>
 </div></div>
 </section>
@@ -886,71 +927,71 @@ Jake Tufts
 <p>Now use the modules in the typical Shiny layout:</p>
 <div class="columns">
 <div class="column">
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a><span class="co"># Main UI</span></span>
-<span id="cb5-2"><a href=""></a>ui <span class="ot">&lt;-</span> shiny<span class="sc">::</span><span class="fu">fluidPage</span>(</span>
-<span id="cb5-3"><a href=""></a>  <span class="fu">mod_plot_ui</span>(<span class="st">"randomPlot1"</span>)</span>
-<span id="cb5-4"><a href=""></a>)</span>
-<span id="cb5-5"><a href=""></a></span>
-<span id="cb5-6"><a href=""></a><span class="co"># Main Server</span></span>
-<span id="cb5-7"><a href=""></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output, session) {</span>
-<span id="cb5-8"><a href=""></a>  <span class="fu">mod_plot_server</span>(<span class="st">"randomPlot1"</span>)</span>
-<span id="cb5-9"><a href=""></a>}</span>
-<span id="cb5-10"><a href=""></a></span>
-<span id="cb5-11"><a href=""></a><span class="co"># Run the app</span></span>
-<span id="cb5-12"><a href=""></a><span class="fu">shinyApp</span>(ui, server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="co"># Main UI</span></span>
+<span id="cb7-2"><a href=""></a>ui <span class="ot">&lt;-</span> shiny<span class="sc">::</span><span class="fu">fluidPage</span>(</span>
+<span id="cb7-3"><a href=""></a>  <span class="fu">mod_plot_ui</span>(<span class="st">"randomPlot1"</span>)</span>
+<span id="cb7-4"><a href=""></a>)</span>
+<span id="cb7-5"><a href=""></a></span>
+<span id="cb7-6"><a href=""></a><span class="co"># Main Server</span></span>
+<span id="cb7-7"><a href=""></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output, session) {</span>
+<span id="cb7-8"><a href=""></a>  <span class="fu">mod_plot_server</span>(<span class="st">"randomPlot1"</span>)</span>
+<span id="cb7-9"><a href=""></a>}</span>
+<span id="cb7-10"><a href=""></a></span>
+<span id="cb7-11"><a href=""></a><span class="co"># Run the app</span></span>
+<span id="cb7-12"><a href=""></a><span class="fu">shinyApp</span>(ui, server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
-<div class="sourceCode" id="cb6" data-engine="r"><pre class="sourceCode numberSource shinylive-r number-lines code-with-copy"><code class="sourceCode"><span id="cb6-1"><a href=""></a>#| '!! shinylive warning !!': |</span>
-<span id="cb6-2"><a href=""></a>#|   shinylive does not work in self-contained HTML documents.</span>
-<span id="cb6-3"><a href=""></a>#|   Please set `embed-resources: false` in your metadata.</span>
-<span id="cb6-4"><a href=""></a>#| standalone: true</span>
-<span id="cb6-5"><a href=""></a>#| viewerHeight: 600</span>
-<span id="cb6-6"><a href=""></a></span>
-<span id="cb6-7"><a href=""></a># UI module</span>
-<span id="cb6-8"><a href=""></a>randomPlotUI &lt;- function(id) {</span>
-<span id="cb6-9"><a href=""></a>  ns &lt;- shiny::NS(id)  # Namespace to avoid conflicts</span>
-<span id="cb6-10"><a href=""></a>  shiny::tagList(</span>
-<span id="cb6-11"><a href=""></a>    shiny::sidebarLayout(</span>
-<span id="cb6-12"><a href=""></a>      shiny::sidebarPanel(</span>
-<span id="cb6-13"><a href=""></a>        shiny::sliderInput(</span>
-<span id="cb6-14"><a href=""></a>          inputId = ns("num_points"),</span>
-<span id="cb6-15"><a href=""></a>          label = "Number of random points:",</span>
-<span id="cb6-16"><a href=""></a>          min = 10,</span>
-<span id="cb6-17"><a href=""></a>          max = 1000,</span>
-<span id="cb6-18"><a href=""></a>          value = 100</span>
-<span id="cb6-19"><a href=""></a>        )</span>
-<span id="cb6-20"><a href=""></a>      ),</span>
-<span id="cb6-21"><a href=""></a>      </span>
-<span id="cb6-22"><a href=""></a>      shiny::mainPanel(</span>
-<span id="cb6-23"><a href=""></a>        shiny::plotOutput(outputId = ns("scatter_plot"))</span>
-<span id="cb6-24"><a href=""></a>      )</span>
-<span id="cb6-25"><a href=""></a>    )</span>
-<span id="cb6-26"><a href=""></a>  )</span>
-<span id="cb6-27"><a href=""></a>}</span>
-<span id="cb6-28"><a href=""></a></span>
-<span id="cb6-29"><a href=""></a># Server module</span>
-<span id="cb6-30"><a href=""></a>randomPlotServer &lt;- function(id) {</span>
-<span id="cb6-31"><a href=""></a>  shiny::moduleServer(id, function(input, output, session) {</span>
-<span id="cb6-32"><a href=""></a>  output$scatter_plot &lt;- shiny::renderPlot({</span>
-<span id="cb6-33"><a href=""></a>    x &lt;- rnorm(input$num_points)</span>
-<span id="cb6-34"><a href=""></a>    y &lt;- rnorm(input$num_points)</span>
-<span id="cb6-35"><a href=""></a>    plot(x, y, main = paste("Scatterplot with", input$num_points, "points"),</span>
-<span id="cb6-36"><a href=""></a>         xlab = "X", ylab = "Y", pch = 19, col = "steelblue")</span>
-<span id="cb6-37"><a href=""></a>  })</span>
-<span id="cb6-38"><a href=""></a>}</span>
-<span id="cb6-39"><a href=""></a></span>
-<span id="cb6-40"><a href=""></a># Main UI</span>
-<span id="cb6-41"><a href=""></a>ui &lt;- shiny::fluidPage(</span>
-<span id="cb6-42"><a href=""></a>  shiny::titlePanel("Simple Shiny App"),</span>
-<span id="cb6-43"><a href=""></a>  mod_plot_ui("plot1")</span>
-<span id="cb6-44"><a href=""></a>)</span>
-<span id="cb6-45"><a href=""></a></span>
-<span id="cb6-46"><a href=""></a># Main Server</span>
-<span id="cb6-47"><a href=""></a>server &lt;- function(input, output, session) {</span>
-<span id="cb6-48"><a href=""></a>  mod_plot_server("plot1")</span>
-<span id="cb6-49"><a href=""></a>}</span>
-<span id="cb6-50"><a href=""></a></span>
-<span id="cb6-51"><a href=""></a># Run the app</span>
-<span id="cb6-52"><a href=""></a>shiny::shinyApp(ui, server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8" data-engine="r"><pre class="sourceCode numberSource shinylive-r number-lines code-with-copy"><code class="sourceCode"><span id="cb8-1"><a href=""></a>#| '!! shinylive warning !!': |</span>
+<span id="cb8-2"><a href=""></a>#|   shinylive does not work in self-contained HTML documents.</span>
+<span id="cb8-3"><a href=""></a>#|   Please set `embed-resources: false` in your metadata.</span>
+<span id="cb8-4"><a href=""></a>#| standalone: true</span>
+<span id="cb8-5"><a href=""></a>#| viewerHeight: 600</span>
+<span id="cb8-6"><a href=""></a></span>
+<span id="cb8-7"><a href=""></a># UI module</span>
+<span id="cb8-8"><a href=""></a>randomPlotUI &lt;- function(id) {</span>
+<span id="cb8-9"><a href=""></a>  ns &lt;- shiny::NS(id)  # Namespace to avoid conflicts</span>
+<span id="cb8-10"><a href=""></a>  shiny::tagList(</span>
+<span id="cb8-11"><a href=""></a>    shiny::sidebarLayout(</span>
+<span id="cb8-12"><a href=""></a>      shiny::sidebarPanel(</span>
+<span id="cb8-13"><a href=""></a>        shiny::sliderInput(</span>
+<span id="cb8-14"><a href=""></a>          inputId = ns("num_points"),</span>
+<span id="cb8-15"><a href=""></a>          label = "Number of random points:",</span>
+<span id="cb8-16"><a href=""></a>          min = 10,</span>
+<span id="cb8-17"><a href=""></a>          max = 1000,</span>
+<span id="cb8-18"><a href=""></a>          value = 100</span>
+<span id="cb8-19"><a href=""></a>        )</span>
+<span id="cb8-20"><a href=""></a>      ),</span>
+<span id="cb8-21"><a href=""></a>      </span>
+<span id="cb8-22"><a href=""></a>      shiny::mainPanel(</span>
+<span id="cb8-23"><a href=""></a>        shiny::plotOutput(outputId = ns("scatter_plot"))</span>
+<span id="cb8-24"><a href=""></a>      )</span>
+<span id="cb8-25"><a href=""></a>    )</span>
+<span id="cb8-26"><a href=""></a>  )</span>
+<span id="cb8-27"><a href=""></a>}</span>
+<span id="cb8-28"><a href=""></a></span>
+<span id="cb8-29"><a href=""></a># Server module</span>
+<span id="cb8-30"><a href=""></a>randomPlotServer &lt;- function(id) {</span>
+<span id="cb8-31"><a href=""></a>  shiny::moduleServer(id, function(input, output, session) {</span>
+<span id="cb8-32"><a href=""></a>  output$scatter_plot &lt;- shiny::renderPlot({</span>
+<span id="cb8-33"><a href=""></a>    x &lt;- rnorm(input$num_points)</span>
+<span id="cb8-34"><a href=""></a>    y &lt;- rnorm(input$num_points)</span>
+<span id="cb8-35"><a href=""></a>    plot(x, y, main = paste("Scatterplot with", input$num_points, "points"),</span>
+<span id="cb8-36"><a href=""></a>         xlab = "X", ylab = "Y", pch = 19, col = "steelblue")</span>
+<span id="cb8-37"><a href=""></a>  })</span>
+<span id="cb8-38"><a href=""></a>}</span>
+<span id="cb8-39"><a href=""></a></span>
+<span id="cb8-40"><a href=""></a># Main UI</span>
+<span id="cb8-41"><a href=""></a>ui &lt;- shiny::fluidPage(</span>
+<span id="cb8-42"><a href=""></a>  shiny::titlePanel("Simple Shiny App"),</span>
+<span id="cb8-43"><a href=""></a>  mod_plot_ui("plot1")</span>
+<span id="cb8-44"><a href=""></a>)</span>
+<span id="cb8-45"><a href=""></a></span>
+<span id="cb8-46"><a href=""></a># Main Server</span>
+<span id="cb8-47"><a href=""></a>server &lt;- function(input, output, session) {</span>
+<span id="cb8-48"><a href=""></a>  mod_plot_server("plot1")</span>
+<span id="cb8-49"><a href=""></a>}</span>
+<span id="cb8-50"><a href=""></a></span>
+<span id="cb8-51"><a href=""></a># Run the app</span>
+<span id="cb8-52"><a href=""></a>shiny::shinyApp(ui, server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div>
 </section>
 <section id="shiny-modules---laits-model-modules" class="slide level2">
@@ -994,71 +1035,71 @@ Jake Tufts
 </div><div class="column">
 <div class="fragment">
 <div class="panel-tabset">
-<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Server Test</a></li><li><a href="#tabset-2-2">UI Test</a></li></ul>
+<ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">Server Test</a></li><li><a href="#tabset-4-2">UI Test</a></li></ul>
 <div class="tab-content">
-<div id="tabset-2-1">
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="co"># BDS_FilteredServer() --------------------------------------------------------</span></span>
-<span id="cb7-2"><a href=""></a><span class="fu">test_that</span>(<span class="st">"1. BDS_FilteredServer correctly filters bds_metrics"</span>, {</span>
-<span id="cb7-3"><a href=""></a>  <span class="co"># Simulate the app_inputs object with reactive values</span></span>
-<span id="cb7-4"><a href=""></a>  app_inputs <span class="ot">&lt;-</span> shiny<span class="sc">::</span><span class="fu">reactiveValues</span>(</span>
-<span id="cb7-5"><a href=""></a>    <span class="at">topic =</span> <span class="fu">reactive</span>({</span>
-<span id="cb7-6"><a href=""></a>      <span class="st">"Economic Factors"</span></span>
-<span id="cb7-7"><a href=""></a>    }),</span>
-<span id="cb7-8"><a href=""></a>    <span class="at">indicator =</span> <span class="fu">reactive</span>({</span>
-<span id="cb7-9"><a href=""></a>      <span class="st">"Percentage of children in low income families"</span></span>
-<span id="cb7-10"><a href=""></a>    })</span>
-<span id="cb7-11"><a href=""></a>  )</span>
-<span id="cb7-12"><a href=""></a></span>
-<span id="cb7-13"><a href=""></a>  shiny<span class="sc">::</span><span class="fu">testServer</span>(BDS_FilteredServer, <span class="at">args =</span> <span class="fu">list</span>(app_inputs, bds_metrics), {</span>
-<span id="cb7-14"><a href=""></a>    <span class="co"># Trigger the observeEvent by setting the indicator input</span></span>
-<span id="cb7-15"><a href=""></a>    session<span class="sc">$</span><span class="fu">flushReact</span>()</span>
-<span id="cb7-16"><a href=""></a></span>
-<span id="cb7-17"><a href=""></a>    <span class="co"># Retrieve the filtered data</span></span>
-<span id="cb7-18"><a href=""></a>    filtered_data <span class="ot">&lt;-</span> session<span class="sc">$</span><span class="fu">returned</span>()</span>
-<span id="cb7-19"><a href=""></a></span>
-<span id="cb7-20"><a href=""></a>    <span class="co"># Expected result based on the mock data</span></span>
-<span id="cb7-21"><a href=""></a>    expected_data <span class="ot">&lt;-</span> bds_metrics <span class="sc">|&gt;</span></span>
-<span id="cb7-22"><a href=""></a>      dplyr<span class="sc">::</span><span class="fu">filter</span>(</span>
-<span id="cb7-23"><a href=""></a>        Topic <span class="sc">==</span> <span class="st">"Economic Factors"</span>,</span>
-<span id="cb7-24"><a href=""></a>        Measure <span class="sc">==</span> <span class="st">"Percentage of children in low income families"</span></span>
-<span id="cb7-25"><a href=""></a>      )</span>
-<span id="cb7-26"><a href=""></a></span>
-<span id="cb7-27"><a href=""></a>    <span class="co"># Test that the filtered data matches the expected result</span></span>
-<span id="cb7-28"><a href=""></a>    testthat<span class="sc">::</span><span class="fu">expect_equal</span>(filtered_data, expected_data)</span>
-<span id="cb7-29"><a href=""></a>  })</span>
-<span id="cb7-30"><a href=""></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="tabset-4-1">
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a><span class="co"># BDS_FilteredServer() --------------------------------------------------------</span></span>
+<span id="cb9-2"><a href=""></a><span class="fu">test_that</span>(<span class="st">"1. BDS_FilteredServer correctly filters bds_metrics"</span>, {</span>
+<span id="cb9-3"><a href=""></a>  <span class="co"># Simulate the app_inputs object with reactive values</span></span>
+<span id="cb9-4"><a href=""></a>  app_inputs <span class="ot">&lt;-</span> shiny<span class="sc">::</span><span class="fu">reactiveValues</span>(</span>
+<span id="cb9-5"><a href=""></a>    <span class="at">topic =</span> <span class="fu">reactive</span>({</span>
+<span id="cb9-6"><a href=""></a>      <span class="st">"Economic Factors"</span></span>
+<span id="cb9-7"><a href=""></a>    }),</span>
+<span id="cb9-8"><a href=""></a>    <span class="at">indicator =</span> <span class="fu">reactive</span>({</span>
+<span id="cb9-9"><a href=""></a>      <span class="st">"Percentage of children in low income families"</span></span>
+<span id="cb9-10"><a href=""></a>    })</span>
+<span id="cb9-11"><a href=""></a>  )</span>
+<span id="cb9-12"><a href=""></a></span>
+<span id="cb9-13"><a href=""></a>  shiny<span class="sc">::</span><span class="fu">testServer</span>(BDS_FilteredServer, <span class="at">args =</span> <span class="fu">list</span>(app_inputs, bds_metrics), {</span>
+<span id="cb9-14"><a href=""></a>    <span class="co"># Trigger the observeEvent by setting the indicator input</span></span>
+<span id="cb9-15"><a href=""></a>    session<span class="sc">$</span><span class="fu">flushReact</span>()</span>
+<span id="cb9-16"><a href=""></a></span>
+<span id="cb9-17"><a href=""></a>    <span class="co"># Retrieve the filtered data</span></span>
+<span id="cb9-18"><a href=""></a>    filtered_data <span class="ot">&lt;-</span> session<span class="sc">$</span><span class="fu">returned</span>()</span>
+<span id="cb9-19"><a href=""></a></span>
+<span id="cb9-20"><a href=""></a>    <span class="co"># Expected result based on the mock data</span></span>
+<span id="cb9-21"><a href=""></a>    expected_data <span class="ot">&lt;-</span> bds_metrics <span class="sc">|&gt;</span></span>
+<span id="cb9-22"><a href=""></a>      dplyr<span class="sc">::</span><span class="fu">filter</span>(</span>
+<span id="cb9-23"><a href=""></a>        Topic <span class="sc">==</span> <span class="st">"Economic Factors"</span>,</span>
+<span id="cb9-24"><a href=""></a>        Measure <span class="sc">==</span> <span class="st">"Percentage of children in low income families"</span></span>
+<span id="cb9-25"><a href=""></a>      )</span>
+<span id="cb9-26"><a href=""></a></span>
+<span id="cb9-27"><a href=""></a>    <span class="co"># Test that the filtered data matches the expected result</span></span>
+<span id="cb9-28"><a href=""></a>    testthat<span class="sc">::</span><span class="fu">expect_equal</span>(filtered_data, expected_data)</span>
+<span id="cb9-29"><a href=""></a>  })</span>
+<span id="cb9-30"><a href=""></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="tabset-2-2">
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a><span class="co"># Start an app running</span></span>
-<span id="cb8-2"><a href=""></a>app <span class="ot">&lt;-</span> AppDriver<span class="sc">$</span><span class="fu">new</span>(</span>
-<span id="cb8-3"><a href=""></a>  <span class="at">name =</span> <span class="st">"basic_load"</span>,</span>
-<span id="cb8-4"><a href=""></a>  <span class="at">height =</span> <span class="dv">846</span>,</span>
-<span id="cb8-5"><a href=""></a>  <span class="at">width =</span> <span class="dv">1445</span>,</span>
-<span id="cb8-6"><a href=""></a>  <span class="at">load_timeout =</span> <span class="dv">100</span> <span class="sc">*</span> <span class="dv">1000</span>,</span>
-<span id="cb8-7"><a href=""></a>  <span class="at">timeout =</span> <span class="dv">60</span> <span class="sc">*</span> <span class="dv">1000</span>,</span>
-<span id="cb8-8"><a href=""></a>  <span class="at">wait =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb8-9"><a href=""></a>  <span class="at">options =</span> <span class="fu">list</span>(<span class="at">test.mode =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb8-10"><a href=""></a>  <span class="at">expect_values_screenshot_args =</span> <span class="cn">FALSE</span> <span class="co"># Turn off as we don't need screenshots</span></span>
-<span id="cb8-11"><a href=""></a>)</span>
-<span id="cb8-12"><a href=""></a></span>
-<span id="cb8-13"><a href=""></a><span class="co"># Wait until Shiny is not busy for 5ms so we know any processes are complete</span></span>
-<span id="cb8-14"><a href=""></a>app<span class="sc">$</span><span class="fu">wait_for_idle</span>(<span class="dv">5</span>)</span>
-<span id="cb8-15"><a href=""></a></span>
-<span id="cb8-16"><a href=""></a><span class="co"># Test that the app will start up without error</span></span>
-<span id="cb8-17"><a href=""></a><span class="co"># Checks that the title is as expected</span></span>
-<span id="cb8-18"><a href=""></a>testthat<span class="sc">::</span><span class="fu">test_that</span>(<span class="st">"App loads and title of app appears as expected"</span>, {</span>
-<span id="cb8-19"><a href=""></a>  testthat<span class="sc">::</span><span class="fu">expect_equal</span>(</span>
-<span id="cb8-20"><a href=""></a>    app<span class="sc">$</span><span class="fu">get_text</span>(<span class="st">"title"</span>),</span>
-<span id="cb8-21"><a href=""></a>    <span class="co"># This is the title of the app on load, you should change to match your app's title</span></span>
-<span id="cb8-22"><a href=""></a>    <span class="co"># The app title is usually set early on in the ui.R script or through a variable in the global.R script</span></span>
-<span id="cb8-23"><a href=""></a>    <span class="fu">paste0</span>(</span>
-<span id="cb8-24"><a href=""></a>      <span class="st">"Local Authority Interactive Tool (LAIT) - LA Level: "</span>,</span>
-<span id="cb8-25"><a href=""></a>      <span class="st">"Barking and Dagenham, A level cohort Average point score per entry"</span></span>
-<span id="cb8-26"><a href=""></a>    )</span>
-<span id="cb8-27"><a href=""></a>  )</span>
-<span id="cb8-28"><a href=""></a>})</span>
-<span id="cb8-29"><a href=""></a></span>
-<span id="cb8-30"><a href=""></a>app<span class="sc">$</span><span class="fu">stop</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="tabset-4-2">
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="co"># Start an app running</span></span>
+<span id="cb10-2"><a href=""></a>app <span class="ot">&lt;-</span> AppDriver<span class="sc">$</span><span class="fu">new</span>(</span>
+<span id="cb10-3"><a href=""></a>  <span class="at">name =</span> <span class="st">"basic_load"</span>,</span>
+<span id="cb10-4"><a href=""></a>  <span class="at">height =</span> <span class="dv">846</span>,</span>
+<span id="cb10-5"><a href=""></a>  <span class="at">width =</span> <span class="dv">1445</span>,</span>
+<span id="cb10-6"><a href=""></a>  <span class="at">load_timeout =</span> <span class="dv">100</span> <span class="sc">*</span> <span class="dv">1000</span>,</span>
+<span id="cb10-7"><a href=""></a>  <span class="at">timeout =</span> <span class="dv">60</span> <span class="sc">*</span> <span class="dv">1000</span>,</span>
+<span id="cb10-8"><a href=""></a>  <span class="at">wait =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb10-9"><a href=""></a>  <span class="at">options =</span> <span class="fu">list</span>(<span class="at">test.mode =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb10-10"><a href=""></a>  <span class="at">expect_values_screenshot_args =</span> <span class="cn">FALSE</span> <span class="co"># Turn off as we don't need screenshots</span></span>
+<span id="cb10-11"><a href=""></a>)</span>
+<span id="cb10-12"><a href=""></a></span>
+<span id="cb10-13"><a href=""></a><span class="co"># Wait until Shiny is not busy for 5ms so we know any processes are complete</span></span>
+<span id="cb10-14"><a href=""></a>app<span class="sc">$</span><span class="fu">wait_for_idle</span>(<span class="dv">5</span>)</span>
+<span id="cb10-15"><a href=""></a></span>
+<span id="cb10-16"><a href=""></a><span class="co"># Test that the app will start up without error</span></span>
+<span id="cb10-17"><a href=""></a><span class="co"># Checks that the title is as expected</span></span>
+<span id="cb10-18"><a href=""></a>testthat<span class="sc">::</span><span class="fu">test_that</span>(<span class="st">"App loads and title of app appears as expected"</span>, {</span>
+<span id="cb10-19"><a href=""></a>  testthat<span class="sc">::</span><span class="fu">expect_equal</span>(</span>
+<span id="cb10-20"><a href=""></a>    app<span class="sc">$</span><span class="fu">get_text</span>(<span class="st">"title"</span>),</span>
+<span id="cb10-21"><a href=""></a>    <span class="co"># This is the title of the app on load, you should change to match your app's title</span></span>
+<span id="cb10-22"><a href=""></a>    <span class="co"># The app title is usually set early on in the ui.R script or through a variable in the global.R script</span></span>
+<span id="cb10-23"><a href=""></a>    <span class="fu">paste0</span>(</span>
+<span id="cb10-24"><a href=""></a>      <span class="st">"Local Authority Interactive Tool (LAIT) - LA Level: "</span>,</span>
+<span id="cb10-25"><a href=""></a>      <span class="st">"Barking and Dagenham, A level cohort Average point score per entry"</span></span>
+<span id="cb10-26"><a href=""></a>    )</span>
+<span id="cb10-27"><a href=""></a>  )</span>
+<span id="cb10-28"><a href=""></a>})</span>
+<span id="cb10-29"><a href=""></a></span>
+<span id="cb10-30"><a href=""></a>app<span class="sc">$</span><span class="fu">stop</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1095,8 +1136,6 @@ Jake Tufts
 <p><code>shinyGovstyle::button_Input("default")</code>, <br></p>
 <p><code>shinyGovstyle::button_Input("start")</code>, <br></p>
 <p><code>shinyGovstyle::button_Input("warning")</code></p>
-</div>
-<div class="fragment">
 <p><img data-src="images/shinyGovstyle-buttons.png"></p>
 </div>
 </div><div class="column">
@@ -1136,8 +1175,8 @@ Jake Tufts
 <div class="fragment">
 <p>Up-to-date geographies</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a>dfeR<span class="sc">::</span><span class="fu">fetch_las</span>() <span class="sc">|&gt;</span></span>
-<span id="cb9-2"><a href=""></a> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a>dfeR<span class="sc">::</span><span class="fu">fetch_las</span>() <span class="sc">|&gt;</span></span>
+<span id="cb11-2"><a href=""></a> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  new_la_code               la_name
 1   E06000008 Blackburn with Darwen
@@ -1153,11 +1192,9 @@ Jake Tufts
 <div class="fragment">
 <p>Prettifying numbers</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a>dfeR<span class="sc">::</span><span class="fu">pretty_num</span>(</span>
-<span id="cb11-2"><a href=""></a>  <span class="dv">1125678</span>,</span>
-<span id="cb11-3"><a href=""></a>  <span class="at">dp =</span> <span class="dv">2</span>,</span>
-<span id="cb11-4"><a href=""></a>  <span class="at">gbp =</span> <span class="cn">TRUE</span></span>
-<span id="cb11-5"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a>dfeR<span class="sc">::</span><span class="fu">pretty_num</span>(<span class="dv">1125678</span>,</span>
+<span id="cb13-2"><a href=""></a>                 <span class="at">dp =</span> <span class="dv">2</span>,</span>
+<span id="cb13-3"><a href=""></a>                 <span class="at">gbp =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "£1.13 million"</code></pre>
 </div>
@@ -1166,11 +1203,10 @@ Jake Tufts
 </div><div class="column" style="width:33%;">
 <div class="fragment">
 <p>Create R projects pre-populated with best practice structure all the necessary files</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a>dfeR<span class="sc">::</span><span class="fu">create_project</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a>dfeR<span class="sc">::</span><span class="fu">create_project</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><img data-src="images/.png"></p>
 </div>
 </div></div>
-<p>:::</p>
 <aside class="notes">
 <p>TODO: Pick out some nice examples of these packages (LAIT related?)</p>
 <style type="text/css">
@@ -1247,35 +1283,35 @@ Jake Tufts
 <div class="fragment">
 <p><strong>Copy-to-clipboard</strong></p>
 <div class="panel-tabset">
-<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">JS</a></li><li><a href="#tabset-3-2">Demo</a></li></ul>
+<ul id="tabset-5" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-5-1">JS</a></li><li><a href="#tabset-5-2">Demo</a></li></ul>
 <div class="tab-content">
-<div id="tabset-3-1">
-<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb14-1"><a href=""></a><span class="fu">$</span>(<span class="bu">document</span>)<span class="op">.</span><span class="fu">ready</span>(<span class="kw">function</span> () {</span>
-<span id="cb14-2"><a href=""></a>  <span class="co">// General function to handle image copying</span></span>
-<span id="cb14-3"><a href=""></a>  <span class="kw">async</span> <span class="kw">function</span> <span class="fu">copyImage</span>(namespace) {</span>
-<span id="cb14-4"><a href=""></a>    <span class="kw">const</span> buttonId <span class="op">=</span> <span class="vs">`#</span><span class="sc">${</span>namespace<span class="sc">}</span><span class="vs">-copybtn`</span><span class="op">;</span></span>
-<span id="cb14-5"><a href=""></a>    <span class="kw">const</span> imageContainerId <span class="op">=</span> <span class="vs">`#</span><span class="sc">${</span>namespace<span class="sc">}</span><span class="vs">-copy_plot`</span><span class="op">;</span></span>
-<span id="cb14-6"><a href=""></a></span>
-<span id="cb14-7"><a href=""></a>    <span class="kw">const</span> src <span class="op">=</span> <span class="fu">$</span>(<span class="vs">`</span><span class="sc">${</span>imageContainerId<span class="sc">}</span><span class="vs">&gt;img`</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"src"</span>)<span class="op">;</span></span>
-<span id="cb14-8"><a href=""></a>    <span class="cf">if</span> (<span class="op">!</span>src) {</span>
-<span id="cb14-9"><a href=""></a>      <span class="fu">alert</span>(<span class="st">"No image source found!"</span>)<span class="op">;</span></span>
-<span id="cb14-10"><a href=""></a>      <span class="cf">return</span><span class="op">;</span></span>
-<span id="cb14-11"><a href=""></a>    }</span>
-<span id="cb14-12"><a href=""></a>    <span class="cf">try</span> {</span>
-<span id="cb14-13"><a href=""></a>      <span class="kw">const</span> blob <span class="op">=</span> <span class="cf">await</span> <span class="fu">getImageBlobFromUrl</span>(src)<span class="op">;</span></span>
-<span id="cb14-14"><a href=""></a>      <span class="cf">await</span> <span class="bu">navigator</span><span class="op">.</span><span class="at">clipboard</span><span class="op">.</span><span class="fu">write</span>([</span>
-<span id="cb14-15"><a href=""></a>        <span class="kw">new</span> <span class="fu">ClipboardItem</span>({</span>
-<span id="cb14-16"><a href=""></a>          [blob<span class="op">.</span><span class="at">type</span>]<span class="op">:</span> blob</span>
-<span id="cb14-17"><a href=""></a>        })</span>
-<span id="cb14-18"><a href=""></a>      ])<span class="op">;</span></span>
-<span id="cb14-19"><a href=""></a>      Shiny<span class="op">.</span><span class="fu">setInputValue</span>(<span class="st">"copy-to-clipboard-success"</span><span class="op">,</span> <span class="kw">true</span><span class="op">,</span> {<span class="dt">priority</span><span class="op">:</span> <span class="st">"event"</span>})<span class="op">;</span></span>
-<span id="cb14-20"><a href=""></a>    } <span class="cf">catch</span> (err) {</span>
-<span id="cb14-21"><a href=""></a>      <span class="bu">console</span><span class="op">.</span><span class="fu">error</span>(err<span class="op">.</span><span class="at">name</span><span class="op">,</span> err<span class="op">.</span><span class="at">message</span>)<span class="op">;</span></span>
-<span id="cb14-22"><a href=""></a>      Shiny<span class="op">.</span><span class="fu">setInputValue</span>(<span class="st">"copy-to-clipboard-failure"</span><span class="op">,</span> <span class="kw">true</span><span class="op">,</span> {<span class="dt">priority</span><span class="op">:</span> <span class="st">"event"</span>})<span class="op">;</span></span>
-<span id="cb14-23"><a href=""></a>    }</span>
-<span id="cb14-24"><a href=""></a>  }</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="tabset-5-1">
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb16-1"><a href=""></a><span class="fu">$</span>(<span class="bu">document</span>)<span class="op">.</span><span class="fu">ready</span>(<span class="kw">function</span> () {</span>
+<span id="cb16-2"><a href=""></a>  <span class="co">// General function to handle image copying</span></span>
+<span id="cb16-3"><a href=""></a>  <span class="kw">async</span> <span class="kw">function</span> <span class="fu">copyImage</span>(namespace) {</span>
+<span id="cb16-4"><a href=""></a>    <span class="kw">const</span> buttonId <span class="op">=</span> <span class="vs">`#</span><span class="sc">${</span>namespace<span class="sc">}</span><span class="vs">-copybtn`</span><span class="op">;</span></span>
+<span id="cb16-5"><a href=""></a>    <span class="kw">const</span> imageContainerId <span class="op">=</span> <span class="vs">`#</span><span class="sc">${</span>namespace<span class="sc">}</span><span class="vs">-copy_plot`</span><span class="op">;</span></span>
+<span id="cb16-6"><a href=""></a></span>
+<span id="cb16-7"><a href=""></a>    <span class="kw">const</span> src <span class="op">=</span> <span class="fu">$</span>(<span class="vs">`</span><span class="sc">${</span>imageContainerId<span class="sc">}</span><span class="vs">&gt;img`</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"src"</span>)<span class="op">;</span></span>
+<span id="cb16-8"><a href=""></a>    <span class="cf">if</span> (<span class="op">!</span>src) {</span>
+<span id="cb16-9"><a href=""></a>      <span class="fu">alert</span>(<span class="st">"No image source found!"</span>)<span class="op">;</span></span>
+<span id="cb16-10"><a href=""></a>      <span class="cf">return</span><span class="op">;</span></span>
+<span id="cb16-11"><a href=""></a>    }</span>
+<span id="cb16-12"><a href=""></a>    <span class="cf">try</span> {</span>
+<span id="cb16-13"><a href=""></a>      <span class="kw">const</span> blob <span class="op">=</span> <span class="cf">await</span> <span class="fu">getImageBlobFromUrl</span>(src)<span class="op">;</span></span>
+<span id="cb16-14"><a href=""></a>      <span class="cf">await</span> <span class="bu">navigator</span><span class="op">.</span><span class="at">clipboard</span><span class="op">.</span><span class="fu">write</span>([</span>
+<span id="cb16-15"><a href=""></a>        <span class="kw">new</span> <span class="fu">ClipboardItem</span>({</span>
+<span id="cb16-16"><a href=""></a>          [blob<span class="op">.</span><span class="at">type</span>]<span class="op">:</span> blob</span>
+<span id="cb16-17"><a href=""></a>        })</span>
+<span id="cb16-18"><a href=""></a>      ])<span class="op">;</span></span>
+<span id="cb16-19"><a href=""></a>      Shiny<span class="op">.</span><span class="fu">setInputValue</span>(<span class="st">"copy-to-clipboard-success"</span><span class="op">,</span> <span class="kw">true</span><span class="op">,</span> {<span class="dt">priority</span><span class="op">:</span> <span class="st">"event"</span>})<span class="op">;</span></span>
+<span id="cb16-20"><a href=""></a>    } <span class="cf">catch</span> (err) {</span>
+<span id="cb16-21"><a href=""></a>      <span class="bu">console</span><span class="op">.</span><span class="fu">error</span>(err<span class="op">.</span><span class="at">name</span><span class="op">,</span> err<span class="op">.</span><span class="at">message</span>)<span class="op">;</span></span>
+<span id="cb16-22"><a href=""></a>      Shiny<span class="op">.</span><span class="fu">setInputValue</span>(<span class="st">"copy-to-clipboard-failure"</span><span class="op">,</span> <span class="kw">true</span><span class="op">,</span> {<span class="dt">priority</span><span class="op">:</span> <span class="st">"event"</span>})<span class="op">;</span></span>
+<span id="cb16-23"><a href=""></a>    }</span>
+<span id="cb16-24"><a href=""></a>  }</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="tabset-3-2">
+<div id="tabset-5-2">
 <p><video data-src="images/lait_copy_to_clipboard.mp4" controls=""><a href="images/lait_copy_to_clipboard.mp4">Video</a></video></p>
 </div>
 </div>
@@ -1443,52 +1479,54 @@ Jake Tufts
 <p>CI is setup using <code>.yaml</code> files and harnessing automated workflows like <strong>GitHub Actions</strong>.</p>
 </div>
 </div><div class="column">
+<div class="fragment">
 <p>The LAIT’s <a href="https://github.com/dfe-analytical-services/local-authority-interactive-tool/blob/main/.github/workflows/deploy-shiny.yaml"><code>deploy-shiny.yaml</code> GitHub workflow</a></p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb15-1"><a href=""></a><span class="fu">on</span><span class="kw">:</span></span>
-<span id="cb15-2"><a href=""></a><span class="at">  </span><span class="fu">push</span><span class="kw">:</span></span>
-<span id="cb15-3"><a href=""></a><span class="at">    </span><span class="fu">branches</span><span class="kw">:</span></span>
-<span id="cb15-4"><a href=""></a><span class="at">      </span><span class="kw">-</span><span class="at"> main</span></span>
-<span id="cb15-5"><a href=""></a></span>
-<span id="cb15-6"><a href=""></a><span class="fu">name</span><span class="kw">:</span><span class="at"> Shinyapps.io deploy</span></span>
-<span id="cb15-7"><a href=""></a></span>
-<span id="cb15-8"><a href=""></a><span class="fu">jobs</span><span class="kw">:</span></span>
-<span id="cb15-9"><a href=""></a><span class="at">  </span><span class="fu">deployShiny</span><span class="kw">:</span></span>
-<span id="cb15-10"><a href=""></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ubuntu-latest</span></span>
-<span id="cb15-11"><a href=""></a></span>
-<span id="cb15-12"><a href=""></a><span class="at">    </span><span class="fu">env</span><span class="kw">:</span></span>
-<span id="cb15-13"><a href=""></a><span class="at">      </span><span class="fu">GITHUB_PAT</span><span class="kw">:</span><span class="at"> ${{ secrets.GITHUB_TOKEN }}</span></span>
-<span id="cb15-14"><a href=""></a></span>
-<span id="cb15-15"><a href=""></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span></span>
-<span id="cb15-16"><a href=""></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Check out repository</span></span>
-<span id="cb15-17"><a href=""></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v4</span></span>
-<span id="cb15-18"><a href=""></a></span>
-<span id="cb15-19"><a href=""></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Set up R</span></span>
-<span id="cb15-20"><a href=""></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> r-lib/actions/setup-r@v2</span></span>
-<span id="cb15-21"><a href=""></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
-<span id="cb15-22"><a href=""></a><span class="at">          </span><span class="fu">r-version</span><span class="kw">:</span><span class="at"> </span><span class="st">'4.4.1'</span></span>
-<span id="cb15-23"><a href=""></a><span class="at">          </span><span class="fu">use-public-rspm</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb15-24"><a href=""></a></span>
-<span id="cb15-25"><a href=""></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Set env vars (prod)</span></span>
-<span id="cb15-26"><a href=""></a><span class="fu">        run</span><span class="kw">: </span><span class="ch">|</span></span>
-<span id="cb15-27"><a href=""></a>          echo "SHINYAPP_NAME='local-authority-interactive-tool'"&gt;&gt; $GITHUB_ENV</span>
-<span id="cb15-28"><a href=""></a></span>
-<span id="cb15-29"><a href=""></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Restore renv snapshot</span></span>
-<span id="cb15-30"><a href=""></a><span class="at">        </span><span class="fu">shell</span><span class="kw">:</span><span class="at"> Rscript {0}</span></span>
-<span id="cb15-31"><a href=""></a><span class="fu">        run</span><span class="kw">: </span><span class="ch">|</span></span>
-<span id="cb15-32"><a href=""></a>          if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")</span>
-<span id="cb15-33"><a href=""></a>          renv::restore()</span>
-<span id="cb15-34"><a href=""></a></span>
-<span id="cb15-35"><a href=""></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Install rsconnect</span></span>
-<span id="cb15-36"><a href=""></a><span class="at">        </span><span class="fu">shell</span><span class="kw">:</span><span class="at"> Rscript {0}</span></span>
-<span id="cb15-37"><a href=""></a><span class="fu">        run</span><span class="kw">: </span><span class="ch">|</span></span>
-<span id="cb15-38"><a href=""></a>          if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")</span>
-<span id="cb15-39"><a href=""></a>          renv::install("rsconnect")</span>
-<span id="cb15-40"><a href=""></a></span>
-<span id="cb15-41"><a href=""></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Push to shiny.io</span></span>
-<span id="cb15-42"><a href=""></a><span class="fu">        run</span><span class="kw">: </span><span class="ch">&gt;</span></span>
-<span id="cb15-43"><a href=""></a>          Rscript</span>
-<span id="cb15-44"><a href=""></a>          -e "rsconnect::setAccountInfo(name = 'department-for-education', token = '${{secrets.SHINYAPPS_TOKEN}}', secret = '${{secrets.SHINYAPPS_SECRET}}')"</span>
-<span id="cb15-45"><a href=""></a>          -e "rsconnect::deployApp(appName=${{env.SHINYAPP_NAME}}, forceUpdate = TRUE)"</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb17-1"><a href=""></a><span class="fu">on</span><span class="kw">:</span></span>
+<span id="cb17-2"><a href=""></a><span class="at">  </span><span class="fu">push</span><span class="kw">:</span></span>
+<span id="cb17-3"><a href=""></a><span class="at">    </span><span class="fu">branches</span><span class="kw">:</span></span>
+<span id="cb17-4"><a href=""></a><span class="at">      </span><span class="kw">-</span><span class="at"> main</span></span>
+<span id="cb17-5"><a href=""></a></span>
+<span id="cb17-6"><a href=""></a><span class="fu">name</span><span class="kw">:</span><span class="at"> Shinyapps.io deploy</span></span>
+<span id="cb17-7"><a href=""></a></span>
+<span id="cb17-8"><a href=""></a><span class="fu">jobs</span><span class="kw">:</span></span>
+<span id="cb17-9"><a href=""></a><span class="at">  </span><span class="fu">deployShiny</span><span class="kw">:</span></span>
+<span id="cb17-10"><a href=""></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ubuntu-latest</span></span>
+<span id="cb17-11"><a href=""></a></span>
+<span id="cb17-12"><a href=""></a><span class="at">    </span><span class="fu">env</span><span class="kw">:</span></span>
+<span id="cb17-13"><a href=""></a><span class="at">      </span><span class="fu">GITHUB_PAT</span><span class="kw">:</span><span class="at"> ${{ secrets.GITHUB_TOKEN }}</span></span>
+<span id="cb17-14"><a href=""></a></span>
+<span id="cb17-15"><a href=""></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span></span>
+<span id="cb17-16"><a href=""></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Check out repository</span></span>
+<span id="cb17-17"><a href=""></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v4</span></span>
+<span id="cb17-18"><a href=""></a></span>
+<span id="cb17-19"><a href=""></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Set up R</span></span>
+<span id="cb17-20"><a href=""></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> r-lib/actions/setup-r@v2</span></span>
+<span id="cb17-21"><a href=""></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb17-22"><a href=""></a><span class="at">          </span><span class="fu">r-version</span><span class="kw">:</span><span class="at"> </span><span class="st">'4.4.1'</span></span>
+<span id="cb17-23"><a href=""></a><span class="at">          </span><span class="fu">use-public-rspm</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb17-24"><a href=""></a></span>
+<span id="cb17-25"><a href=""></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Set env vars (prod)</span></span>
+<span id="cb17-26"><a href=""></a><span class="fu">        run</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb17-27"><a href=""></a>          echo "SHINYAPP_NAME='local-authority-interactive-tool'"&gt;&gt; $GITHUB_ENV</span>
+<span id="cb17-28"><a href=""></a></span>
+<span id="cb17-29"><a href=""></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Restore renv snapshot</span></span>
+<span id="cb17-30"><a href=""></a><span class="at">        </span><span class="fu">shell</span><span class="kw">:</span><span class="at"> Rscript {0}</span></span>
+<span id="cb17-31"><a href=""></a><span class="fu">        run</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb17-32"><a href=""></a>          if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")</span>
+<span id="cb17-33"><a href=""></a>          renv::restore()</span>
+<span id="cb17-34"><a href=""></a></span>
+<span id="cb17-35"><a href=""></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Install rsconnect</span></span>
+<span id="cb17-36"><a href=""></a><span class="at">        </span><span class="fu">shell</span><span class="kw">:</span><span class="at"> Rscript {0}</span></span>
+<span id="cb17-37"><a href=""></a><span class="fu">        run</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb17-38"><a href=""></a>          if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")</span>
+<span id="cb17-39"><a href=""></a>          renv::install("rsconnect")</span>
+<span id="cb17-40"><a href=""></a></span>
+<span id="cb17-41"><a href=""></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Push to shiny.io</span></span>
+<span id="cb17-42"><a href=""></a><span class="fu">        run</span><span class="kw">: </span><span class="ch">&gt;</span></span>
+<span id="cb17-43"><a href=""></a>          Rscript</span>
+<span id="cb17-44"><a href=""></a>          -e "rsconnect::setAccountInfo(name = 'department-for-education', token = '${{secrets.SHINYAPPS_TOKEN}}', secret = '${{secrets.SHINYAPPS_SECRET}}')"</span>
+<span id="cb17-45"><a href=""></a>          -e "rsconnect::deployApp(appName=${{env.SHINYAPP_NAME}}, forceUpdate = TRUE)"</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div></div>
 <aside class="notes">
 <p>TODO: Add the LAIT .yaml file and explain how it works?</p>
@@ -1528,11 +1566,13 @@ Jake Tufts
 </div>
 </div>
 </div><div class="column">
+<div class="fragment">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="images/lait-feedback-form.png"></p>
 <figcaption>User Testing Feedback Form</figcaption>
 </figure>
+</div>
 </div>
 </div></div>
 <aside class="notes">
