@@ -12,7 +12,7 @@ execute:
   echo: true
 revealjs-plugins:
   - revealjs-text-resizer
-filters:
+filters: 
     - shinylive
 ---
 
@@ -976,6 +976,7 @@ ggiraph::girafe(ggobj = plot)
 
 ```{r}
 #| echo: false
+library(ggiraph)
 
 # Prepare the data
 data <- gapminder::gapminder |>
@@ -1029,17 +1030,9 @@ plot <- data |>
     colour = NULL
   ) +
   afcharts::theme_af()
+
+ggiraph::girafe(ggobj = plot)
 ```
-
-```{r}
-#| echo: false
-#| results: asis
-
-# Display the interactive plot
-int_plot <- ggiraph::girafe(ggobj = plot)
-int_plot
-```
-
 :::
 :::
 
@@ -1047,6 +1040,7 @@ int_plot
 
 ::: fragment
 TODO: Pick out some nice examples of these packages (LAIT related?)
+TODO: Sort out interactivity - ask Lauren
 :::
 
 ------------------------------------------------------------------------
