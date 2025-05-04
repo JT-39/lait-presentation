@@ -640,11 +640,12 @@ modServer <- function(id) {
 ```r
 randomPlotServer <- function(id) {
   shiny::moduleServer(id, function(input, output, session) {
-  output$scatter_plot <- shiny::renderPlot({
-    x <- rnorm(input$num_points)
-    y <- rnorm(input$num_points)
-    plot(x, y, main = paste("Scatterplot with", input$num_points, "points"),
-         xlab = "X", ylab = "Y", pch = 19, col = "steelblue")
+    output$scatter_plot <- shiny::renderPlot({
+      x <- rnorm(input$num_points)
+      y <- rnorm(input$num_points)
+      plot(x, y, main = paste("Scatterplot with", input$num_points, "points"),
+          xlab = "X", ylab = "Y", pch = 19, col = "steelblue")
+    })
   })
 }
 ```
@@ -665,12 +666,14 @@ Now use the modules in the typical Shiny layout:
 ```r
 # Main UI
 ui <- shiny::fluidPage(
-  mod_plot_ui("randomPlot1")
+  randomPlotUI("plot1"),
+  randomPlotUI("plot2")
 )
 
 # Main Server
 server <- function(input, output, session) {
-  mod_plot_server("randomPlot1")
+  randomPlotServer("plot1")
+  randomPlotServer("plot2")
 }
 
 # Run the app
@@ -707,23 +710,26 @@ randomPlotUI <- function(id) {
 # Server module
 randomPlotServer <- function(id) {
   shiny::moduleServer(id, function(input, output, session) {
-  output$scatter_plot <- shiny::renderPlot({
-    x <- rnorm(input$num_points)
-    y <- rnorm(input$num_points)
-    plot(x, y, main = paste("Scatterplot with", input$num_points, "points"),
-         xlab = "X", ylab = "Y", pch = 19, col = "steelblue")
+    output$scatter_plot <- shiny::renderPlot({
+      x <- rnorm(input$num_points)
+      y <- rnorm(input$num_points)
+      plot(x, y, main = paste("Scatterplot with", input$num_points, "points"),
+           xlab = "X", ylab = "Y", pch = 19, col = "steelblue")
+    })
   })
 }
-
+  
 # Main UI
 ui <- shiny::fluidPage(
   shiny::titlePanel("Simple Shiny App"),
-  mod_plot_ui("plot1")
+  randomPlotUI("plot1"),
+  randomPlotUI("plot2")
 )
 
 # Main Server
 server <- function(input, output, session) {
-  mod_plot_server("plot1")
+  randomPlotServer("plot1")
+  randomPlotServer("plot2")
 }
 
 # Run the app
@@ -887,6 +893,13 @@ GOV.UK styled UI elements and helpful functions to handle Shiny housekeeping
 `shinyGovstyle::button_Input("warning")`
 
 ![](images/shinyGovstyle-buttons.png)
+
+```r
+date_Input(inputId = "date1",
+label = "What is your date of birth?",
+hint_label = "For example, 31 3 1980")
+```
+![](images/shinyGovstyle-date.png)
 :::
 :::
 ::: {.column}
@@ -913,6 +926,124 @@ TODO: Pick out some nice examples of these packages (LAIT related?)
 ## `{afcharts}` and `{ggiraph}`
 
 Combine Analysis Function approved charts with an accessible **interactive** charting framework
+
+::: {.columns}
+::: {.column}
+
+```r
+# Main plot
+plot <- data |> 
+  ggplot2::ggplot() +
+  ggplot2::geom_line(
+    ggplot2::aes(
+      x = year,
+      y = lifeExp,
+      colour = country,
+      group = country
+    ),
+    linewidth = 1
+  ) +
+  ggiraph::geom_vline_interactive(
+    data = tooltip_data,
+    ggplot2::aes(
+      xintercept = year,
+      tooltip = tooltip,
+      data_id = year
+    ),
+    hover_nearest = TRUE,
+    color = "transparent",
+    linetype = "dashed",
+    size = 3
+  ) +
+  ggplot2::scale_x_continuous(breaks = seq(1952, 2007, 5)) +
+  afcharts::scale_colour_discrete_af() +
+  ggplot2::labs(
+    x = "Year",
+    y = NULL,
+    title = "Living Longer",
+    subtitle = "Life Expectancy in the United Kingdom and China 1952–2007",
+    caption = "Source: Gapminder",
+    colour = NULL
+  ) +
+  afcharts::theme_af()
+
+# Display the interactive plot
+ggiraph::girafe(ggobj = plot)
+```
+
+:::
+::: {.column}
+
+```{r}
+#| echo: false
+
+# Prepare the data
+data <- gapminder::gapminder |>
+  dplyr::filter(country %in% c("United Kingdom", "China")) |> 
+  dplyr::mutate(country = factor(country, levels = c("United Kingdom", "China")))
+
+# Prepare tooltip data
+tooltip_data <- data |> 
+  dplyr::select(year, country, lifeExp) |>
+  tidyr::pivot_wider(names_from = country, values_from = lifeExp) |>
+  dplyr::mutate(
+    tooltip = paste0(
+      "Year: ", year, "\n",
+      "UK: ", round(`United Kingdom`, 1), " years\n",
+      "China: ", round(China, 1), " years"
+    )
+  )
+
+# Main plot
+plot <- data |> 
+  ggplot2::ggplot() +
+  ggplot2::geom_line(
+    ggplot2::aes(
+      x = year,
+      y = lifeExp,
+      colour = country,
+      group = country
+    ),
+    linewidth = 1
+  ) +
+  ggiraph::geom_vline_interactive(
+    data = tooltip_data,
+    ggplot2::aes(
+      xintercept = year,
+      tooltip = tooltip,
+      data_id = year
+    ),
+    hover_nearest = TRUE,
+    color = "transparent",
+    linetype = "dashed",
+    size = 3
+  ) +
+  ggplot2::scale_x_continuous(breaks = seq(1952, 2007, 5)) +
+  afcharts::scale_colour_discrete_af() +
+  ggplot2::labs(
+    x = "Year",
+    y = NULL,
+    title = "Living Longer",
+    subtitle = "Life Expectancy in the United Kingdom and China 1952–2007",
+    caption = "Source: Gapminder",
+    colour = NULL
+  ) +
+  afcharts::theme_af()
+```
+
+```{r}
+#| echo: false
+#| results: asis
+
+# Display the interactive plot
+int_plot <- ggiraph::girafe(ggobj = plot)
+int_plot
+```
+
+:::
+:::
+
+
 
 ::: fragment
 TODO: Pick out some nice examples of these packages (LAIT related?)
