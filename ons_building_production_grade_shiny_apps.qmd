@@ -1235,7 +1235,6 @@ ggiraph::girafe(ggobj = plot)
 ```{r}
 #| label: ggriaph
 #| echo: false
-library(ggiraph)
 
 # Prepare the data
 data <- gapminder::gapminder |>
@@ -1295,8 +1294,9 @@ ggiraph::girafe(ggobj = plot)
 :::
 :::::
 
-::: fragment
-TODO: Pick out some nice examples of these packages (LAIT related?) TODO: Sort out interactivity - ask Lauren
+:::{.notes}
+TODO: Pick out some nice examples of these packages (LAIT related?)
+TODO: Sort out interactivity - ask Lauren
 :::
 
 ------------------------------------------------------------------------
@@ -1430,7 +1430,9 @@ However, as apps get more complex, dependencies multiply... <br> <br> **Reactivi
 ::: notes
 -   Reactivity is at the core of what makes Shiny interactive—it's what connects user inputs like shiny::sliderInput() to outputs such as plots, tables, and text.
 -   Loops in Shiny occur when reactive expressions or observers depend on each other in a circular way—for example, Input A updates Output B, which then triggers a change in Input A again.
--   This creates an endless cycle of updates. TODO: Add LAIT example/ how you can combat this?
+-   This creates an endless cycle of updates.
+
+TODO: Add LAIT example/ how you can combat this?
 :::
 
 ------------------------------------------------------------------------
@@ -1663,11 +1665,11 @@ But... I see "user testing" as receiving feedback from anyone:
 
 ------------------------------------------------------------------------
 
-## Proof Is In The Pudding
+## Proof Is In The Pudding 🍰
 
 LAIT is the DfE's 2nd most used external `Shiny` app (by unique users)
 
-TODO: Plot of the top externally used apps (if allowed - check with Cam)
+![](images/dfe-external-app-usage-chart.png)
 
 ------------------------------------------------------------------------
 
