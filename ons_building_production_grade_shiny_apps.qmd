@@ -19,53 +19,46 @@ filters:
 ## Overview
 
 ::: fragment
--   [LAIT's Background]{style="font-size: 1.75em;"}
-<br>
-<br>
-<br>
-
+-   [LAIT's Background]{style="font-size: 1.75em;"} 🗞️ <br> <br> <br>
 :::
-::: fragment
--   [Planning a Shiny App]{style="font-size: 1.75em;"}
-<br>
-<br>
-<br>
 
+::: fragment
+-   [Planning a `Shiny` App]{style="font-size: 1.75em;"} 🗓️ <br> <br> <br>
 :::
-::: fragment
--   [Development & Coding]{style="font-size: 1.75em;"}
-<br>
-<br>
-<br>
 
+::: fragment
+-   [Development & Coding]{style="font-size: 1.75em;"} 💻 <br> <br> <br>
 :::
-::: fragment
--   [Deployment & User Testing]{style="font-size: 1.75em;"}
-::::
 
-:::{.notes}
+::: fragment
+-   [Deployment & User Testing]{style="font-size: 1.75em;"} 🧪
+:::
+
+::: notes
 TODO: Add notes (throughout) TODO: Add mini segments (and links to the slides?) TODO: Change font-size (throughout) TODO: Add emojis (throughout) TODO: Add fade-ins (throughout) TODO: Add borders to pictures and re-siz TODO: Link back to LAIT rather than generic
 :::
+
 ------------------------------------------------------------------------
 
 ## LAIT's background {.center}
 
-:::{.notes}
+::: notes
 TODO: Add an image?
 :::
+
 ------------------------------------------------------------------------
 
 ## Original LAIT
 
 ::::: columns
 ::: {.column width="45%"}
-- Released in 2007
+-   Released in 2007
 
-- Built as an Excel workbook using macros
+-   Built as an Excel workbook using macros
 
-- Developed and coded by an SEO
+-   Developed and coded by an SEO
 
-- LAs have a consistent data source
+-   LAs have a consistent data source
 
 ![LAIT's Excel front-page](images/original_lait_content_page.png)
 :::
@@ -79,69 +72,56 @@ TODO: Add an image?
 
 ## A problem... {.center}
 
-:::{.notes}
+::: notes
 TODO: Add an image?
 :::
 
 ------------------------------------------------------------------------
 
-## ... LAIT is taken off GOV.UK
+## ... LAIT is taken off GOV.UK 😱
 
-::::: columns
-::: column
+::::::: columns
+::::: column
 ::: fragment
-In 2018, new regulations set a legal duty for public sector bodies to make all web or app content accessible, with only a few limited exceptions.
-<br>
-<br>
-<br>
-<br>
-
+In 2018, new regulations set a legal duty for public sector bodies to make all web or app content accessible, with only a few limited exceptions. <br> <br> <br> <br>
 :::
+
 ::: fragment
-- Regardless of disability, setting or technology, all users should be able to access our content.
-<br>
-<br>
-- LAIT given an exemption due to its importance to LAs.
-<br>
-<br>
-- In 2024, exemption lifted and LAIT removed…
-
+-   Regardless of disability, setting or technology, all users should be able to access our content. <br> <br>
+-   LAIT given an exemption due to its importance to LAs. <br> <br>
+-   In 2024, exemption lifted and LAIT removed…
 :::
-:::
+:::::
 
 ::: column
 ![](images/understanding_wcag.png)
 :::
-:::::
+:::::::
 
 ------------------------------------------------------------------------
 
-## A Shiny Light at the End of the Tunnel
+## A `Shiny` Light at the End of the Tunnel 🔦
 
-::::: columns
-::: column
+::::::: columns
+::::: column
 ::: fragment
-Our G7 put in significant work to get this project prioritised.
-<br>
-<br>
-<br>
-<br>
+Our G7 put in significant work to get this project prioritised. <br> <br> <br> <br>
+:::
 
-:::
 ::: fragment
-- Shiny identified as the best option:
-  - Cheapest
-  - Expertise in the wider unit (RG Data Science)
-  - Capable software
-  - Process setup for deploying to public
-  - In-house and open code/data
+-   `Shiny` identified as the best option:
+    -   Cheapest
+    -   Expertise in the wider unit (RG Data Science)
+    -   Capable software
+    -   Process setup for deploying to public
+    -   In-house and open code/data
 :::
-:::
+:::::
 
 ::: column
 ![](images/shiny_vs_options.png)
 :::
-:::::
+:::::::
 
 ------------------------------------------------------------------------
 
@@ -162,56 +142,61 @@ Planning Your Work
 -   But, planning and pre-development work is crucial to a successful app.
 -   Breakdown the task into small manageable chunks.
 :::
+
 ------------------------------------------------------------------------
 
 ## Ask Yourself (And Others) Why?
 
-::::: columns
-::: column
+:::::::::::: columns
+:::::::::: column
 ::: fragment
 Who are the users? <br><br>
 :::
+
 ::: fragment
 What are the use cases?
 :::
+
 ::: fragment
 <br> <br>
 
 [*... this informs:*]{style="font-size: 1.5em;"}
 :::
+
 ::: fragment
 <br>
 
 **The Product:** Is an app actually needed? <br><br>
 :::
+
 ::: fragment
 **Content:** What data shall I include? <br><br>
 :::
+
 ::: fragment
 **Functionality:** How do I make this work? <br><br>
 :::
+
 ::: fragment
 **Timelines:** When are my deadlines?
 :::
-:::
+::::::::::
 
 ::: column
 ![](images/xkcd-overengineer.png){width="764"}
 :::
-:::::
+::::::::::::
 
 ::: notes
-TODO: Link back to LAIT?
--   Really important you create something that will be used.
--   Ensures buy-in.
--   Helps direct development past the initial (easy part) idea.
+TODO: Link back to LAIT? - Really important you create something that will be used. - Ensures buy-in. - Helps direct development past the initial (easy part) idea.
 :::
+
 ------------------------------------------------------------------------
 
 ## Step Outside The World Of Code
 
-::::: columns
-::: column
+::::::: columns
+:::: column
 -   Workshops
 -   Minimum Viable Products (MVPs)
 -   Brainstorming/System-thinking
@@ -219,77 +204,80 @@ TODO: Link back to LAIT?
 ::: fragment
 ![LAIT MVP](images/lait_mvp.png)
 :::
-:::
+::::
 
-::: column
+:::: column
 ::: fragment
 ![Lucid Chart Workshop Example](images/lucid_chart_workshop_example.png){width="790"}
 :::
-:::
-:::::
+::::
+:::::::
 
 ::: notes
 -   Not my favourite part, but actually very useful for answering the important Qs.
 -   Normally leads to more interest, more ideas and overall a better product.
 -   Gives protection around collaborating with stakeholders.
 :::
+
 ------------------------------------------------------------------------
 
-## Build the Scaffolding
+## Build the Scaffolding 🏗️
 
-::::: columns
-::: column
+:::::::: columns
+:::::: column
 ::: fragment
 -   Breakdown the content, **modularise** the app
 :::
+
 ::: fragment
 -   Choose your charts, finalise functionality
 :::
+
 ::: fragment
-<br>
-<br>
+<br> <br>
 
 -   Back-end is your beating heart 💓
     -   What is the data source?
     -   How often is this updated?
     -   Automate for future you
-
 :::
-:::
+::::::
 
 ::: column
 ![](images/scaffolding.jpg){width="600"}
 :::
-:::::
+::::::::
 
 ::: notes
 -   Plan your essay. Plan your code. Builds a mental picture of the code structure.
 -   Good documentation.
 -   Can refer back to when in 2nd phase of development (or the app has grown in complexity).
 :::
+
 ------------------------------------------------------------------------
 
 ## Get Creative - Pictures are Worth a 1000 Words
 
-::::: columns
-::: column
+:::::::: columns
+::::: column
 ::: fragment
--   Sketch the app layout
--   Code process maps
+-   Sketch the app layout ✏️
+-   Code process maps 🗺️
 :::
+
 ::: fragment
 ![Code Process Map](images/example-process-map.jpg)
 
 ![Example App Flow Diagram](images/moj-app-flow-example.svg)
 :::
-:::
+:::::
 
-::: column
+:::: column
 ::: fragment
 ![Example Sketch of the Dashboard](images/sketch_dashboard_example.png)
 :::
-:::
-:::::
+::::
+::::::::
 
 ::: notes
 -   Good documentation.
@@ -297,30 +285,33 @@ TODO: Link back to LAIT?
 -   Identify difficulties/bottle-necks early.
 -   Breakdown the code into segments making it easy to compose prompts for AI.
 :::
+
 ------------------------------------------------------------------------
 
 ## PM's Get the Big Bucks 🪙
 
-::::: columns
-::: {.column width="45%"}
-::: {.fragment}
+:::::::: columns
+:::: {.column width="45%"}
+::: fragment
 -   High-level overarching timeline
 -   Start small with a detailed development timeline
 
 ![Example of a software development roadmap](images/code-roadmap-example.png)
 :::
-:::
+::::
+
 ::: {.column width="10%"}
 :::
-::: {.column width="45%"}
-::: {.fragment}
+
+:::: {.column width="45%"}
+::: fragment
 -   Version Control is a MUST, utilise their PM tools
 -   Don't forget your Eureka moments!
 
 ![LAIT's GitHub issues](images/lait_github_issues.png)
 :::
-:::
-:::::
+::::
+::::::::
 
 ::: notes
 -   VC is a lifesaver - so many times went down a rabbit hole and could easily get back.
@@ -334,7 +325,7 @@ TODO: Link back to LAIT?
 
 :::::: columns
 ::: column
-Coding and Developing a Shiny App
+Coding and Developing a `Shiny` App
 :::
 
 :::: column
@@ -351,51 +342,44 @@ Coding and Developing a Shiny App
     border-radius: 6px;
     cursor: pointer;
   "> ⏩ Skip Intro </a>
-
 :::
 ::::
 ::::::
-:::{.notes}
-- You've probably wanted to skip to the technical detail and I don't blame you, its the fun part!
-- But, putting the work in for the setup is worth it.
+
+::: notes
+-   You've probably wanted to skip to the technical detail and I don't blame you, its the fun part!
+-   But, putting the work in for the setup is worth it.
 :::
 
 ------------------------------------------------------------------------
 
-## What Is Shiny?
+## What Is `Shiny`? ✨
 
-::: {.columns}
-::: {.column}
+::::::::: columns
+:::::: column
 ::: fragment
-`{shiny}` is an R package to easily build interactive apps
-<br>
-<br>
-It connects user inputs (like sliders, text boxes, buttons) to reactive outputs (like plots, tables, summaries).
-<br>
-<br>
-Or in the `{shiny}` language the UI to the server.
-<br>
-<br>
-
+`{shiny}` is an R package to easily build interactive apps <br> <br> It connects user inputs (like sliders, text boxes, buttons) to reactive outputs (like plots, tables, summaries). <br> <br> Or in the `{shiny}` language the UI to the server. <br> <br>
 :::
+
 ::: fragment
 Languages usually required to code websites are neatly packaged up into R functions:
 
-- JavaScript
-- HTML
-- CSS
+-   JavaScript
+-   HTML
+-   CSS
 :::
+
 ::: fragment
-Shiny apps can be:
+`Shiny` apps can be:
 
-- Used locally on your computer
-- Deployed to servers, Posit Connect/shinyapps.io or GitHub
+-   Used locally on your computer
+-   Deployed to servers, Posit Connect/shinyapps.io or GitHub
 :::
-:::
-::: {.column}
+::::::
+
+:::: column
 ::: panel-tabset
-
-#### Simple Shiny App
+#### Simple `Shiny` App
 
 ```{shinylive-r}
 #| standalone: true
@@ -445,7 +429,7 @@ shiny::shinyApp(ui = ui, server = server)
 
 #### Code
 
-```r
+``` r
 # Define UI
 ui <- shiny::fluidPage(
   
@@ -482,32 +466,76 @@ server <- function(input, output, session) {
 # Run the app
 shiny::shinyApp(ui = ui, server = server)
 ```
+:::
+::::
+:::::::::
 
-:::
-:::
-:::
-
-:::{.notes}
+::: notes
 TODO: Use a LAIT example?
 :::
+
 ------------------------------------------------------------------------
 
-## Shiny Modules - What Are They?
+## `Shiny` Modules - What Are They? 📦
 
-:::{.notes}
+Modules are essentially the functions of `Shiny`
+
+:::::::::: columns
+:::::: column
+::: fragment
+Similar to `Shiny` apps, a module is composed of two functions that represent
+
+1.  A piece of UI
+2.  A fragment of server logic that uses that UI
+:::
+
+::: fragment
+They address the namespacing problem in `Shiny` UI and server logic
+
+```{r}
+#| label: namespace
+ns <- shiny::NS(namespace = "test")
+
+print(ns("num_points"))
+```
+
+<br> <br>
+:::
+
+::: fragment
+Example:
+``` r
+shiny::sliderInput(ns("num_points"))
+```
+:::
+::::::
+
+::::: column
+::: fragment
+![](images/lego_titanic_instructions.jpg)
+:::
+
+::: fragment
+Real-world Uses:
+
+-   Repeating UI
+-   Dashboards with multiple tabs/sections
+-   Complex workflows
+:::
+:::::
+::::::::::
+
+::: notes
 TODO: Namespaces, watch the video and read the 2 articles
 :::
 
 ------------------------------------------------------------------------
 
-## Shiny Modules - Pros & Cons
+## `Shiny` Modules - Pros & Cons 📦
 
-Modules are essentially the functions of Shiny
-
-::::: columns
-::: column
+::::::: columns
+::::: column
 ::: fragment
-
 <p style="color:#00703c;"><strong>Pros:</strong></p>
 
 -   Best practice
@@ -517,8 +545,8 @@ Modules are essentially the functions of Shiny
 -   Re-usable
 -   Easy to test/de-bug
 :::
-::: fragment
 
+::: fragment
 <p style="color:#d4351c;"><strong>Cons:</strong></p>
 
 -   Initial learning curve
@@ -526,78 +554,69 @@ Modules are essentially the functions of Shiny
 -   Requires good code management
 -   Sharing reactive values between modules is more involved
 :::
-:::
+:::::
 
 ::: column
-![](images/lego_titanic_instructions.jpg)
+![](images/shiny-modules-hex.JPG)
 :::
-:::::
+:::::::
+
 ------------------------------------------------------------------------
 
-## Shiny Modules - My workflow
+## `Shiny` Modules - My workflow 📦
 
-Start easy. Get it working. Finesse.
-<br>
-<br>
-<br>
-<br>
+Start easy. Get it working. Finesse. <br> <br> <br> <br>
 
-::::: columns
-::: column
+::::::::: columns
+::::::: column
 ::: fragment
-1.  Start in plain R
-<br>
-<br>
-
+1.  Start in plain R <br> <br>
 :::
+
 ::: fragment
-2.  Get this working as a mini app
-<br>
-<br>
-
+2.  Get this working as a mini app <br> <br>
 :::
+
 ::: fragment
-3.  Finesse the app into Shiny modules
-<br>
-<br>
-<br>
-<br>
-
+3.  Finesse the app into `Shiny` modules <br> <br> <br> <br>
 :::
+
 ::: fragment
 *Find a workflow that suits you*
 :::
-
-:::
+:::::::
 
 ::: column
 ![](images/shiny_modules_workflow.png){width="1071"}
 :::
-:::::
+:::::::::
 
 ------------------------------------------------------------------------
 
-## Shiny Modules - How To Build 
+## `Shiny` Modules - How To Build 📦
 
-Allow you to box the UI and server code together into "mini apps" inside your main app. 📦
+Allow you to box the UI and server code together into "mini apps" inside your main app.
 
 Each module has:
 
-:::::: {.columns}
-::: {.column}
-:::fragment
+::::::::: columns
+::::: column
+:::: fragment
 ::: panel-tabset
 #### Module UI function
-```r
+
+``` r
 modUI <- function(id) {
-  ns <- shiny::NS(id)  # Namespace to avoid conflicts
+  # Namespace to avoid conflicts
+  ns <- shiny::NS(id)
   # ui.R logic goes here
   # Wrap any id in ns()
 }
 ```
 
 #### Example
-```r
+
+``` r
 randomPlotUI <- function(id) {
   ns <- shiny::NS(id)  # Namespace to avoid conflicts
   shiny::tagList(
@@ -619,14 +638,15 @@ randomPlotUI <- function(id) {
 }
 ```
 :::
-:::
-:::
-::: {.column}
-::: fragment
-::: panel-tabset
+::::
+:::::
 
+::::: column
+:::: fragment
+::: panel-tabset
 #### Module Server function
-```r
+
+``` r
 modServer <- function(id) {
   shiny::moduleServer(
     id,
@@ -637,7 +657,8 @@ modServer <- function(id) {
 ```
 
 #### Example
-```r
+
+``` r
 randomPlotServer <- function(id) {
   shiny::moduleServer(id, function(input, output, session) {
     output$scatter_plot <- shiny::renderPlot({
@@ -650,20 +671,25 @@ randomPlotServer <- function(id) {
 }
 ```
 :::
-:::
-:::
+::::
+:::::
+:::::::::
+
+::: notes
+The `moduleServer()` function. This function is passed the id variable, as well as the module function. You may notice a lot of similarities between the module function and a regular Shiny server function.
+
+Its three parameters – input, output, and session – should be familiar: every module function must take those three parameters. The `moduleServer()` function invokes the module function in a special way that creates special input, output, and session objects that are aware of the id.
 :::
 
 ------------------------------------------------------------------------
 
-## Shiny Modules - How To Build
+## `Shiny` Modules - How To Build 📦
 
-Now use the modules in the typical Shiny layout:
+Now use the modules in the typical `Shiny` layout:
 
-
-:::::: {.columns}
-::: {.column}
-```r
+::::: columns
+::: column
+``` r
 # Main UI
 ui <- shiny::fluidPage(
   randomPlotUI("plot1"),
@@ -680,7 +706,8 @@ server <- function(input, output, session) {
 shinyApp(ui, server)
 ```
 :::
-::: {.column}
+
+::: column
 ```{shinylive-r}
 #| standalone: true
 #| viewerHeight: 600
@@ -736,40 +763,282 @@ server <- function(input, output, session) {
 shiny::shinyApp(ui, server)
 ```
 :::
-:::
-
+:::::
 
 ------------------------------------------------------------------------
 
-## Shiny Modules - LAIT's Model Modules
+## `Shiny` Modules - LAIT's Model Modules 📦
 
-:::{.notes}
-TODO: Show the user selection modules being reused?
+The LAIT is a nice example of a fully modular app - although there is room for improvement
+
+:::::::: columns
+:::: column
+::: fragment
+``` r
+#' UI module for displaying metadata
+#'
+#' @param id A character string that is used as the namespace for the module's
+#' input and output.
+#' @return A UI element that displays the metadata.
+#'
+MetadataUI <- function(id) {
+  ns <- NS(id)
+
+  shinycssloaders::withSpinner(
+    uiOutput(ns("metadata")),
+    type = 7,
+    color = get_gov_text_colour(),
+    size = 0.6,
+    proxy.height = "10px"
+  )
+}
+
+
+#' Server module for fetching and rendering metadata
+#'
+#' @param id A character string that is used as the namespace for the module's
+#' input and output.
+#' @param indicator_input A reactive expression that returns the
+#' current indicator.
+#' @param data_metrics A data frame that contains the metrics data.
+#' @param metadata_type A character string that specifies the type of
+#' metadata to fetch.
+#' @return A server-side module that fetches and renders the metadata.
+#'
+MetadataServer <- function(id, indicator_input, data_metrics, metadata_type) {
+  moduleServer(id, function(input, output, session) {
+    # Reactive value to store the previous metadata
+    previous_metadata <- reactiveVal(NULL)
+
+    output$metadata <- renderUI({
+      # If indicator_input is NULL, return the previous metadata
+      if (is.null(indicator_input()) || indicator_input() == "") {
+        return(previous_metadata())
+      }
+
+      metadata <- data_metrics |>
+        get_metadata(indicator_input(), metadata_type)
+
+      if (grepl("link", metadata_type)) {
+        label <- indicator_input()
+        metadata <- dfeshiny::external_link(href = metadata, link_text = label)
+      }
+
+      # Collapse multiple newlines and limit <br> tags
+      if (is.character(metadata)) {
+        metadata <- format_text(metadata)
+      }
+
+      # Update the previous metadata value
+      previous_metadata(metadata)
+
+      metadata
+    })
+  })
+}
+
+
+#' UI module for displaying metadata at the LA level
+#'
+#' @param id A character string that is used as the namespace for
+#' the module's input and output.
+#' @return A UI element that displays the LA level metadata.
+#'
+LA_LevelMetaUI <- function(id) {
+  ns <- NS(id)
+
+  div(
+    class = "well",
+    style = "overflow-y: visible;",
+    id = ns("metadata"),
+    bslib::card(
+      bslib::card_body(
+        h2("Metadata", style = "margin-bottom: 0;"),
+        h3("Description:", style = "margin-bottom: -1rem;"),
+        MetadataUI(ns("description")),
+        h3("Methodology:", style = "margin-bottom: -1rem;"),
+        MetadataUI(ns("methodology")),
+        div(
+          # Creates a flex container where the items are centered vertically
+          style = "display: flex; align-items: baseline;",
+          h3("Last Updated:",
+            style = "margin-right: 1rem; margin-bottom: 0.3rem;"
+          ),
+          MetadataUI(ns("last_update"))
+        ),
+        div(
+          style = "display: flex; align-items: baseline;",
+          h3("Next Updated:",
+            style = "margin-right: 1rem; margin-bottom: 0.3rem;"
+          ),
+          MetadataUI(ns("next_update"))
+        ),
+        div(
+          style = "display: flex; align-items: baseline;",
+          h3("Source:",
+            style = "margin-right: 1rem; margin-bottom: 0.3rem;"
+          ),
+          MetadataUI(ns("source"))
+        )
+      )
+    )
+  )
+}
+
+
+#' Server module for fetching and rendering metadata at the LA level
+#'
+#' @param id A character string that is used as the namespace for the
+#' module's input and output.
+#' @param indicator_input A reactive expression that returns the
+#' current indicator.
+#' @param data_metrics A data frame that contains the metrics data.
+#' @return A server-side module that fetches and renders the LA level metadata.
+LA_LevelMetaServer <- function(id, indicator_input, data_metrics) {
+  moduleServer(id, function(input, output, session) {
+    # Pass the indicator_input reactive expression itself (without calling it)
+    output$description <- MetadataServer(
+      "description",
+      indicator_input,
+      data_metrics,
+      "Description"
+    )
+
+    output$methodology <- MetadataServer(
+      "methodology",
+      indicator_input,
+      data_metrics,
+      "Methodology"
+    )
+
+    output$last_update <- MetadataServer(
+      "last_update",
+      indicator_input,
+      data_metrics,
+      "Last Update"
+    )
+
+    output$next_update <- MetadataServer(
+      "next_update",
+      indicator_input,
+      data_metrics,
+      "Next Update"
+    )
+
+    output$source <- MetadataServer(
+      "source",
+      indicator_input,
+      data_metrics,
+      "Hyperlink(s)"
+    )
+  })
+}
+```
+:::
+::::
+
+::::: column
+:::: fragment
+::: panel-tabset
+#### LAIT Modules
+
+```         
+R/lait_modules/
+├── mod_all_la_table.R
+├── mod_app_helpers.R
+├── mod_app_inputs.R
+├── mod_create_own_charts.R
+├── mod_create_own_inputs.R
+├── mod_create_own_table.R
+├── mod_info_page.R
+├── mod_la_lvl_charts.R
+├── mod_la_lvl_table.R
+├── mod_metadata.R
+├── mod_region_charts.R
+├── mod_region_table.R
+├── mod_stat_n_charts.R
+└── mod_stat_n_table.R
+```
+
+#### Modules in Play - ui.R
+
+``` r
+bslib::nav_panel(
+  "all_la_level",
+  PageHeaderUI("all_la_header"),
+  appInputsUI("all_la_inputs"),
+  AllLA_TableUI("all_la_table"),
+  LA_LevelMetaUI("all_la_meta")
+)
+```
+
+#### Modules in Play - server.R
+
+``` r
+# ===========================================================================
+# All LA Level Page
+# ===========================================================================
+# User Inputs ===============================================================
+all_la_app_inputs <- appInputsServer(
+  "all_la_inputs",
+  shared_page_inputs,
+  topic_indicator_full
+)
+
+# Header
+PageHeaderServer("all_la_header", all_la_app_inputs, "All LA View")
+
+# All LA tables =============================================================
+# LA and Region table -------------------------------------------------------
+AllLA_TableServer(
+  "all_la_table",
+  all_la_app_inputs,
+  bds_metrics,
+  la_names_bds
+)
+
+# All LA Metadata ===========================================================
+LA_LevelMetaServer(
+  "all_la_meta",
+  all_la_app_inputs$indicator,
+  metrics_clean
+)
+```
+:::
+::::
+:::::
+::::::::
+
+::: notes
 :::
 
 ------------------------------------------------------------------------
 
 ## `{shinytest2}`
 
-::: {.columns}
-::: {.column}
-:::fragment
+:::::::::: columns
+:::::: column
+::: fragment
 I know we all test our functions, so why stop there?
 :::
+
 ::: fragment
 -   Test the server
 -   Test UI
--   Made easy with Shiny modules
+-   Made easy with `Shiny` modules
 :::
+
 ::: fragment
 ![Running `shinytest::test_app()` in LAIT](images/lait_shinytest_pass.png){height="400px"}
 :::
-:::
-::: {.column}
-::: fragment
-:::{.panel-tabset}
+::::::
+
+::::: column
+:::: fragment
+::: panel-tabset
 #### Server Test
-```r
+
+``` r
 # BDS_FilteredServer() --------------------------------------------------------
 test_that("1. BDS_FilteredServer correctly filters bds_metrics", {
   # Simulate the app_inputs object with reactive values
@@ -803,7 +1072,8 @@ test_that("1. BDS_FilteredServer correctly filters bds_metrics", {
 ```
 
 #### UI Test
-```r
+
+``` r
 # Start an app running
 app <- AppDriver$new(
   name = "basic_load",
@@ -836,89 +1106,79 @@ testthat::test_that("App loads and title of app appears as expected", {
 app$stop()
 ```
 :::
-:::
-:::
-:::
+::::
+:::::
+::::::::::
 
 ------------------------------------------------------------------------
 
 ## DfE's `shiny-template`
 
-Out-the-box GOV.UK styled Shiny app.
-<br>
-<br>
+Out-the-box GOV.UK styled `Shiny` app. <br> <br>
 
-::: {.columns}
-::: {.column}
+::::::: columns
+::::: column
 ::: fragment
--   Professional aesthetic
-<br>
-<br>
--   Users trust and are familiar with the UI
-<br>
-<br>
--   Meets accessibility standards
-<br>
-<br>
--   Continuously improved
-<br>
+-   Professional aesthetic <br> <br>
+-   Users trust and are familiar with the UI <br> <br>
+-   Meets accessibility standards <br> <br>
+-   Continuously improved <br>
 
 <br>
-
 :::
+
 ::: fragment
-[https://github.com/dfe-analytical-services/shiny-template](https://github.com/dfe-analytical-services/shiny-template)
+<https://github.com/dfe-analytical-services/shiny-template>
 :::
-:::
-::: {.column}
+:::::
+
+::: column
 ![](images/shiny-template.png)
 :::
-:::
+:::::::
 
 ------------------------------------------------------------------------
 
 ## `{shinyGovstyle}` and `{dfeshiny}`
 
-GOV.UK styled UI elements and helpful functions to handle Shiny housekeeping
+GOV.UK styled UI elements and helpful functions to handle `Shiny` housekeeping
 
-::: {.columns}
-::: {.column}
+:::::::: columns
+:::: column
 ::: fragment
-`shinyGovstyle::button_Input("default")`,
-<br>
+`shinyGovstyle::button_Input("default")`, <br>
 
-`shinyGovstyle::button_Input("start")`,
-<br>
+`shinyGovstyle::button_Input("start")`, <br>
 
 `shinyGovstyle::button_Input("warning")`
 
 ![](images/shinyGovstyle-buttons.png)
-
-```r
-date_Input(inputId = "date1",
-label = "What is your date of birth?",
-hint_label = "For example, 31 3 1980")
+:::
+::: fragment
+``` r
+date_Input(
+  inputId = "date1",
+  label = "What is your date of birth?",
+  hint_label = "For example, 31 3 1980")
 ```
-![](images/shinyGovstyle-date.png)
+
+![](images/shinyGovstyle-date.png){height="250px"}
 :::
-:::
-::: {.column}
+::::
+
+::::: column
 ::: fragment
-` dfeshiny::dfe_cookies_script()`, `dfeshiny::cookies_banner_ui()`
-![](images/dfeshiny-cookies.png)
-:::
-::: fragment
-`a11y_panel()`
-![](images/dfeshiny-support-panel.png)
-:::
-:::
+`dfeshiny::dfe_cookies_script()`, `dfeshiny::cookies_banner_ui()` ![](images/dfeshiny-cookies.png)
 :::
 
-:::{.notes}
-TODO: Pick out some nice examples of these packages (LAIT related?)
--   {bslib} for slick web design
--   Notifications and Tags
--   Cookies and Accessibility note
+::: fragment
+`a11y_panel()` ![](images/dfeshiny-support-panel.png){height="325px"}
+:::
+:::::
+::::::::
+
+::: notes
+TODO: Pick out some nice examples of these packages (LAIT related?) - {bslib} for slick web design - Notifications and Tags - Cookies and Accessibility note
 :::
 
 ------------------------------------------------------------------------
@@ -927,10 +1187,9 @@ TODO: Pick out some nice examples of these packages (LAIT related?)
 
 Combine Analysis Function approved charts with an accessible **interactive** charting framework
 
-::: {.columns}
-::: {.column}
-
-```r
+::::: columns
+::: column
+``` r
 # Main plot
 plot <- data |> 
   ggplot2::ggplot() +
@@ -970,11 +1229,11 @@ plot <- data |>
 # Display the interactive plot
 ggiraph::girafe(ggobj = plot)
 ```
-
 :::
-::: {.column}
 
+::: column
 ```{r}
+#| label: ggriaph
 #| echo: false
 library(ggiraph)
 
@@ -1034,13 +1293,10 @@ plot <- data |>
 ggiraph::girafe(ggobj = plot)
 ```
 :::
-:::
-
-
+:::::
 
 ::: fragment
-TODO: Pick out some nice examples of these packages (LAIT related?)
-TODO: Sort out interactivity - ask Lauren
+TODO: Pick out some nice examples of these packages (LAIT related?) TODO: Sort out interactivity - ask Lauren
 :::
 
 ------------------------------------------------------------------------
@@ -1049,87 +1305,132 @@ TODO: Sort out interactivity - ask Lauren
 
 A host of handy functions managed by DfE analysts
 
-::: {.columns}
-::: {.column width="33%"}
+:::::::::: columns
+:::: {.column width="33%"}
 ::: fragment
-Up-to-date geographies
+#### Up-to-date geographies
 
 ```{r}
+#| label: dfeR-las
 dfeR::fetch_las() |>
  head()
 ```
 :::
-:::
-::: {.column width="33%"}
+::::
+
+:::: {.column width="33%"}
 ::: fragment
-Prettifying numbers
+#### Prettifying numbers
 
 ```{r}
+#| label: dfeR-pretty_num
 dfeR::pretty_num(1125678,
                  dp = 2,
                  gbp = TRUE)
 ```
 :::
-:::
-::: {.column width="33%"}
-::: fragment
-Create R projects pre-populated with best practice structure all the necessary files
+::::
 
-```r
+::::: {.column width="33%"}
+:::: fragment
+#### Create R projects
+
+``` r
 dfeR::create_project()
 ```
 
-![](images/)
-:::
-:::
-:::
+::: panel-tabset
+#### Demo
 
-:::{.notes}
+![Pre-populated project with best practice structure all the necessary files](images/dfer-create_project.mp4)
+
+#### Folder Structure
+
+```         
+.
+├── R
+│   ├── helper_functions.R
+│   └── load_data.R
+├── README.md
+├── renv.lock
+├── run.R
+├── test.Rproj
+├── tests
+│   ├── testthat
+│   │   ├── test-helper_functions.R
+│   │   └── test-load_data.R
+│   └── testthat.R
+├── _analysis
+├── _data
+└── _output
+```
+:::
+::::
+:::::
+::::::::::
+
+::: notes
 TODO: Pick out some nice examples of these packages (LAIT related?)
 :::
 
 ------------------------------------------------------------------------
 
-## Useful guidance
+## Useful guidance 🔗
 
--   Analysis Function Guidance Hub
--   Engineering Production Grade Shiny Apps
--   AI
--   Appsilon
--   Take inspiration from other apps
-- Shiny modules/Shinyconf
+-   [Analysis Function Guidance Hub](https://analysisfunction.civilservice.gov.uk/policy-store/)
+-   [Engineering Production Grade Shiny Apps](https://engineering-shiny.org/)
+-   [Shiny experts blog - Appsilon](https://www.appsilon.com/blog)
+-   [Take inspiration from other apps](https://github.com/dfe-analytical-services)
+-   [Shiny modules - Mastering Shiny](https://mastering-shiny.org/scaling-modules.html)
+-   [Shiny modules - Shiny](https://shiny.posit.co/r/articles/improve/modules/)
+-   [Shinyconf](https://www.shinyconf.com/)
+-   [DfE Shiny documentation](https://dfe-analytical-services.github.io/analysts-guide/writing-visualising/dashboards_rshiny.html)
+-   [MoJ Shiny documentation](https://user-guidance.analytical-platform.service.justice.gov.uk/apps/rshiny-app.html#overview)
 
-:::{.notes}
+::: notes
 TODO: Add links + more?
 :::
 
 ------------------------------------------------------------------------
 
-## Reactivity Spaghetti Junction
-Reactive objects are the drivers of interactivity in Shiny
-<br>
-<br>
-`shiny::sliderInput()`
+## Reactivity Spaghetti Junction 🍜
 
-::: {.columns}
-::: {.column}
+Reactive objects are the drivers of interactivity in `Shiny`...
+
+...are how `Shiny` knows what to update and when <br> <br> `shiny::sliderInput()`
+
+:::::::: columns
+::::: column
 ::: fragment
-However, as your apps get more complex reactivity can become a headache
-
-Especially when multiple inputs can update each other, leads to endless loops
+However, as apps get more complex, dependencies multiply... <br> <br> **Reactivity Headaches** 🤕 <br> <br> Especially when have inputs that update each other, this can cause unintended loops ♾️ <br> <br>
 :::
+
 ::: fragment
-Try to keep things simple
+*Solutions:*
 
-Map out how your different user inputs interact
+-   Keep it simple: avoid unnecessary reactive layers
+-   Use modules to contain and isolate reactivity
+-   Map your reactive flows: draw how inputs and outputs relate - `{reactlog}`
 :::
-:::
-::: {.column}
-:::
-:::
+:::::
 
-:::{.notes}
-TODO: Add LAIT example/ how you can combat this?
+:::: column
+::: panel-tabset
+#### LAIT Loop
+
+![](images/lait-infinite-loop-reactivity.mp4)
+
+#### `{reactlog}`
+
+<img src="http://rstudio.github.io/reactlog/readme-images/pythagoras.gif" style="border: 1px solid black; box-shadow: 5px 5px 5px #eee;" width="100%"/>
+:::
+::::
+::::::::
+
+::: notes
+-   Reactivity is at the core of what makes Shiny interactive—it's what connects user inputs like shiny::sliderInput() to outputs such as plots, tables, and text.
+-   Loops in Shiny occur when reactive expressions or observers depend on each other in a circular way—for example, Input A updates Output B, which then triggers a change in Input A again.
+-   This creates an endless cycle of updates. TODO: Add LAIT example/ how you can combat this?
 :::
 
 ------------------------------------------------------------------------
@@ -1138,9 +1439,9 @@ TODO: Add LAIT example/ how you can combat this?
 
 Coding is just really problem solving. Like LEGO you can build anything you put your mind to.
 
-:::::: columns
-:::: column
-::: fragment
+:::::::: columns
+::::: column
+:::: fragment
 **Copy-to-clipboard**
 
 ::: panel-tabset
@@ -1177,23 +1478,22 @@ $(document).ready(function () {
 
 ![](images/lait_copy_to_clipboard.mp4)
 :::
-:::
 ::::
+:::::
 
-::: column
+:::: column
 ::: fragment
 **Create Your Own**
 
-![](images/create_your_own.png)
+![](images/lait-create-your-own.mp4)
 
-TODO: Add a video of the Create Your Own page
 :::
-:::
-::::::
+::::
+::::::::
 
 ------------------------------------------------------------------------
 
-## Shout, Shout, Let It All Out {.center}
+## Shout, Shout, Let It All Out 📢 {.center}
 
 ::::: columns
 ::: column
@@ -1224,44 +1524,34 @@ Deployment and User Testing
 The solution to your deployment dilemma depends upon your:
 
 ::: fragment
-- Audience (and access) 🔐
-- Technical expertise ⚙️
-- Resource available (time & money) ⌛
-<br>
-<br>
-<br>
-
-:::
-::: fragment
-:::{.deployment-table}
-
-| **Option**              | **Authentication**                          | **Security**                                        | **Scaling**                                         | **Ops Overhead**                          | **Investment**                            | **Hosting Options**                                              |
-|-------------------------|---------------------------------------------|-----------------------------------------------------|-----------------------------------------------------|-------------------------------------------|-------------------------------------------|------------------------------------------------------------------|
-| **Vanilla Shiny**       | None by default; requires external solution | Depends on hosting platform and setup               | Manual; complex if session management is required   | High; requires infra & scaling expertise  | Time, effort, infrastructure costs         | Direct VM, unmanaged/managed containers                           |
-| <span style="color:#F46A25;"><strong>Shinyapps.io</strong></span> | <span style="color:#F46A25;"><strong>Built-in (limited); no external integration</strong></span> | <span style="color:#F46A25;"><strong>Shared platform; data/code hosted externally</strong></span> | <span style="color:#F46A25;"><strong>Limited by tier (runtime hours, users)</strong></span> | <span style="color:#F46A25;"><strong>Very low; no infra required</strong></span> | <span style="color:#F46A25;"><strong>Subscription-based (free → professional)</strong></span> | <span style="color:#F46A25;"><strong>Fully managed by Posit</strong></span> |
-| **Shiny Server (OSS)**  | None by default; external or code-based     | Self-managed; depends on hosting practices           | No auto-scaling; single process per app             | Medium; simpler than Vanilla Shiny         | Free (open-source); hosting effort needed   | Direct VM, containerized (self-managed)                          |
-| **Posit Connect**       | Full enterprise support; many options       | Self-managed; highly robust                          | Multi-user, multi-process auto-scaling              | Low; designed for ease of maintenance      | Paid license (per server/user)             | Direct VM, Kubernetes (off-host execution supported)             |
-| **GitHub Pages + ShinyLive**| None (public)                            | Static site; JS/WebAssembly runs client-side         | Infinite (browser-based; depends on client resources)| Very low; simple static site deployment     | Free (GitHub); time to package app         | GitHub Pages + ShinyLive tooling                                 |
-
-:::
+-   Audience (and access) 🔐
+-   Technical expertise ⚙️
+-   Resource available (time & money) ⌛ <br> <br> <br>
 :::
 
-:::{.notes}
+:::: fragment
+::: deployment-table
+| **Option** | **Authentication** | **Security** | **Scaling** | **Ops Overhead** | **Investment** | **Hosting Options** |
+|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
+| **Vanilla Shiny** | None by default; requires external solution | Depends on hosting platform and setup | Manual; complex if session management is required | High; requires infra & scaling expertise | Time, effort, infrastructure costs | Direct VM, unmanaged/managed containers |
+| [<strong>Shinyapps.io</strong>]{style="color:#F46A25;"} | [<strong>Built-in (limited); no external integration</strong>]{style="color:#F46A25;"} | [<strong>Shared platform; data/code hosted externally</strong>]{style="color:#F46A25;"} | [<strong>Limited by tier (runtime hours, users)</strong>]{style="color:#F46A25;"} | [<strong>Very low; no infra required</strong>]{style="color:#F46A25;"} | [<strong>Subscription-based (free → professional)</strong>]{style="color:#F46A25;"} | [<strong>Fully managed by Posit, Dockerized container</strong>]{style="color:#F46A25;"} |
+| **Shiny Server (OSS)** | None by default; external or code-based | Self-managed; depends on hosting practices | No auto-scaling; single process per app | Medium; simpler than Vanilla Shiny | Free (open-source); hosting effort needed | Direct VM, containerized (self-managed) |
+| **Posit Connect** | Full enterprise support; many options | Self-managed; highly robust | Multi-user, multi-process auto-scaling | Low; designed for ease of maintenance | Paid license (per server/user) | Direct VM, Kubernetes (off-host execution supported) |
+| **GitHub Pages + ShinyLive** | None (public) | Static site; JS/WebAssembly runs client-side | Infinite (browser-based; depends on client resources) | Very low; simple static site deployment | Free (GitHub); time to package app | GitHub Pages + ShinyLive tooling |
+:::
+::::
+
+::: notes
 TODO: Get rid of Kubernetes? What about Dockerized containers like Rich mentioned
 :::
 
 ------------------------------------------------------------------------
 
-## Continuous Integration
+## Continuous Integration 🌀
 
-::: {.columns}
-::: {.column}
-Practice of merging code into the test/live area regularly.
-<br>
-<br>
-Helps detect and resolve issues early, leading to faster development and higher quality.
-<br>
-<br>
+:::::::: columns
+::::: column
+Practice of merging code into the test/live area regularly. <br> <br> Helps detect and resolve issues early, leading to faster development and higher quality. 🦿 <br> <br>
 
 ::: fragment
 Examples of CI:
@@ -1271,15 +1561,17 @@ Examples of CI:
 -   Automated tests
 -   Immediate build and deployment
 :::
+
 ::: fragment
 CI is setup using `.yaml` files and harnessing automated workflows like **GitHub Actions**.
 :::
-:::
-::: {.column}
+:::::
+
+:::: column
 ::: fragment
 The LAIT's [`deploy-shiny.yaml` GitHub workflow](https://github.com/dfe-analytical-services/local-authority-interactive-tool/blob/main/.github/workflows/deploy-shiny.yaml)
 
-```yaml
+``` yaml
 on:
   push:
     branches:
@@ -1327,97 +1619,114 @@ jobs:
           -e "rsconnect::deployApp(appName=${{env.SHINYAPP_NAME}}, forceUpdate = TRUE)"
 ```
 :::
-:::
-:::
+::::
+::::::::
 
-:::{.notes}
+::: notes
 TODO: Add the LAIT .yaml file and explain how it works?
 :::
+
 ------------------------------------------------------------------------
 
-## User Testing
+## User Testing 👷
 
-::: {.columns}
-::: {.column}
-Absolutely crucial. Should be done ASAP and throughout.
-<br>
-<br>
+::::::::: columns
+:::::: column
+Absolutely crucial. Should be done ASAP and throughout. <br> <br>
 
 ::: fragment
 But... I see "user testing" as receiving feedback from anyone:
 :::
+
 ::: fragment
-- Team member
-- Non-technical colleague
-- External users
+-   Team member
+-   Non-technical colleague
+-   External users
 :::
+
 ::: fragment
 ![LAIT In-App Feedback](images/lait-app-feedback-form.png)
 :::
+::::::
 
-:::
-::: {.column}
+:::: column
 ::: fragment
 ![User Testing Feedback Form](images/lait-feedback-form.png)
 :::
-:::
+::::
+:::::::::
+
+::: notes
+-   Produce and use MVPs to do this (in a workshop or even over the shoulder).
+-   Try and do at least one round of user testing on your expected cohort. Use surveys to collect feedback, leave questions open ended and be ready to get little feedback.
 :::
 
-:::{.notes}
-- Produce and use MVPs to do this (in a workshop or even over the shoulder).
-- Try and do at least one round of user testing on your expected cohort. Use surveys to collect feedback, leave questions open ended and be ready to get little feedback.
-:::
 ------------------------------------------------------------------------
 
 ## Proof Is In The Pudding
 
-LAIT is the DfE's 2nd most used external Shiny app (by unique users)
+LAIT is the DfE's 2nd most used external `Shiny` app (by unique users)
 
 TODO: Plot of the top externally used apps (if allowed - check with Cam)
 
 ------------------------------------------------------------------------
 
-## Knight In Shining Armour
+## Knight In `Shiny` Armour ⚔️
 
 You've done it...
 
 ::: fragment
--   Investigated and confirmed the need for a Shiny app.
-:::
-::: fragment
--   Sketched out maps to plan your development and guide timelines/milestones.
-:::
-::: fragment
--   Used Shiny best practice to build a modular structure.
-:::
-::: fragment
--   Harnessed the government Shiny frameworks to produce GOV.UK accessible content.
-:::
-::: fragment
--   Ensured the user's experience is stress free with custom functions, available R packages and seamless interactivity.
-:::
-::: fragment
--   Designed and executed cool new functionality which warrants the use of Shiny and shows off your coding and creativity.
-:::
-::: fragment
--   Chosen the right method to deploy.
-:::
-::: fragment
--   Engaged with users throughout, adjusting content on the go.
+-   Investigated and confirmed the need for a `Shiny` app. 🔎
 :::
 
-... successfully and skillfully developed, deployed (and will maintain) an excellent, accessible, sustainable Shiny app.
+::: fragment
+-   Sketched out maps to plan your development and guide timelines/milestones. 🗺️
+:::
 
-:::{.notes}
+::: fragment
+-   Used `Shiny` best practice to build a modular structure. 📦
+:::
+
+::: fragment
+-   Harnessed the government `Shiny` frameworks to produce GOV.UK accessible content. ✅
+:::
+
+::: fragment
+-   Ensured the user's experience is stress free with custom functions, available R packages and seamless interactivity. 🤗
+:::
+
+::: fragment
+-   Designed and executed cool new functionality which warrants the use of `Shiny` and shows off your coding and creativity. 🦾
+:::
+
+::: fragment
+-   Chosen the right method to deploy. 🛫
+:::
+
+::: fragment
+-   Engaged with users throughout, adjusting content on the go. 🧑‍🤝‍🧑
+:::
+
+... successfully and skillfully developed, deployed (and will maintain) an excellent, accessible, sustainable `Shiny` app. 🎉
+
+::: notes
 TODO: Add the emojis
 :::
 
 ------------------------------------------------------------------------
 
-## Useful Links
+## Useful Links 🔗
 
--   https://user-guidance.analytical-platform.service.justice.gov.uk/apps/rshiny-app.html#overview
+-   [LAIT live Shiny app](https://department-for-education.shinyapps.io/local-authority-interactive-tool/)
+-   [LAIT GitHub](https://github.com/dfe-analytical-services/local-authority-interactive-tool)
+-   [DfE Analyst's Guide](https://dfe-analytical-services.github.io/analysts-guide/)
+-   [Government Analysis Function Duck Book](https://best-practice-and-impact.github.io/qa-of-code-guidance/intro.html)
+-   [Tidy Data - Hadley Wickham](https://vita.had.co.nz/papers/tidy-data.pdf)
+-   [GOV.UK Design System guide](https://design-system.service.gov.uk/styles/colour/)
+-   [dfeR](https://dfe-analytical-services.github.io/dfeR/)
+-   [dfeshiny](https://dfe-analytical-services.github.io/dfeshiny/reference/index.html)
+-   [shinyGovstyle](https://github.com/dfe-analytical-services/shinyGovstyle)
 
-:::{.notes}
+::: notes
 TODO: Add links
-::: -->
+:::
